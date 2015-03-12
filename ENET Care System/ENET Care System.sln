@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET Care System", "ENET Care System\ENET Care System.csproj", "{5D268B5C-D5F1-4E30-90EA-2046B3E25608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care_UnitTest", "ENET_Care_UnitTest\ENET_Care_UnitTest.csproj", "{2F1F8681-8CF5-4FE9-AEBF-9DEFBD149E34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care_Console", "ENET_Care_Console\ENET_Care_Console.csproj", "{F452F40C-8179-461D-86AA-9D6B1474DC08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D268B5C-D5F1-4E30-90EA-2046B3E25608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D268B5C-D5F1-4E30-90EA-2046B3E25608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D268B5C-D5F1-4E30-90EA-2046B3E25608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D268B5C-D5F1-4E30-90EA-2046B3E25608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1F8681-8CF5-4FE9-AEBF-9DEFBD149E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1F8681-8CF5-4FE9-AEBF-9DEFBD149E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1F8681-8CF5-4FE9-AEBF-9DEFBD149E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1F8681-8CF5-4FE9-AEBF-9DEFBD149E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F452F40C-8179-461D-86AA-9D6B1474DC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F452F40C-8179-461D-86AA-9D6B1474DC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F452F40C-8179-461D-86AA-9D6B1474DC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F452F40C-8179-461D-86AA-9D6B1474DC08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
