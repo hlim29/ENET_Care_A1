@@ -31,9 +31,11 @@ namespace ENET_Care_Console
         {
             Email = newEmail;
         }
-        private bool Login() { return true; }
-
         public bool UpdatePassword(String userId, String password)
+        {
+            return true;
+        }
+        public bool Login(string username, string password)
         {
             return true;
         }
