@@ -45,6 +45,18 @@ namespace ENET_Care_UnitTest
             Assert.AreEqual("11/11/17", _package.ExpiryDate);
         }
 
+        [TestMethod]
+        public void RegisterPackage_InsertDataBase_PackageAdded()
+        {
+            try
+            {
+                _package.AddPackage();
+            }
+            catch
+            {
+                Assert.Fail();
+            }
 
+        }
     }
 }
