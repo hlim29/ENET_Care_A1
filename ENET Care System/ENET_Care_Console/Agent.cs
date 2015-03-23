@@ -6,38 +6,40 @@ using System.Threading.Tasks;
 
 namespace ENET_Care_Console
 {
-    public class Agent
+    public class Agent :Staff
     {
         public Agent()
         {
             //dummy constructor
         }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public int DistributionCentreID { get; set; }
-        
 
-        public void CommitToDatabase()
-        {
-            //dummy code - update db
+        public void RegisterPackage(){
+
         }
 
-        public void RetrieveFromDatabase()
+        public void SendPackage()
         {
-            //dummy code - get from db
+
         }
 
-        public void ChangeEmail(string newEmail)
+        public void ReceiverPackage()
         {
-            Email = newEmail;
+
         }
-        public bool UpdatePassword(String userId, String password)
+
+        public void ViewStocktaking()
         {
-            return true;
+
         }
-        public bool Login(string username, string password)
+
+        public void DiscardPackage()
         {
-            return true;
+
+        }
+
+        public void RemoveLostPackage()
+        {
+
         }
     }
 }
