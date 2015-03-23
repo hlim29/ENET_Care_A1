@@ -16,47 +16,46 @@ namespace ENET_Care_UnitTest
         }
 
         [TestMethod]
-        public void RegisterPackage_CkeckFieldBarCode_FieldBarCodeFilled()
+        public void RegisterPackage_CheckFieldBarCode_FieldBarCodeFilled()
         {
             Assert.IsNotNull(_package.barCode);
         }
 
         [TestMethod]
-        public void RegisterPackage_CkeckFieldExpiryDate_FieldExpiryDateFilled()
+        public void RegisterPackage_CheckFieldExpiryDate_FieldExpiryDateFilled()
         {
             Assert.IsNotNull(_package.ExpiryDate);
         }
         [TestMethod]
-        public void RegisterPackage_GenerateNewBarcode_Numbers()
+        public void RegisterPackage_CheckFieldMedicationType_FieldMedicationTypeFilled()
         {
-            double newBarcode = _package.getNewBarcode();
-            Assert.AreEqual(newBarcode, _package.barCode);
+            Assert.IsNotNull(_package.medication);
         }
         [TestMethod]
-        public void Register_InsertPolioVacination_PolioVacination()
+        public void RegisterPackage_CheckFieldQuantity_FieldQuantityFilled()
         {
-            _package.SelectType("Polio Vaccination");
-            Assert.AreEqual("Polio Vacination", _package.type);
-        }
-        [TestMethod]
-        public void Register_InsertExpiryDate_ExpiryDate()
-        {
-            _package.InsertExpiryDate("11/11/17");
-            Assert.AreEqual("11/11/17", _package.ExpiryDate);
+            Assert.IsNotNull(_package.quantity);
         }
 
-        [TestMethod]
-        public void RegisterPackage_InsertDataBase_PackageAdded()
-        {
-            try
-            {
-                _package.AddPackage();
-            }
-            catch
-            {
-                Assert.Fail();
-            }
+        //[TestMethod]
+        //public void RegisterPackage_GenerateNewBarcode_Numbers()
+        //{
+        //    double newBarcode = _package.getNewBarcode();
+        //    Assert.AreEqual(newBarcode, _package.barCode);
+        //}
+        //[TestMethod]
+        //public void Register_InsertPolioVacination_PolioVacination()
+        //{
+        //    _package.SelectType("Polio Vaccination");
+        //    Assert.AreEqual("Polio Vacination", _package.type);
+        //}
+        //[TestMethod]
+        //public void Register_InsertExpiryDate_ExpiryDate()
+        //{
+        //    _package.InsertExpiryDate("11/11/17");
+        //    Assert.AreEqual("11/11/17", _package.ExpiryDate);
+        //}
 
-        }
+       
     }
 }
