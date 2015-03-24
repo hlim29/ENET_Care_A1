@@ -15,30 +15,17 @@ namespace ENET_Care_UnitTest
             _agent = new Agent();
         }
         [TestMethod]
-        public void Login_AgentPassword_True()
+        public void RegisterPackage_InsertDataBase_PackageAdded()
         {
-            Assert.AreEqual(true, _agent.Login("Agent", "Password"));
-        }
+            try
+            {
+                _agent.RegisterPackage();
+            }
+            catch
+            {
+                Assert.Fail();
+            }
 
-        [TestMethod]
-        public void UpdateDetails_UpdateEmailAddress_TakingEffect()
-        {
-            string newEmail = "123@mail.com";
-            _agent.Email = newEmail;
-            _agent.CommitToDatabase();
-            _agent.RetrieveFromDatabase();
-            Assert.IsTrue(_agent.Email == newEmail);
         }
-
-        [TestMethod]
-        public void UpdateDetails_UpdatePassword_TakingEffect()
-        {
-            string newPassword = "hunter2";
-            _agent.Password = newPassword;
-            _agent.CommitToDatabase();
-            _agent.RetrieveFromDatabase();
-            Assert.IsTrue(_agent.Password == newPassword);
-        }
-
     }
 }

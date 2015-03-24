@@ -8,25 +8,22 @@ namespace ENET_Care_Console
 {
     public class Package
     {
-        public int barCode;
-        public string type;
-        public int medicationId;
-        public DateTime ExpiryDate;
-        public int quantity;
-        public void AddPackage()
-        {
+        public int barCode { get; set; }
 
-        }
-        public double getNewBarcode()
-        {
-            return 0;
-        }
-        public void SelectType(string type)
-        {
-            this.type = type;
-        }
-        public void InsertExpiryDate(string expiryDate)
-        {
-        }
+        public MedicationStandardType medication { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        public int quantity { get; set; }
+
+        //public double getNewBarcode()
+        //{
+        //    return 0;
+        //}
+        //public void SelectType(string type)
+        //{
+        //    this.type = type;
+        //}
+        //public void InsertExpiryDate(string expiryDate)
+        //{
+        //}
     }
 }
