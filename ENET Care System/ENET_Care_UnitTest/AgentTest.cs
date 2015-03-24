@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ENET_Care_Console;
+using ENET_Care.Business;
+using ENET_Care.Data;
 
 namespace ENET_Care_UnitTest
 {

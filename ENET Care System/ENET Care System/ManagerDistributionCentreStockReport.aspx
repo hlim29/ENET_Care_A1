@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManagerDistributionCentreStockReport.aspx.cs" Inherits="ENET_Care_System.ManagerDistributionCentreStockReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManagerDistributionCentreStockReport.aspx.cs" Inherits="ENET_Care.Presentation.ManagerDistributionCentreStockReport" %>
 
 <!DOCTYPE html>
 

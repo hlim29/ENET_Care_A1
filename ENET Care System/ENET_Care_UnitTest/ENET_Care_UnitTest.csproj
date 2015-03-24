@@ -63,6 +63,10 @@
       <Project>{f452f40c-8179-461d-86aa-9d6b1474dc08}</Project>
       <Name>ENET_Care.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ENET_Care_System.Business\ENET_Care.Business.csproj">
+      <Project>{3d5b36d8-1137-4abb-92ad-7617b9b742be}</Project>
+      <Name>ENET_Care.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

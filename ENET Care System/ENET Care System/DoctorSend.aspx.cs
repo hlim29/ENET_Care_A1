@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ENET_Care_System
+namespace ENET_Care.Presentation
 {
     public partial class DoctorSend : System.Web.UI.Page
     {

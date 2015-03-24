@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care.Presentation", "ENET Care System\ENET_Care.Presentation.csproj", "{5D268B5C-D5F1-4E30-90EA-2046B3E25608}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care_UnitTest", "ENET_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care.Data", "ENET_Care_Console\ENET_Care.Data.csproj", "{F452F40C-8179-461D-86AA-9D6B1474DC08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care_System.Business", "ENET_Care_System.Business\ENET_Care_System.Business.csproj", "{3D5B36D8-1137-4ABB-92AD-7617B9B742BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENET_Care.Business", "ENET_Care_System.Business\ENET_Care.Business.csproj", "{3D5B36D8-1137-4ABB-92AD-7617B9B742BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

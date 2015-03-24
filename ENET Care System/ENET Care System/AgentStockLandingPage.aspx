@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgentStockLandingPage.aspx.cs" Inherits="ENET_Care_System.AgentStockLandingPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgentStockLandingPage.aspx.cs" Inherits="ENET_Care.Presentation.AgentStockLandingPage" %>
 
 <!DOCTYPE html>
 

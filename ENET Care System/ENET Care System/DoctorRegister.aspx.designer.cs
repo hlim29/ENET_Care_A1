@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ENET_Care_System {
+namespace ENET_Care.Presentation {
     
     
     public partial class DoctorRegister {

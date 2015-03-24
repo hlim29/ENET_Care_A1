@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DoctorDiscard.aspx.cs" Inherits="ENET_Care_System.DoctorDiscard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DoctorDiscard.aspx.cs" Inherits="ENET_Care.Presentation.DoctorDiscard" %>
 
 <!DOCTYPE html>
 

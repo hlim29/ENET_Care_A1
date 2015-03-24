@@ -7,8 +7,8 @@
     <ProjectGuid>{3D5B36D8-1137-4ABB-92AD-7617B9B742BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ENET_Care_System.Business</RootNamespace>
-    <AssemblyName>ENET_Care_System.Business</AssemblyName>
+    <RootNamespace>ENET_Care.Business</RootNamespace>
+    <AssemblyName>ENET_Care.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,6 +44,12 @@
     <Compile Include="Doctor.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ENET_Care_Console\ENET_Care.Data.csproj">
+      <Project>{f452f40c-8179-461d-86aa-9d6b1474dc08}</Project>
+      <Name>ENET_Care.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

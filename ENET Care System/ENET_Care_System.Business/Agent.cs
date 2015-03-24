@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ENET_Care.Data;
 
-namespace ENET_Care_Console
+namespace ENET_Care.Business
 {
     public class Agent :Staff
     {

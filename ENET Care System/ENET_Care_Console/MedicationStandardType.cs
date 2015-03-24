@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENET_Care_Console
+namespace ENET_Care.Data
 {
     public class MedicationStandardType
     {

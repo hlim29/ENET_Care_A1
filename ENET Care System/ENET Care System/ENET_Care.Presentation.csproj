@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ENET_Care_System</RootNamespace>
+    <RootNamespace>ENET_Care.Presentation</RootNamespace>
     <AssemblyName>ENET Care System</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
@@ -208,6 +208,7 @@
     </Compile>
     <Compile Include="ManagerDistributionCentreStockReport.aspx.cs">
       <DependentUpon>ManagerDistributionCentreStockReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManagerDistributionCentreStockReport.aspx.designer.cs">
       <DependentUpon>ManagerDistributionCentreStockReport.aspx</DependentUpon>

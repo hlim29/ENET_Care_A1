@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgentReceive.aspx.cs" Inherits="ENET_Care_System.AgentReceive" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgentReceive.aspx.cs" Inherits="ENET_Care.Presentation.AgentReceive" %>
 
 <!DOCTYPE html>
 
