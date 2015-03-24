@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="ENET_Care_System.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManagerDistributionCentreStockReport.aspx.cs" Inherits="ENET_Care_System.ManagerDistributionCentreStockReport" %>
 
 <!DOCTYPE html>
 
@@ -15,63 +15,56 @@
 					<a class="brand" href="#"><b>ENET</b></a>
 					<div class="nav-collapse">
 						<ul class="nav">  
-							<!--- Register --->
-							<li>  
-								<a tabindex="-1" href="register.aspx">
-                                    Register
-								</a>
-                            </li>
-									
-						    <!-- Send -->
-                            <li>
-                                <a href="send.aspx">
-                                    Send
-                                </a>
-                            </li>
-
-                            <!-- Receive -->
-                            <li>
-                                <a href="receive.aspx">
-                                    Receive
-                                </a>
-                            </li>
-							
-							<!--- Stock --->
+								<!--- Reports --->
 							<li class="dropdown">
 								<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                    Stock
+                                    Reports
 								</a>  
                                 
 								    <ul class="dropdown-menu">  
 								
-									    <!--- Stocktaking --->
+									    <!--- Dist. Centre Stock --->
 									    <li>
-                                              <a href="stocktaking.aspx">
-                                                  Stocktaking
+                                              <a href="ManagerDistributionCentreStockReport.aspx">
+                                                  Distribution Centre Stock
                                               </a>
 									    </li>  
 									
-									    <!--- Discard --->
+									    <!--- Dist. Centre Losses --->
 									    <li>
-                                            <a href="discard.aspx">
-                                                Discard
+                                            <a href="ManagerDistributionCentreLossesReport.aspx">
+                                                Distribution Centre Losses
                                             </a>
 									    </li> 
 									
-									    <!--- Remove loss --->
+									    <!--- Doctor Activity --->
 									    <li>
-                                            <a href="removeLoss.aspx">
-                                                Remove Loss
+                                            <a href="ManagerDoctorActivityReport.aspx">
+                                                Doctor Activity
                                             </a>
 									    </li> 
 									
+                                        <!--- Global Stock --->
+									    <li>
+                                            <a href="ManagerGlobalStockReport.aspx">
+                                                Global Stock
+                                            </a>
+									    </li> 
+
+                                        <!--- Value in Transit --->
+									    <li>
+                                            <a href="ManagerValueInTrasitReport.aspx">
+                                                Value tn Transit
+                                            </a>
+									    </li> 
+
 								    </ul> 
                                      
 							</li>  
 
 							<!-- My Information -->
                             <li>
-                                <a href="myInformation.aspx">
+                                <a href="ManagerMyInformation.aspx">
                                     MyInformation
                                 </a>
                             </li>
@@ -91,7 +84,38 @@
 
     <form id="form1" runat="server">
     <div>
-       
+       <asp:Label runat="server">
+           Dist. Centre
+       </asp:Label>
+       <asp:DropDownList runat="server">
+           <asp:ListItem>
+               Centre 1
+           </asp:ListItem>
+           <asp:ListItem>
+               Centre 2
+           </asp:ListItem>
+       </asp:DropDownList>
+       <br />
+       <asp:RadioButton ID="allProducts" runat="server" />
+       <asp:Label runat="server">
+           All Products
+       </asp:Label> 
+        <br />
+        <asp:radiobutton ID="oneProduct" runat="server" />
+        <asp:Label runat="server">
+            Product Type:
+        </asp:Label>
+        <asp:DropDownList runat="server">
+            <asp:ListItem>
+                Ibuprofen
+            </asp:ListItem>
+            <asp:ListItem>
+                Voltaren
+            </asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Button runat="server" Text="Generate" />
+        <asp:Button runat="server" Text="Generate and Print" />
     </div>
     </form>
 </body>

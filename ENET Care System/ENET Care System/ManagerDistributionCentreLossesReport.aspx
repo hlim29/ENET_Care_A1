@@ -152,6 +152,8 @@
         <asp:Label runat="server">
             <b>1.9%</b>
         </asp:Label>
+        <br />
+        <asp:Button runat="server" Text="Print" />
     </div>
     </form>
 </body>

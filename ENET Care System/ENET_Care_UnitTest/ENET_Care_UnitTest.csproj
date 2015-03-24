@@ -56,9 +56,9 @@
     <Compile Include="AgentTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ENET_Care_Console\ENET_Care_Console.csproj">
+    <ProjectReference Include="..\ENET_Care_Console\ENET_Care.Data.csproj">
       <Project>{f452f40c-8179-461d-86aa-9d6b1474dc08}</Project>
-      <Name>ENET_Care_Console</Name>
+      <Name>ENET_Care.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
