@@ -44,9 +44,9 @@ namespace ENET_Care_Console
         {
             return true;
         }
-        public bool login(string email, string password)
+        public Staff login(string email, string password)
         {
-            return true;
+            return null;
         }
     }
 

@@ -27,5 +27,36 @@ namespace ENET_Care_UnitTest
             }
 
         }
+        [TestMethod]
+        public void SendPackage_PackageBarcode_PackageStatusChanged()
+        {
+            int barcode = 123456;
+            var dummyPackage = new Moq.Mock<Package>();
+            var dummyPackageStatus = new Moq.Mock<PackageStatus>();
+            dummyPackage.SetupProperty(package => package.barCode, barcode);
+            Package packageObject = dummyPackage.Object;
+            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.package, packageObject);
+            //need to be changed later as the PackageStatus comes under Package
+            
+            PackageStatus packageStatusObject = dummyPackageStatus.Object;
+            _agent.SendPackage(barcode);
+            Assert.Equals("onTransit", packageStatusObject.status);
+        }
+
+        public void ReceivePackage_PackageBarcode_PackageStatusChanged()
+        {
+            int barcode = 123456;
+            var dummyPackage = new Moq.Mock<Package>();
+            var dummyPackageStatus = new Moq.Mock<PackageStatus>();
+            dummyPackage.SetupProperty(package => package.barCode, barcode);
+            Package packageObject = dummyPackage.Object;
+            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.package, packageObject);
+            //need to be changed later as the PackageStatus comes under Package
+            
+            PackageStatus packageStatusObject = dummyPackageStatus.Object;
+            _agent.ReceivePackage(123456);
+            Assert.Equals("inStock", packageStatusObject.status);
+            Assert.Equals(_agent.distributionCentre, packageStatusObject.centreSource);
+        }
     }
 }
