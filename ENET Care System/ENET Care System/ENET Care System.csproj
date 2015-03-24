@@ -57,9 +57,161 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgentDiscard.aspx" />
+    <Content Include="AgentMyInformation.aspx" />
+    <Content Include="AgentReceive.aspx" />
+    <Content Include="AgentRegister.aspx" />
+    <Content Include="AgentRemoveLoss.aspx" />
+    <Content Include="AgentSend.aspx" />
+    <Content Include="AgentStockLandingPage.aspx" />
+    <Content Include="AgentStocktaking.aspx" />
+    <Content Include="bootstrap.css" />
+    <Content Include="DoctorDiscard.aspx" />
+    <Content Include="DoctorDistribute.aspx" />
+    <Content Include="DoctorMyInformation.aspx" />
+    <Content Include="DoctorReceive.aspx" />
+    <Content Include="DoctorRegister.aspx" />
+    <Content Include="DoctorRemoveLoss.aspx" />
+    <Content Include="DoctorSend.aspx" />
+    <Content Include="DoctorStockLandingPage.aspx" />
+    <Content Include="DoctorStocktaking.aspx" />
+    <Content Include="ManagerDistributionCentreLossesReport.aspx" />
+    <Content Include="ManagerDistributionCentreStockReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgentDiscard.aspx.cs">
+      <DependentUpon>AgentDiscard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentDiscard.aspx.designer.cs">
+      <DependentUpon>AgentDiscard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentMyInformation.aspx.cs">
+      <DependentUpon>AgentMyInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentMyInformation.aspx.designer.cs">
+      <DependentUpon>AgentMyInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentReceive.aspx.cs">
+      <DependentUpon>AgentReceive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentReceive.aspx.designer.cs">
+      <DependentUpon>AgentReceive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentRegister.aspx.cs">
+      <DependentUpon>AgentRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentRegister.aspx.designer.cs">
+      <DependentUpon>AgentRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentRemoveLoss.aspx.cs">
+      <DependentUpon>AgentRemoveLoss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentRemoveLoss.aspx.designer.cs">
+      <DependentUpon>AgentRemoveLoss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentSend.aspx.cs">
+      <DependentUpon>AgentSend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentSend.aspx.designer.cs">
+      <DependentUpon>AgentSend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentStockLandingPage.aspx.cs">
+      <DependentUpon>AgentStockLandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentStockLandingPage.aspx.designer.cs">
+      <DependentUpon>AgentStockLandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgentStocktaking.aspx.cs">
+      <DependentUpon>AgentStocktaking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentStocktaking.aspx.designer.cs">
+      <DependentUpon>AgentStocktaking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorDiscard.aspx.cs">
+      <DependentUpon>DoctorDiscard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorDiscard.aspx.designer.cs">
+      <DependentUpon>DoctorDiscard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorDistribute.aspx.cs">
+      <DependentUpon>DoctorDistribute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorDistribute.aspx.designer.cs">
+      <DependentUpon>DoctorDistribute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorMyInformation.aspx.cs">
+      <DependentUpon>DoctorMyInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorMyInformation.aspx.designer.cs">
+      <DependentUpon>DoctorMyInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorReceive.aspx.cs">
+      <DependentUpon>DoctorReceive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorReceive.aspx.designer.cs">
+      <DependentUpon>DoctorReceive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorRegister.aspx.cs">
+      <DependentUpon>DoctorRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorRegister.aspx.designer.cs">
+      <DependentUpon>DoctorRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorRemoveLoss.aspx.cs">
+      <DependentUpon>DoctorRemoveLoss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorRemoveLoss.aspx.designer.cs">
+      <DependentUpon>DoctorRemoveLoss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorSend.aspx.cs">
+      <DependentUpon>DoctorSend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorSend.aspx.designer.cs">
+      <DependentUpon>DoctorSend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorStockLandingPage.aspx.cs">
+      <DependentUpon>DoctorStockLandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorStockLandingPage.aspx.designer.cs">
+      <DependentUpon>DoctorStockLandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorStocktaking.aspx.cs">
+      <DependentUpon>DoctorStocktaking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorStocktaking.aspx.designer.cs">
+      <DependentUpon>DoctorStocktaking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerDistributionCentreLossesReport.aspx.cs">
+      <DependentUpon>ManagerDistributionCentreLossesReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerDistributionCentreLossesReport.aspx.designer.cs">
+      <DependentUpon>ManagerDistributionCentreLossesReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerDistributionCentreStockReport.aspx.cs">
+      <DependentUpon>ManagerDistributionCentreStockReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerDistributionCentreStockReport.aspx.designer.cs">
+      <DependentUpon>ManagerDistributionCentreStockReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
