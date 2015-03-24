@@ -8,12 +8,12 @@ namespace ENET_Care.Data
 {
     public class MedicationStandardType
     {
-        public int id {get; set;}
-        public int quantity { get; set; }
-        public string description { get; set; }
-        public float cost { get; set; }
-        public bool isTempSensitive { get; set; }
-        public string shelfLife { get; set; }
+        public int Id {get; set;}
+        public int Quantity { get; set; }
+        public string Description { get; set; }
+        public float Cost { get; set; }
+        public bool IsTempSensitive { get; set; }
+        public string ShelfLife { get; set; }
 
     }
 }

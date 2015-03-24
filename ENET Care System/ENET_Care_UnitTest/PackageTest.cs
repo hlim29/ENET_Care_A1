@@ -18,7 +18,7 @@ namespace ENET_Care_UnitTest
         [TestMethod]
         public void RegisterPackage_CheckFieldBarCode_FieldBarCodeFilled()
         {
-            Assert.IsNotNull(_package.barCode);
+            Assert.IsNotNull(_package.BarCode);
         }
 
         [TestMethod]
@@ -29,12 +29,12 @@ namespace ENET_Care_UnitTest
         [TestMethod]
         public void RegisterPackage_CheckFieldMedicationType_FieldMedicationTypeFilled()
         {
-            Assert.IsNotNull(_package.medication);
+            Assert.IsNotNull(_package.Medication);
         }
         [TestMethod]
         public void RegisterPackage_CheckFieldQuantity_FieldQuantityFilled()
         {
-            Assert.IsNotNull(_package.quantity);
+            Assert.IsNotNull(_package.Quantity);
         }
     }
 }

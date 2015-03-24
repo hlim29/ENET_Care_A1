@@ -8,11 +8,11 @@ namespace ENET_Care.Data
 {
     public class PackageStatus
     {
-        public int id { get; set; }
-        public Package package { get; set; }
-        public string status { get; set; }
-        public Staff staff { get; set; }
-        public DistributionCentre centreSource { get; set; }
-        public DistributionCentre centreDestination { get; set; }
+        public int Id { get; set; }
+        public Package Package { get; set; }
+        public string Status { get; set; }
+        public Staff Staff { get; set; }
+        public DistributionCentre CentreSource { get; set; }
+        public DistributionCentre CentreDestination { get; set; }
     }
 }

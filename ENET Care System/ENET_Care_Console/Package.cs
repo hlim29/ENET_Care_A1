@@ -8,10 +8,10 @@ namespace ENET_Care.Data
 {
     public class Package
     {
-        public int barCode { get; set; }
-        public MedicationStandardType medication { get; set; }
+        public int BarCode { get; set; }
+        public MedicationStandardType Medication { get; set; }
         public DateTime ExpiryDate { get; set; }
-        public int quantity { get; set; }
+        public int Quantity { get; set; }
 
     }
 }
