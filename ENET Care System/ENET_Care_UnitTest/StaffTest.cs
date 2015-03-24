@@ -17,9 +17,23 @@ namespace ENET_Care_UnitTest
         [TestMethod]
         public void Login_AgentPassword_True()
         {
-            Assert.AreEqual(true, _staff.login("Agent", "Password"));
+            Assert.AreNotEqual(null, _staff.login("Agent", "Password"));
         }
 
+        [TestMethod]
+        public void DatabaseConnect_CommitToDatabase_RetrieveFromDatabase()
+        {
+            var dummyStaff = new Moq.Mock<Staff>();
+            dummyStaff.SetupProperty(staff => staff.firstName, "First")
+                        .SetupProperty(staff => staff.lastName, "Last")
+                        .SetupProperty(staff => staff.type, "Agent")
+                        .SetupProperty(staff => staff.email, "Email@email.com")
+                        .SetupProperty(staff => staff.password, "p455w0rd");
+            Staff staffObject = dummyStaff.Object;
+            staffObject.CommitToDatabase();
+            _staff.RetrieveFromDatabase();
+            Assert.AreEqual(_staff, staffObject);
+        }
         [TestMethod]
         public void UpdateDetails_UpdateEmailAddress_TakingEffect()
         {
@@ -29,7 +43,6 @@ namespace ENET_Care_UnitTest
             _staff.RetrieveFromDatabase();
             Assert.IsTrue(_staff.email == newEmail);
         }
-
         [TestMethod]
         public void UpdateDetails_UpdatePassword_TakingEffect()
         {

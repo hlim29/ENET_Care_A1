@@ -36,26 +36,5 @@ namespace ENET_Care_UnitTest
         {
             Assert.IsNotNull(_package.quantity);
         }
-
-        //[TestMethod]
-        //public void RegisterPackage_GenerateNewBarcode_Numbers()
-        //{
-        //    double newBarcode = _package.getNewBarcode();
-        //    Assert.AreEqual(newBarcode, _package.barCode);
-        //}
-        //[TestMethod]
-        //public void Register_InsertPolioVacination_PolioVacination()
-        //{
-        //    _package.SelectType("Polio Vaccination");
-        //    Assert.AreEqual("Polio Vacination", _package.type);
-        //}
-        //[TestMethod]
-        //public void Register_InsertExpiryDate_ExpiryDate()
-        //{
-        //    _package.InsertExpiryDate("11/11/17");
-        //    Assert.AreEqual("11/11/17", _package.ExpiryDate);
-        //}
-
-       
     }
 }

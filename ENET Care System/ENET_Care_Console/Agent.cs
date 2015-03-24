@@ -17,12 +17,12 @@ namespace ENET_Care_Console
 
         }
 
-        public void SendPackage()
+        public void SendPackage(int packageBarcode)
         {
 
         }
 
-        public void ReceiverPackage()
+        public void ReceivePackage(int packageBarcode)
         {
 
         }
