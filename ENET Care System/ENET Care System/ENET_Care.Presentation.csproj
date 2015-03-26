@@ -66,6 +66,7 @@
     <Content Include="AgentStockLandingPage.aspx" />
     <Content Include="AgentStocktaking.aspx" />
     <Content Include="bootstrap.css" />
+    <Content Include="Default.aspx" />
     <Content Include="DoctorDiscard.aspx" />
     <Content Include="DoctorDistribute.aspx" />
     <Content Include="DoctorMyInformation.aspx" />
@@ -75,9 +76,12 @@
     <Content Include="DoctorSend.aspx" />
     <Content Include="DoctorStockLandingPage.aspx" />
     <Content Include="DoctorStocktaking.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="ManagerDistributionCentreLossesReport.aspx" />
     <Content Include="ManagerDistributionCentreStockReport.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgentDiscard.aspx.cs">
@@ -135,6 +139,13 @@
     </Compile>
     <Compile Include="AgentStocktaking.aspx.designer.cs">
       <DependentUpon>AgentStocktaking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="DoctorDiscard.aspx.cs">
       <DependentUpon>DoctorDiscard.aspx</DependentUpon>
@@ -198,6 +209,13 @@
     </Compile>
     <Compile Include="DoctorStocktaking.aspx.designer.cs">
       <DependentUpon>DoctorStocktaking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManagerDistributionCentreLossesReport.aspx.cs">
       <DependentUpon>ManagerDistributionCentreLossesReport.aspx</DependentUpon>
