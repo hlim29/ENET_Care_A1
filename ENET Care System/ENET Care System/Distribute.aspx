@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Distribute.aspx.cs" masterpagefile="~/Doctor.Master" %>
 
-<asp:Content ID="Distribute" ContentPlaceHolderID="Doctor" runat="server">
+<asp:Content ID="Distribute" ContentPlaceHolderID="DoctorContent" runat="server">
     <div class="span8 offset2">
        <br />
         <br />
