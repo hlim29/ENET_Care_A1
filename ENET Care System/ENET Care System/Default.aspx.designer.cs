@@ -11,7 +11,7 @@ namespace ENET_Care.Presentation
 {
 
 
-    public partial class Login
+    public partial class Default
     {
 
         /// <summary>

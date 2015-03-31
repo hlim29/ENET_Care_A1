@@ -34,14 +34,14 @@ namespace ENET_Care_UnitTest
             int barcode = 123456;
             var dummyPackage = new Moq.Mock<Package>();
             var dummyPackageStatus = new Moq.Mock<PackageStatus>();
-            dummyPackage.SetupProperty(package => package.barCode, barcode);
+            dummyPackage.SetupProperty(package => package.BarCode, barcode);
             Package packageObject = dummyPackage.Object;
-            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.package, packageObject);
+            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.Package, packageObject);
             //need to be changed later as the PackageStatus comes under Package
             
             PackageStatus packageStatusObject = dummyPackageStatus.Object;
             _agent.SendPackage(barcode);
-            Assert.Equals("onTransit", packageStatusObject.status);
+            Assert.Equals("onTransit", packageStatusObject.Status);
         }
 
         public void ReceivePackage_PackageBarcode_PackageStatusChanged()
@@ -49,15 +49,15 @@ namespace ENET_Care_UnitTest
             int barcode = 123456;
             var dummyPackage = new Moq.Mock<Package>();
             var dummyPackageStatus = new Moq.Mock<PackageStatus>();
-            dummyPackage.SetupProperty(package => package.barCode, barcode);
+            dummyPackage.SetupProperty(package => package.BarCode, barcode);
             Package packageObject = dummyPackage.Object;
-            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.package, packageObject);
+            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.Package, packageObject);
             //need to be changed later as the PackageStatus comes under Package
             
             PackageStatus packageStatusObject = dummyPackageStatus.Object;
             _agent.ReceivePackage(123456);
-            Assert.Equals("inStock", packageStatusObject.status);
-            Assert.Equals(_agent.distributionCentre, packageStatusObject.centreSource);
+            Assert.Equals("inStock", packageStatusObject.Status);
+            Assert.Equals(_agent.DistributionCentre, packageStatusObject.CentreSource);
         }
     }
 }

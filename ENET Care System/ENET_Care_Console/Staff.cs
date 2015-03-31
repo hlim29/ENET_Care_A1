@@ -8,13 +8,12 @@ namespace ENET_Care.Data
 {
     public class Staff
     {
-        public int id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string type { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public DistributionCentre distributionCentre { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Role { get; set; }
+
+        public DistributionCentre DistributionCentre { get; set; }
 
         public Staff()
         {
@@ -36,18 +35,7 @@ namespace ENET_Care.Data
             //dummy code - get from db
         }
 
-        public void changeEmail(string newEmail)
-        {
-            email = newEmail;
-        }
-        public bool updatePassword(string userId, string password)
-        {
-            return true;
-        }
-        public Staff login(string email, string password)
-        {
-            return null;
-        }
+
     }
 
 }
