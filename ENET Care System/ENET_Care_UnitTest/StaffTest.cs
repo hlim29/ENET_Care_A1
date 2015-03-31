@@ -21,7 +21,7 @@ namespace ENET_Care_UnitTest
             var dummyStaff = new Moq.Mock<Staff>();
             dummyStaff.SetupProperty(staff => staff.FirstName, "First")
                         .SetupProperty(staff => staff.LastName, "Last")
-                        .SetupProperty(staff => staff.Role, "Agent")
+                        .SetupProperty(staff => staff.Role, "Agent");
             Staff staffObject = dummyStaff.Object;
             staffObject.CommitToDatabase();
             _staff.RetrieveFromDatabase();
