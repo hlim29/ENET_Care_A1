@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Doctor.master.cs" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="bootstrap.css" type="text/css" rel="stylesheet" />
+    <script src="bootstrap.js" type="text/javascript"></script>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="dropdown.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <nav>
+		    <div class="navbar navbar-fixed-top">
+			    <div class="navbar-inner">
+				    <div class="container">
+					    <a class="brand" href="#"><b>ENET</b></a>
+					    <div class="nav-collapse">
+						    <ul class="nav">  
+                                <!--- Distribute --->
+							    <li>  
+								    <a href="Distribute.aspx">
+                                        Register
+								    </a>
+                                </li>
+
+							    <!--- Register --->
+							    <li>  
+								    <a href="Register.aspx">
+                                        Register
+								    </a>
+                                </li>
+									
+						        <!-- Send -->
+                                <li>
+                                    <a href="Send.aspx">
+                                        Send
+                                    </a>
+                                </li>
+
+                                <!-- Receive -->
+                                <li>
+                                    <a href="Receive.aspx">
+                                        Receive
+                                    </a>
+                                </li>
+							
+							    <!--- Stock --->
+							    <li class="dropdown">
+								    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                        Stock
+								    </a>  
+                                
+								        <ul class="dropdown-menu">  
+								
+									        <!--- Stocktaking --->
+									        <li>
+                                                  <a href="Stocktaking.aspx">
+                                                      Stocktaking
+                                                  </a>
+									        </li>  
+									
+									        <!--- Discard --->
+									        <li>
+                                                <a href="Discard.aspx">
+                                                    Discard
+                                                </a>
+									        </li> 
+									
+									        <!--- Remove loss --->
+									        <li>
+                                                <a href="RemoveLoss.aspx">
+                                                    Remove Loss
+                                                </a>
+									        </li> 
+									
+								        </ul> 
+                                     
+							    </li>  
+
+							    <!-- My Information -->
+                                <li>
+                                    <a href="MyInformation.aspx">
+                                        MyInformation
+                                    </a>
+                                </li>
+
+							    <!--- Logout --->
+							    <!--li-->
+                                    <!--a-- href="logout.aspx">
+                                        Logout
+                                    <!--/a-->
+							    <!--/li-->
+						    </ul> 	
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </nav>
+    <div>
+        <asp:ContentPlaceHolder ID="DoctorContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
