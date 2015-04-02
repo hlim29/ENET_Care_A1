@@ -16,9 +16,13 @@ namespace ENET_Care_UnitTest
         }
 
         [TestMethod]
-        public void Login_AgentPassword_True()
+        public void Login_AdminPassword_True()
         {
-            Assert.AreNotEqual(null, _user.login("Agent", "Password"));
+            var dummyUser = new Moq.Mock<User>();
+            dummyUser.SetupProperty(user => user.Email, "Admin@enetcare.com")
+                        .SetupProperty(user => user.Password, "password");
+            User userObject = dummyUser.Object;
+            Assert.AreNotEqual(null, userObject.login("Admin@enetcare.com", "password"));
         }
 
         [TestMethod]

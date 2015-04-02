@@ -12,7 +12,6 @@ namespace ENET_Care.Data
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Role { get; set; }
-
         public DistributionCentre DistributionCentre { get; set; }
 
         public Staff()

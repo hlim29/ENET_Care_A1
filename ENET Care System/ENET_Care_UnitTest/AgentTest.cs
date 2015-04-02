@@ -15,19 +15,18 @@ namespace ENET_Care_UnitTest
         {
             _agent = new Agent();
         }
-        [TestMethod]
-        public void RegisterPackage_InsertDataBase_PackageAdded()
-        {
-            try
-            {
-                _agent.RegisterPackage();
-            }
-            catch
-            {
-                Assert.Fail();
-            }
 
-        }
+        /**
+         * Registering new package and assigning to current Distribution Centre
+         * Checkin if the package got the barcode or not.
+         * Assuming Agent.RegisterPackage return a package object.
+         * */
+        [TestMethod]
+        //public void RegisterPackage_PackageDetails_PackageAdded()
+        //{
+        //    Package newPackage = _agent.RegisterPackage("100 Medication Pills", "12/12/17");
+        //    Assert.AreNotEqual(null, newPackage.BarCode);
+        //}
         [TestMethod]
         public void SendPackage_PackageBarcode_PackageStatusChanged()
         {
@@ -36,9 +35,7 @@ namespace ENET_Care_UnitTest
             var dummyPackageStatus = new Moq.Mock<PackageStatus>();
             dummyPackage.SetupProperty(package => package.BarCode, barcode);
             Package packageObject = dummyPackage.Object;
-            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.Package, packageObject);
-            //need to be changed later as the PackageStatus comes under Package
-            
+            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.Package, packageObject);            
             PackageStatus packageStatusObject = dummyPackageStatus.Object;
             _agent.SendPackage(barcode);
             Assert.Equals("onTransit", packageStatusObject.Status);
@@ -51,9 +48,7 @@ namespace ENET_Care_UnitTest
             var dummyPackageStatus = new Moq.Mock<PackageStatus>();
             dummyPackage.SetupProperty(package => package.BarCode, barcode);
             Package packageObject = dummyPackage.Object;
-            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.Package, packageObject);
-            //need to be changed later as the PackageStatus comes under Package
-            
+            dummyPackageStatus.SetupProperty(packageStatus => packageStatus.Package, packageObject);            
             PackageStatus packageStatusObject = dummyPackageStatus.Object;
             _agent.ReceivePackage(123456);
             Assert.Equals("inStock", packageStatusObject.Status);
