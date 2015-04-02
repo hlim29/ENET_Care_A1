@@ -24,7 +24,7 @@
                                 <!--- Distribute --->
 							    <li>  
 								    <a href="Distribute.aspx">
-                                        Register
+                                        Distribute
 								    </a>
                                 </li>
 
@@ -89,12 +89,12 @@
                                     </a>
                                 </li>
 
-							    <!--- Logout --->
-							    <!--li-->
-                                    <!--a-- href="logout.aspx">
+							    <!-- Logout -->
+							    <li>
+                                    <a href="logout.aspx">
                                         Logout
-                                    <!--/a-->
-							    <!--/li-->
+                                    </a>
+							    </li>
 						    </ul> 	
 					    </div>
 				    </div>

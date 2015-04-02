@@ -9,7 +9,8 @@
 
 
 
-public partial class  {
+public partial class Page_load
+{
     
     /// <summary>
     /// allProducts control.

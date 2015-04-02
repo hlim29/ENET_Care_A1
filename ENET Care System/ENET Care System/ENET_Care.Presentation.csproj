@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discard.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="MyInformation.aspx" />
     <Content Include="Receive.aspx" />
     <Content Include="Register.aspx" />
@@ -73,6 +72,7 @@
     <Content Include="DoctorActivityReport.aspx" />
     <Content Include="GlobalStock.aspx" />
     <Content Include="ValueInTransit.aspx" />
+    <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Discard.aspx.cs">
@@ -88,13 +88,6 @@
     </Compile>
     <Compile Include="Doctor.Master.designer.cs">
       <DependentUpon>Doctor.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.Master.cs">
       <DependentUpon>Login.Master</DependentUpon>
@@ -201,6 +194,13 @@
     </Compile>
     <Compile Include="ValueInTransit.aspx.designer.cs">
       <DependentUpon>ValueInTransit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

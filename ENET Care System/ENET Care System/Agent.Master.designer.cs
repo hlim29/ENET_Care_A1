@@ -9,7 +9,8 @@
 
 
 
-public partial class  {
+public partial class Agent
+{
     
     /// <summary>
     /// head control.

@@ -77,11 +77,11 @@
                                 </li>
 
 							    <!--- Logout --->
-							    <!--li-->
-                                    <!--a-- href="logout.aspx">
+							    <li>
+                                    <a href="logout.aspx">
                                         Logout
-                                    <!--/a-->
-							    <!--/li-->
+                                    </a>
+							    </li>
 						    </ul> 	
 					    </div>
 				    </div>

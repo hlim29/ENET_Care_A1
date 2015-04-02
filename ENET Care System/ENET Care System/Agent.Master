@@ -82,12 +82,12 @@
                                     </a>
                                 </li>
 
-							    <!--- Logout --->
-							    <!--li-->
-                                    <!--a-- href="logout.aspx">
+							    <!-- Logout --->
+							    <li>
+                                    <a href="Login.aspx">
                                         Logout
-                                    <!--/a-->
-							    <!--/li-->
+                                    </a>
+							    </li>
 						    </ul> 	
 					    </div>
 				    </div>
