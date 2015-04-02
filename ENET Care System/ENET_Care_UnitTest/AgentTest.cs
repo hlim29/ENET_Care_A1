@@ -22,11 +22,11 @@ namespace ENET_Care_UnitTest
          * Assuming Agent.RegisterPackage return a package object.
          * */
         [TestMethod]
-        //public void RegisterPackage_PackageDetails_PackageAdded()
-        //{
-        //    Package newPackage = _agent.RegisterPackage("100 Medication Pills", "12/12/17");
-        //    Assert.AreNotEqual(null, newPackage.BarCode);
-        //}
+        public void RegisterPackage_PackageDetails_PackageAdded()
+        {
+            //Package newPackage = _agent.RegisterPackage("100 Medication Pills", "12/12/17");
+            //Assert.AreNotEqual(null, newPackage.BarCode);
+        }
         [TestMethod]
         public void SendPackage_PackageBarcode_PackageStatusChanged()
         {
