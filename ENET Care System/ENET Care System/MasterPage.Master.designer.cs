@@ -9,7 +9,7 @@
 
 
 
-public partial class  {
+public partial class MasterPage {
     
     /// <summary>
     /// head control.
