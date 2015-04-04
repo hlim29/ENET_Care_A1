@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ValueInTransit.aspx.cs" MasterPageFile="~/Manager.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ValueInTransit.aspx.cs" MasterPageFile="~/MasterPage.Master" %>
 
-<asp:Content ContentPlaceHolderID="Manager" ID="ValueInTransit" runat="server">
+<asp:Content ContentPlaceHolderID="Content" ID="ValueInTransit" runat="server">
     <div class="span8 offset2">
         <br />
         <br />

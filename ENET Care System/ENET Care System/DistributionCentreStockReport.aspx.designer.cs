@@ -9,7 +9,7 @@
 
 
 
-public partial class  {
+public partial class DistributionCentreStockReport {
     
     /// <summary>
     /// allProducts control.

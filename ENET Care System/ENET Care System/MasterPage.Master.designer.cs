@@ -9,7 +9,7 @@
 
 
 
-public partial class  {
+public partial class MasterPage {
     
     /// <summary>
     /// head control.
@@ -30,11 +30,11 @@ public partial class  {
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     
     /// <summary>
-    /// LoginContent control.
+    /// Content control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder LoginContent;
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder Content;
 }

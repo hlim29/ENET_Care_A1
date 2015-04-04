@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Doctor.master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" %>
 
 <!DOCTYPE html>
 
@@ -24,7 +24,7 @@
                                 <!--- Distribute --->
 							    <li>  
 								    <a href="Distribute.aspx">
-                                        Register
+                                        Distribute
 								    </a>
                                 </li>
 
@@ -82,6 +82,51 @@
                                      
 							    </li>  
 
+                                 <!--- Reports --->
+							    <li class="dropdown">
+								     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            Reports
+								     </a>  
+								        <ul class="dropdown-menu">  
+								
+									        <!--- Distribution Centre Stock --->
+									        <li>
+                                                  <a href="DistributionCentreStockReport.aspx">
+                                                      Distribution Centre Stock
+                                                  </a>
+									        </li>  
+									
+									        <!--- Distribution Centre Losses --->
+									        <li>
+                                                <a href="DistributionCentreLossesReport.aspx">
+                                                    Distribution Centre Losses
+                                                </a>
+									        </li> 
+									
+									        <!--- Doctor Activity --->
+									        <li>
+                                                <a href="DoctorActivityReport.aspx">
+                                                    Doctor Activity
+                                                </a>
+									        </li> 
+
+                                            <!--- Value in Transit --->
+									        <li>
+                                                <a href="ValueInTransit.aspx">
+                                                    Value in Transit
+                                                </a>
+									        </li> 
+
+                                            <!--- GlobalStock --->
+									        <li>
+                                                <a href="GlobalStock.aspx">
+                                                    Global Stock
+                                                </a>
+									        </li> 
+								        </ul> 
+                                     
+							    </li>  
+
 							    <!-- My Information -->
                                 <li>
                                     <a href="MyInformation.aspx">
@@ -89,12 +134,12 @@
                                     </a>
                                 </li>
 
-							    <!--- Logout --->
-							    <!--li-->
-                                    <!--a-- href="logout.aspx">
+							    <!-- Logout -->
+							    <li>
+                                    <a href="Login.aspx">
                                         Logout
-                                    <!--/a-->
-							    <!--/li-->
+                                    </a>
+							    </li>
 						    </ul> 	
 					    </div>
 				    </div>
@@ -102,7 +147,7 @@
 		    </div>
 	    </nav>
     <div>
-        <asp:ContentPlaceHolder ID="DoctorContent" runat="server">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>

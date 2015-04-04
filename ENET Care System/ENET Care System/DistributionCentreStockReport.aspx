@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DistributionCentreStockReport.aspx.cs" masterpagefile="~/Manager.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DistributionCentreStockReport.aspx.cs" masterpagefile="~/MasterPage.Master" %>
 
-<asp:Content ID="DistributionCentreStockReport" C
+<asp:Content ID="DistributionCentreStockReport" runat="server" ContentPlaceHolderID="Content">
     <a href="DoctorActivityReport.aspx">DoctorActivityReport.aspx</a>ontentPlaceHolderID="Manager" runat="server">
     <div class="span8 offset2">
         <br />

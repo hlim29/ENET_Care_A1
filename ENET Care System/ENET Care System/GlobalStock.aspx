@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GlobalStock.aspx.cs" masterpagefile="~/Manager.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GlobalStock.aspx.cs" masterpagefile="~/MasterPage.Master" %>
 
-<asp:Content ID="GlobalStock" ContentPlaceHolderID="Manager" runat="server">
+<asp:Content ID="GlobalStock" ContentPlaceHolderID="Content" runat="server">
     <div class="span8 offset2">  
         <br />
         <br />

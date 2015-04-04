@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Discard.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="MyInformation.aspx" />
     <Content Include="Receive.aspx" />
     <Content Include="Register.aspx" />
@@ -73,6 +72,7 @@
     <Content Include="DoctorActivityReport.aspx" />
     <Content Include="GlobalStock.aspx" />
     <Content Include="ValueInTransit.aspx" />
+    <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Discard.aspx.cs">
@@ -82,33 +82,12 @@
     <Compile Include="Discard.aspx.designer.cs">
       <DependentUpon>Discard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Doctor.Master.cs">
-      <DependentUpon>Doctor.Master</DependentUpon>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Doctor.Master.designer.cs">
-      <DependentUpon>Doctor.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.Master.cs">
-      <DependentUpon>Login.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.Master.designer.cs">
-      <DependentUpon>Login.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Manager.Master.cs">
-      <DependentUpon>Manager.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manager.Master.designer.cs">
-      <DependentUpon>Manager.Master</DependentUpon>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="MyInformation.aspx.cs">
       <DependentUpon>MyInformation.aspx</DependentUpon>
@@ -174,13 +153,6 @@
       <DependentUpon>DistributionCentreStockReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Agent.Master.cs">
-      <DependentUpon>Agent.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Agent.Master.designer.cs">
-      <DependentUpon>Agent.Master</DependentUpon>
-    </Compile>
     <Compile Include="DoctorActivityReport.aspx.cs">
       <DependentUpon>DoctorActivityReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,12 +174,16 @@
     <Compile Include="ValueInTransit.aspx.designer.cs">
       <DependentUpon>ValueInTransit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Agent.Master" />
-    <Content Include="Manager.Master" />
-    <Content Include="Doctor.Master" />
-    <Content Include="Login.Master" />
+    <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
