@@ -9,6 +9,5 @@
 
 
 
-public partial class Page_load
-{
+public partial class Receive {
 }

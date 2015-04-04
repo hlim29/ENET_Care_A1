@@ -9,6 +9,5 @@
 
 
 
-public partial class Login
-{
+public partial class Login {
 }

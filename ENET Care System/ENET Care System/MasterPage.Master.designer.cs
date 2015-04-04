@@ -9,8 +9,7 @@
 
 
 
-public partial class Doctor
-{
+public partial class  {
     
     /// <summary>
     /// head control.
@@ -31,11 +30,11 @@ public partial class Doctor
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     
     /// <summary>
-    /// DoctorContent control.
+    /// Content control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder DoctorContent;
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder Content;
 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manager.master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" %>
 
 <!DOCTYPE html>
 
@@ -14,21 +14,79 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav>
+         <nav>
 		    <div class="navbar navbar-fixed-top">
 			    <div class="navbar-inner">
 				    <div class="container">
 					    <a class="brand" href="#"><b>ENET</b></a>
 					    <div class="nav-collapse">
 						    <ul class="nav">  
-							   
+                                <!--- Distribute --->
+							    <li>  
+								    <a href="Distribute.aspx">
+                                        Distribute
+								    </a>
+                                </li>
+
+							    <!--- Register --->
+							    <li>  
+								    <a href="Register.aspx">
+                                        Register
+								    </a>
+                                </li>
+									
+						        <!-- Send -->
+                                <li>
+                                    <a href="Send.aspx">
+                                        Send
+                                    </a>
+                                </li>
+
+                                <!-- Receive -->
+                                <li>
+                                    <a href="Receive.aspx">
+                                        Receive
+                                    </a>
+                                </li>
 							
-							    <!--- Reports --->
+							    <!--- Stock --->
 							    <li class="dropdown">
 								    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                        Reports
+                                        Stock
 								    </a>  
                                 
+								        <ul class="dropdown-menu">  
+								
+									        <!--- Stocktaking --->
+									        <li>
+                                                  <a href="Stocktaking.aspx">
+                                                      Stocktaking
+                                                  </a>
+									        </li>  
+									
+									        <!--- Discard --->
+									        <li>
+                                                <a href="Discard.aspx">
+                                                    Discard
+                                                </a>
+									        </li> 
+									
+									        <!--- Remove loss --->
+									        <li>
+                                                <a href="RemoveLoss.aspx">
+                                                    Remove Loss
+                                                </a>
+									        </li> 
+									
+								        </ul> 
+                                     
+							    </li>  
+
+                                 <!--- Reports --->
+							    <li class="dropdown">
+								     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            Reports
+								     </a>  
 								        <ul class="dropdown-menu">  
 								
 									        <!--- Distribution Centre Stock --->
@@ -76,9 +134,9 @@
                                     </a>
                                 </li>
 
-							    <!--- Logout --->
+							    <!-- Logout -->
 							    <li>
-                                    <a href="logout.aspx">
+                                    <a href="Login.aspx">
                                         Logout
                                     </a>
 							    </li>
@@ -89,7 +147,7 @@
 		    </div>
 	    </nav>
     <div>
-        <asp:ContentPlaceHolder ID="Manager" runat="server">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>

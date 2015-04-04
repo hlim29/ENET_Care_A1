@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" MasterPageFile="~/Agent.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" MasterPageFile="~/MasterPage.Master" %>
 
-<asp:Content id="RegisterPage" ContentPlaceHolderID="AgentContent" runat="server">
+<asp:Content id="RegisterPage" ContentPlaceHolderID="Content" runat="server">
     <div class="span8 offset2">
        <br />
        <br />

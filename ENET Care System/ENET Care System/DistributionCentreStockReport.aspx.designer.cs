@@ -9,8 +9,7 @@
 
 
 
-public partial class Page_load
-{
+public partial class DistributionCentreStockReport {
     
     /// <summary>
     /// allProducts control.

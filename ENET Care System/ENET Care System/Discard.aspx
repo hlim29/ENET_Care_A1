@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Discard.aspx.cs" masterpagefile="~/Agent.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Discard.aspx.cs" masterpagefile="~/MasterPage.Master" %>
 
-<asp:Content id="Discard" runat="server" ContentPlaceHolderID="AgentContent">
+<asp:Content id="Discard" runat="server" ContentPlaceHolderID="Content">
     <div class="span8 offset2">
         <br />
         <br />
