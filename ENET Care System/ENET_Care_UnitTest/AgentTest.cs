@@ -13,7 +13,13 @@ namespace ENET_Care_UnitTest
         [TestInitialize]
         public void Setup()
         {
+            DistributionCentre dc = new DistributionCentre();
+            dc.Id = 1;
             _agent = new Agent();
+            _agent.FirstName = "Andrea";
+            _agent.LastName = "Sa";
+            _agent.Role = "Doctor";
+
         }
 
         /**
