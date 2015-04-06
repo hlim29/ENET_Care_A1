@@ -77,6 +77,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\PackageDAO.cs" />
+    <Compile Include="App_Data\PackageStatusDAO.cs" />
     <Compile Include="DistributionCentre.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="MedicationStandardType.cs" />
