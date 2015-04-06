@@ -38,6 +38,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -57,7 +69,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
     <Content Include="Discard.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="MyInformation.aspx" />
     <Content Include="Receive.aspx" />
     <Content Include="Register.aspx" />
@@ -66,21 +80,34 @@
     <Content Include="Stocktaking.aspx" />
     <Content Include="bootstrap.css" />
     <Content Include="Distribute.aspx" />
-    <Content Include="DistributionCentreLossesReport.aspx" />
-    <Content Include="DistributionCentreStockReport.aspx" />
+    <Content Include="Manager\DistributionCentreLossesReport.aspx" />
+    <Content Include="Manager\DistributionCentreStockReport.aspx" />
     <Content Include="Web.config" />
     <Content Include="DoctorActivityReport.aspx" />
     <Content Include="GlobalStock.aspx" />
     <Content Include="ValueInTransit.aspx" />
-    <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Discard.aspx.cs">
       <DependentUpon>Discard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Discard.aspx.designer.cs">
       <DependentUpon>Discard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -138,18 +165,18 @@
     <Compile Include="Distribute.aspx.designer.cs">
       <DependentUpon>Distribute.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DistributionCentreLossesReport.aspx.cs">
+    <Compile Include="Manager\DistributionCentreLossesReport.aspx.cs">
       <DependentUpon>DistributionCentreLossesReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DistributionCentreLossesReport.aspx.designer.cs">
+    <Compile Include="Manager\DistributionCentreLossesReport.aspx.designer.cs">
       <DependentUpon>DistributionCentreLossesReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DistributionCentreStockReport.aspx.cs">
+    <Compile Include="Manager\DistributionCentreStockReport.aspx.cs">
       <DependentUpon>DistributionCentreStockReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DistributionCentreStockReport.aspx.designer.cs">
+    <Compile Include="Manager\DistributionCentreStockReport.aspx.designer.cs">
       <DependentUpon>DistributionCentreStockReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,22 +201,20 @@
     <Compile Include="ValueInTransit.aspx.designer.cs">
       <DependentUpon>ValueInTransit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Agent\" />
+    <Folder Include="Doctor\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
