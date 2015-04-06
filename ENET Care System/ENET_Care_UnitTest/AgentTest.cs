@@ -57,6 +57,7 @@ namespace ENET_Care_UnitTest
          * Confirming that centre source is changed
          * ASSUMPTION : Current package location written in packageSource
          * */
+        [TestMethod]
         public void ReceivePackage_PackageBarcode_PackageStatusChanged()
         {
             //NOTE: Uncomment when method ready to be tested
@@ -97,6 +98,7 @@ namespace ENET_Care_UnitTest
          *      
          * NOTE: Audit only happen in its own Medical Centre, will not change package from other Medical Centre
          * */
+        [TestMethod]
         public void RemoveLostPackage_BarcodeCollection_StatusChanged()
         {
             //NOTE: Uncomment when method ready to be tested

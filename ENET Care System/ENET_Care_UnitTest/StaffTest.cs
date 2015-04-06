@@ -17,6 +17,7 @@ namespace ENET_Care_UnitTest
         /**
          * Update distribution centre allocation in Staff Object.
          */
+        [TestMethod]
         public void UpdateDetails_UpdateDistributionCentre_TakingEffect()
         {
             DistributionCentre newDC = new DistributionCentre();
