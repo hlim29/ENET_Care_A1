@@ -28,7 +28,9 @@ namespace ENET_Care_UnitTest
         {
             //NOTE: Uncomment when method already updated
 
-            //Package newPackage = _agent.RegisterPackage(createMockMedication(), new DateTime(17,12,12));
+            //Package newPackage = createMockPackage();
+            //newPackage.Medication = createMockMedication();
+            //_agent.RegisterPackage(newPackage);
             //Assert.AreNotEqual(null, newPackage.BarCode);
             //Assert.AreNotEquals(null, newPackage.getPackageStatus());
         }
