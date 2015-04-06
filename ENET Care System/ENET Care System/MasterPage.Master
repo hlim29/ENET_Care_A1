@@ -20,33 +20,33 @@
 		    <div class="navbar navbar-fixed-top">
 			    <div class="navbar-inner">
 				    <div class="container">
-					    <a class="brand" href="Default.aspx"><b>ENET</b></a>
+					    <a class="brand" href="/Default.aspx"><b>ENET</b></a>
 					    <div class="nav-collapse">
 						    <ul class="nav">  
                                 <!--- Distribute --->
 							    <li>  
-								    <a href="/Distribute.aspx">
+								    <a href="/Doctor/Distribute.aspx">
                                         Distribute
 								    </a>
                                 </li>
 
 							    <!--- Register --->
 							    <li>  
-								    <a href="/Register.aspx">
+								    <a href="/Agent/Register.aspx">
                                         Register
 								    </a>
                                 </li>
 									
 						        <!-- Send -->
                                 <li>
-                                    <a href="/Send.aspx">
+                                    <a href="/Agent/Send.aspx">
                                         Send
                                     </a>
                                 </li>
 
                                 <!-- Receive -->
                                 <li>
-                                    <a href="/Receive.aspx">
+                                    <a href="/AgentDoctor/Receive.aspx">
                                         Receive
                                     </a>
                                 </li>
@@ -61,21 +61,21 @@
 								
 									        <!--- Stocktaking --->
 									        <li>
-                                                  <a href="/Stocktaking.aspx">
+                                                  <a href="/AgentDoctor/Stocktaking.aspx">
                                                       Stocktaking
                                                   </a>
 									        </li>  
 									
 									        <!--- Discard --->
 									        <li>
-                                                <a href="/Discard.aspx">
+                                                <a href="/AgentDoctor/Discard.aspx">
                                                     Discard
                                                 </a>
 									        </li> 
 									
 									        <!--- Remove loss --->
 									        <li>
-                                                <a href="/RemoveLoss.aspx">
+                                                <a href="/AgentDoctor/RemoveLoss.aspx">
                                                     Remove Loss
                                                 </a>
 									        </li> 
@@ -107,21 +107,21 @@
 									
 									        <!--- Doctor Activity --->
 									        <li>
-                                                <a href="/DoctorActivityReport.aspx">
+                                                <a href="/Manager/DoctorActivityReport.aspx">
                                                     Doctor Activity
                                                 </a>
 									        </li> 
 
                                             <!--- Value in Transit --->
 									        <li>
-                                                <a href="/ValueInTransit.aspx">
+                                                <a href="/Manager/ValueInTransit.aspx">
                                                     Value in Transit
                                                 </a>
 									        </li> 
 
                                             <!--- GlobalStock --->
 									        <li>
-                                                <a href="/GlobalStock.aspx">
+                                                <a href="/Manager/GlobalStock.aspx">
                                                     Global Stock
                                                 </a>
 									        </li> 

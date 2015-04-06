@@ -12,6 +12,7 @@ namespace ENET_Care.Business
         public Agent()
         {
             //dummy constructor
+           
         }
 
         public void RegisterPackage(){

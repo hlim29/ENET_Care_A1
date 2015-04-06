@@ -70,22 +70,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="Discard.aspx" />
+    <Content Include="AgentDoctor\Discard.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MyInformation.aspx" />
-    <Content Include="Receive.aspx" />
-    <Content Include="Register.aspx" />
-    <Content Include="RemoveLoss.aspx" />
-    <Content Include="Send.aspx" />
-    <Content Include="Stocktaking.aspx" />
+    <Content Include="AgentDoctor\Receive.aspx" />
+    <Content Include="Agent\Register.aspx" />
+    <Content Include="AgentDoctor\RemoveLoss.aspx" />
+    <Content Include="Agent\Send.aspx" />
+    <Content Include="AgentDoctor\Stocktaking.aspx" />
     <Content Include="bootstrap.css" />
-    <Content Include="Distribute.aspx" />
+    <Content Include="Doctor\Distribute.aspx" />
     <Content Include="Manager\DistributionCentreLossesReport.aspx" />
     <Content Include="Manager\DistributionCentreStockReport.aspx" />
     <Content Include="Web.config" />
-    <Content Include="DoctorActivityReport.aspx" />
-    <Content Include="GlobalStock.aspx" />
-    <Content Include="ValueInTransit.aspx" />
+    <Content Include="Manager\DoctorActivityReport.aspx" />
+    <Content Include="Manager\GlobalStock.aspx" />
+    <Content Include="Manager\ValueInTransit.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -95,11 +95,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Discard.aspx.cs">
+    <Compile Include="AgentDoctor\Discard.aspx.cs">
       <DependentUpon>Discard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Discard.aspx.designer.cs">
+    <Compile Include="AgentDoctor\Discard.aspx.designer.cs">
       <DependentUpon>Discard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -123,46 +123,46 @@
     <Compile Include="MyInformation.aspx.designer.cs">
       <DependentUpon>MyInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Receive.aspx.cs">
+    <Compile Include="AgentDoctor\Receive.aspx.cs">
       <DependentUpon>Receive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Receive.aspx.designer.cs">
+    <Compile Include="AgentDoctor\Receive.aspx.designer.cs">
       <DependentUpon>Receive.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Register.aspx.cs">
+    <Compile Include="Agent\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
+    <Compile Include="Agent\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RemoveLoss.aspx.cs">
+    <Compile Include="AgentDoctor\RemoveLoss.aspx.cs">
       <DependentUpon>RemoveLoss.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RemoveLoss.aspx.designer.cs">
+    <Compile Include="AgentDoctor\RemoveLoss.aspx.designer.cs">
       <DependentUpon>RemoveLoss.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Send.aspx.cs">
+    <Compile Include="Agent\Send.aspx.cs">
       <DependentUpon>Send.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Send.aspx.designer.cs">
+    <Compile Include="Agent\Send.aspx.designer.cs">
       <DependentUpon>Send.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Stocktaking.aspx.cs">
+    <Compile Include="AgentDoctor\Stocktaking.aspx.cs">
       <DependentUpon>Stocktaking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Stocktaking.aspx.designer.cs">
+    <Compile Include="AgentDoctor\Stocktaking.aspx.designer.cs">
       <DependentUpon>Stocktaking.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Distribute.aspx.cs">
+    <Compile Include="Doctor\Distribute.aspx.cs">
       <DependentUpon>Distribute.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Distribute.aspx.designer.cs">
+    <Compile Include="Doctor\Distribute.aspx.designer.cs">
       <DependentUpon>Distribute.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\DistributionCentreLossesReport.aspx.cs">
@@ -180,25 +180,25 @@
       <DependentUpon>DistributionCentreStockReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DoctorActivityReport.aspx.cs">
+    <Compile Include="Manager\DoctorActivityReport.aspx.cs">
       <DependentUpon>DoctorActivityReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DoctorActivityReport.aspx.designer.cs">
+    <Compile Include="Manager\DoctorActivityReport.aspx.designer.cs">
       <DependentUpon>DoctorActivityReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GlobalStock.aspx.cs">
+    <Compile Include="Manager\GlobalStock.aspx.cs">
       <DependentUpon>GlobalStock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GlobalStock.aspx.designer.cs">
+    <Compile Include="Manager\GlobalStock.aspx.designer.cs">
       <DependentUpon>GlobalStock.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ValueInTransit.aspx.cs">
+    <Compile Include="Manager\ValueInTransit.aspx.cs">
       <DependentUpon>ValueInTransit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ValueInTransit.aspx.designer.cs">
+    <Compile Include="Manager\ValueInTransit.aspx.designer.cs">
       <DependentUpon>ValueInTransit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -212,10 +212,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Agent\" />
-    <Folder Include="Doctor\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
