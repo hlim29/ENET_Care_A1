@@ -8,5 +8,11 @@ namespace ENET_Care.Data.App_Data
 {
     class PackageStatusDAO
     {
+        PackageStatus selectPackageStatus(String codeBar)
+        {
+            PackageStatus packageStatus = new PackageStatus();
+
+            return packageStatus;
+        }
     }
 }

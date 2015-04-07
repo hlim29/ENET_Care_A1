@@ -43,5 +43,12 @@ namespace ENET_Care.Business
         {
 
         }
+
+        public PackageStatus GetPackageStatus(string barCode)
+        {
+            PackageStatus packageStatus = new PackageStatus();
+
+            return packageStatus;
+        }
     }
 }

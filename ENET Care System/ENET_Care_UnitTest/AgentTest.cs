@@ -50,7 +50,9 @@ namespace ENET_Care_UnitTest
         {
             //NOTE: Uncomment when method ready to be tested.
 
-            //Package packageObject = _agent.RegisterPackage(createMockMedication(), new DateTime(17, 12, 12));
+            //Package newPackage = createMockPackage();
+            //newPackage.Medication = createMockMedication();
+            //_agent.RegisterPackage(newPackage);
             //PackageStatus status = _agent.getPackageStatus(packageObject.BarCode);
             //Assert.Equals("inStock", status.Status);
         }
