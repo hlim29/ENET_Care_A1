@@ -13,9 +13,16 @@ namespace ENET_Care.Data.App_Data
         public void insertPackageStatus(PackageStatus packageStatus)
         {
             SqlConnection objConn = conn.openConnection();
+
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "INSERT into PackageStatus () ";
+            cmd.CommandText = "INSERT into PackageStatus (PackageId, Status, CentreSource, CentreDestination) VALUES ("
+                                + packageStatus.Package.BarCode + ","
+                                + packageStatus.Status + ","
+                                + packageStatus.CentreSource + ","
+                                + packageStatus.CentreDestination + ")";
+            cmd.ExecuteNonQuery();
+
             conn.closeConnection(objConn);
 
         }
