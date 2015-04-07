@@ -32,7 +32,20 @@ namespace ENET_Care_UnitTest
             //Assert.AreNotEqual(null, newPackage.BarCode);
             //Assert.AreNotEquals(null, newPackage.getPackageStatus());
         }
+        /**
+         * A package should always have a package status.
+         * Checking if the PackageStatus has been created or not in PackageRegistration.
+         * NOTE: getPackageStatus() should search packageID in the collections
+         * */
+        [TestMethod]
+        public void getPackageStatus_packageId_InStock()
+        {
+            //NOTE: Uncomment when method ready to be tested.
 
+            //Package packageObject = _agent.RegisterPackage(createMockMedication(), new DateTime(17, 12, 12));
+            //PackageStatus status = _agent.getPackageStatus(packageObject.BarCode);
+            //Assert.Equals("inStock", status.Status);
+        }
         /**
          * Send Package method
          * Creating Mock Object for Package and Package Status
@@ -45,7 +58,7 @@ namespace ENET_Care_UnitTest
 
             DistributionCentre destination = new Moq.Mock<DistributionCentre>().Object;
             Package packageObject = createMockPackage();
-            //PackageStatus packageStatusObject = packageObject.getPackageStatus();
+            //PackageStatus packageStatusObject = _agent.getPackageStatus(packageObject.BarCode);
             //_agent.SendPackage(barcode, destination); //Uncomment when method already updated
             //Assert.Equals("onTransit", packageStatusObject.Status);
             //Assert.Equals(destination, packageStatusObject.CentreDestination);
@@ -63,7 +76,7 @@ namespace ENET_Care_UnitTest
             //NOTE: Uncomment when method ready to be tested
 
             Package packageObject = createMockPackage();
-            //PackageStatus packageStatusObject = packageObject.getPackageStatus();
+            //PackageStatus packageStatusObject = _agent.getPackageStatus(packageObject.BarCode);
             _agent.ReceivePackage(packageObject.BarCode);
             //Assert.Equals("inStock", packageStatusObject.Status);
             //Assert.Equals(_agent.DistributionCentre, packageStatusObject.CentreSource);
@@ -82,7 +95,7 @@ namespace ENET_Care_UnitTest
             Package dummyPackage = createMockPackage();
             //_agent.RegisterPackage(createMockMedication(), dummyPackage.ExpiryDate);
             //_agent.DiscardPackage(dummyPackage.BarCode);
-            //PackageStatus status = dummyPackage.getPackageStatus();
+            //PackageStatus status = _agent.getPackageStatus(dummyPackage.BarCode);
             //Assert.Equals("discarded", status.Status);
         }
 
@@ -108,7 +121,7 @@ namespace ENET_Care_UnitTest
             Package dummyPackage = createMockPackage();
             //_agent.RegisterPackage(createMockMedication(), dummyPackage.ExpiryDate);
             //_agent.RemoveLostPackage(barcodes);
-            //Assert.Equals("lost", dummyPackage.getPackageStatus().Status);
+            //Assert.Equals("lost", _agent.getPackageStatus(dummyPackage.BarCode).Status);
         }
         /**
          * Addition method to create a mock object

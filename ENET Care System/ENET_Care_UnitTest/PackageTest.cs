@@ -20,20 +20,6 @@ namespace ENET_Care_UnitTest
             //Package _package = new Package(createMockMedication(), new DateTime(17, 12, 12));
         }
         /**
-         * A package should always have a package status.
-         * Checking if the PackageStatus has been created or not in PackageRegistration.
-         * NOTE: getPackageStatus() should search its own packageID in the collections
-         * */
-        [TestMethod]
-        public void getPackageStatus_packageObject_Status()
-        {
-            //NOTE: Uncomment when method ready to be tested.
-
-            //PackageStatus status = _package.getPackageStatus();
-            //Assert.Equals("inStock", status.Status);
-        }
-
-        /**
          * Addition method to create a mock object
          * */
         private MedicationStandardType createMockMedication()
