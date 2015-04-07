@@ -26,7 +26,7 @@ namespace ENET_Care.Business
             pkgStatus.CentreDestination = null;
             
             pkgDao.insertPackage(pkg);
-            //pkgStatusDao.insertPackageStatus(pkgStatus);
+            pkgStatusDao.insertPackageStatus(pkgStatus);
         }
 
         public void SendPackage(int packageBarcode)

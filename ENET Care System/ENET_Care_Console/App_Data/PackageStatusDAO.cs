@@ -16,11 +16,11 @@ namespace ENET_Care.Data.App_Data
 
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "INSERT into PackageStatus (PackageId, Status, CentreSource, CentreDestination) VALUES ("
-                                + packageStatus.Package.BarCode + ","
-                                + packageStatus.Status + ","
-                                + packageStatus.CentreSource + ","
-                                + packageStatus.CentreDestination + ")";
+            cmd.CommandText = "INSERT PackageStatus (PackageId, Status, CentreSource, CentreDestination) VALUES ("
+                                + packageStatus.Package.BarCode + ", '"
+                                + packageStatus.Status + "',"
+                                + packageStatus.CentreSource.Id + ","
+                                + packageStatus.CentreDestination.Id + ")";
             cmd.Connection = objConn;
             cmd.ExecuteNonQuery();
 

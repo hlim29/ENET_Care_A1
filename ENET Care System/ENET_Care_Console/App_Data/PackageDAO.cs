@@ -17,11 +17,12 @@ namespace ENET_Care.Data.App_Data
             
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "INSERT Package (BarCode, MedicationID, ExpireDate, Quantity) VALUES (" 
+            cmd.CommandText = "INSERT Package (BarCode, MedicationID, ExpiryDate, Quantity) VALUES (" 
                                 + package.BarCode + "," 
-                                + package.Medication.Id + "," 
-                                + package.ExpiryDate + "," 
+                                + package.Medication.Id + ", '" 
+                                + package.ExpiryDate + "'," 
                                 + package.Quantity + ")";
+            System.Console.WriteLine(cmd.CommandText);
             cmd.Connection = objConn;
             cmd.ExecuteNonQuery();
 
