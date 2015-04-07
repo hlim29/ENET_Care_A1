@@ -13,7 +13,9 @@ namespace ENET_Care.Data.App_Data
         public void insertPackageStatus(PackageStatus packageStatus)
         {
             SqlConnection objConn = conn.openConnection();
-            //insert code
+            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "INSERT into PackageStatus () ";
             conn.closeConnection(objConn);
 
         }
