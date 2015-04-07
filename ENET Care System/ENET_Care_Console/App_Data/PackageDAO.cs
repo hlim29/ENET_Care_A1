@@ -14,7 +14,12 @@ namespace ENET_Care.Data.App_Data
         public void insertPackage(Package package)
         {
             SqlConnection objConn =  conn.openConnection();
-            //insert code
+            
+            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "INSERT Package (BarCode, MedicationID, ExpireDate, Quantity) VALUES (" + package.BarCode + "," + package.Medication.Id + "," + package.ExpiryDate + "," + package.Quantity + ")";
+            cmd.ExecuteNonQuery();
+
             conn.closeConnection(objConn);
         }       
     }
