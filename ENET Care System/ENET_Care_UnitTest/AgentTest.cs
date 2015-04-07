@@ -36,9 +36,21 @@ namespace ENET_Care_UnitTest
 
             //Package newPackage = createMockPackage();
             //newPackage.Medication = createMockMedication();
-            //_agent.RegisterPackage(newPackage);
-            //Assert.AreNotEqual(null, newPackage.BarCode);
-            //Assert.AreNotEquals(null, newPackage.getPackageStatus());
+            Package pkg = new Package();
+            MedicationStandardType med = new MedicationStandardType();
+
+            med.Id = 1;
+
+            pkg.BarCode = 123456;
+            pkg.ExpiryDate =  new DateTime(17, 12, 12);
+            pkg.Medication = med;
+            pkg.Quantity = 2;
+
+            _agent.RegisterPackage(pkg);
+            Assert.AreNotEqual(null, pkg.BarCode);
+            Assert.AreNotEqual(null, pkg.ExpiryDate);
+            Assert.AreNotEqual(null, pkg.Medication.Id);
+            Assert.AreNotEqual(null, pkg.Quantity);
         }
         /**
          * A package should always have a package status.

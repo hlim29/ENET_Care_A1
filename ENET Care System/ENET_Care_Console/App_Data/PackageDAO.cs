@@ -22,6 +22,7 @@ namespace ENET_Care.Data.App_Data
                                 + package.Medication.Id + "," 
                                 + package.ExpiryDate + "," 
                                 + package.Quantity + ")";
+            cmd.Connection = objConn;
             cmd.ExecuteNonQuery();
 
             conn.closeConnection(objConn);

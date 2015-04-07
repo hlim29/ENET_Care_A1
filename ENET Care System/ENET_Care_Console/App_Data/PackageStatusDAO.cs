@@ -21,6 +21,7 @@ namespace ENET_Care.Data.App_Data
                                 + packageStatus.Status + ","
                                 + packageStatus.CentreSource + ","
                                 + packageStatus.CentreDestination + ")";
+            cmd.Connection = objConn;
             cmd.ExecuteNonQuery();
 
             conn.closeConnection(objConn);

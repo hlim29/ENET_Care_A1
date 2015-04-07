@@ -11,7 +11,7 @@ namespace ENET_Care.Data.App_Data
     {
         public SqlConnection openConnection()
         {
-            string sConnectionString = "Initial Catalog = Database.mdf;" + "Data Source = (localDB);" + "Integrated Security = SSPI";
+            string sConnectionString = "Data Source=(LocalDB)\v11.0;Initial Catalog=C:\\USERS\\USER\\SOURCE\\REPOS\\ENET-CARE-SYSTEM2\\ENET CARE SYSTEM\\ENET_CARE_CONSOLE\\APP_DATA\\DATABASE.MDF;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
             SqlConnection objConn = new SqlConnection(sConnectionString);
             objConn.Open();
             return objConn;
