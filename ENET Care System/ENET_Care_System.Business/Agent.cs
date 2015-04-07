@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ENET_Care.Data.App_Data;
 using ENET_Care.Data;
 
 namespace ENET_Care.Business
@@ -15,8 +16,17 @@ namespace ENET_Care.Business
            
         }
 
-        public void RegisterPackage(){
-
+        public void RegisterPackage(Package pkg){
+            PackageStatus pkgStatus = new PackageStatus();
+            PackageDAO pkgDao = new PackageDAO();
+            PackageStatusDAO pkgStatusDao = new PackageStatusDAO();
+            
+            pkgStatus.Status = "InStock";
+            pkgStatus.CentreSource = this.DistributionCentre;
+            pkgStatus.CentreDestination = null;
+            
+            pkgDao.insertPackage(pkg);
+            pkgStatusDao.insertPackageStatus(pkgStatus);
         }
 
         public void SendPackage(int packageBarcode)
