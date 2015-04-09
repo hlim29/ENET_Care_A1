@@ -8,22 +8,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ENET_Care.Data.Properties
-{
-
-
+namespace ENET_Care.Data.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\v11.0;AttachDbFilename=C:\\Users\\Henry\\Source\\Repos\\enet-car" +
+            "e-system\\ENET_Care_New\\ENET_Care_New\\App_Data\\aspnet-ENET_Care_New-2015040707393" +
+            "9.mdf;Initial Catalog=aspnet-ENET_Care_New-20150407073939;Integrated Security=Tr" +
+            "ue")]
+        public string aspnet_ENET_Care_New_20150407073939ConnectionString {
+            get {
+                return ((string)(this["aspnet_ENET_Care_New_20150407073939ConnectionString"]));
             }
         }
     }
