@@ -41,7 +41,7 @@ namespace ENET_Care_UnitTest
 
             med.Id = 1;
 
-            pkg.BarCode = 123456;
+            pkg.BarCode = 123457;
             pkg.ExpiryDate =  new DateTime(17, 12, 12);
             pkg.Medication = med;
             pkg.Quantity = 2;

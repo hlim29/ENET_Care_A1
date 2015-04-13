@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace ENET_Care.Data
 {
-    public class Staff: User
+    public class Staff
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Role { get; set; }
         public DistributionCentre DistributionCentre { get; set; }
+        public User User { get; set; }
 
         public Staff()
         {
