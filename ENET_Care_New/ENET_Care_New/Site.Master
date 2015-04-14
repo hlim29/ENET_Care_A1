@@ -49,64 +49,65 @@
                     <a class="navbar-brand" runat="server" href="~/">ENET Care</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li id="NewAccount" runat="server"><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a href="/Pages/Distribute.aspx">Distribute</a></li>
+                        <li id="distribute" runat="server"><a href="/Pages/Distribute.aspx">Distribute</a></li>
                         <!--- Register --->
-                        <li><a href="/Pages/Register.aspx">Register</a></li>
+                        <li id="register" runat="server"><a href="/Pages/Register.aspx">Register</a></li>
                         <!-- Send -->
-                        <li><a href="/Pages/Send.aspx">Send</a></li>
+                        <li id="send" runat="server"><a href="/Pages/Send.aspx">Send</a></li>
                         <!-- Receive -->
-                        <li><a href="/Pages/Receive.aspx">Receive</a></li>
+                        <li id="receive"><a href="/Pages/Receive.aspx">Receive</a></li>
                         <!--- Stock --->
-                        <li class="dropdown">
+                        <li class="dropdown" id="stock" runat="server">
                             <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">Stock</a>
                             <ul class="dropdown-menu">
                                 <!--- Stocktaking --->
-                                <li><a href="/Pages/Stocktaking.aspx">Stocktaking</a></li>
+                                <li id="stocktaking" runat="server"><a href="/Pages/Stocktaking.aspx">Stocktaking</a></li>
                                 <!--- Discard --->
-                                <li><a href="/Pages/Discard.aspx">Discard</a></li>
+                                <li id="discard" runat="server"><a href="/Pages/Discard.aspx">Discard</a></li>
                                 <!--- Remove loss --->
-                                <li><a href="/Pages/RemoveLoss.aspx">Remove Loss</a></li>
+                                <li id="removeLoss" runat="server"><a href="/Pages/RemoveLoss.aspx">Remove Loss</a></li>
                             </ul>
                         </li>
 
                         <!--- Reports --->
-                        <li class="dropdown">
+                        <li class="dropdown" id="reports">
                             <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">Reports</a>
                             <ul class="dropdown-menu">
 
                                 <!--- Distribution Centre Stock --->
-                                <li><a href="/Pages/DistributionCentreStockReport.aspx">Distribution Centre Stock</a></li>
+                                <li id="DCStock" runat="server"><a href="/Pages/DistributionCentreStockReport.aspx">Distribution Centre Stock</a></li>
 
                                 <!--- Distribution Centre Losses --->
-                                <li><a href="/Pages/DistributionCentreLossesReport.aspx">Distribution Centre Losses</a></li>
+                                <li id="DCLosses" runat="server"><a href="/Pages/DistributionCentreLossesReport.aspx">Distribution Centre Losses</a></li>
 
                                 <!--- Doctor Activity --->
-                                <li><a href="/Pages/DoctorActivityReport.aspx">Doctor Activity</a></li>
+                                <li id="DocActivity" runat="server"><a href="/Pages/DoctorActivityReport.aspx">Doctor Activity</a></li>
 
                                 <!--- Value in Transit --->
-                                <li><a href="/Pages/ValueInTransit.aspx">Value in Transit</a></li>
+                                <li id="ValueInTrasit" runat="server"><a href="/Pages/ValueInTransit.aspx">Value in Transit</a></li>
 
                                 <!--- GlobalStock --->
-                                <li><a href="/Pages/GlobalStock.aspx">Global Stock</a></li>
+                                <li id="GlobalStock" runat="server"><a href="/Pages/GlobalStock.aspx">Global Stock</a></li>
                             </ul>
 
                         </li>
 
                         <!-- My Information -->
-                        <li><a href="/Pages/MyInformation.aspx">MyInformation</a></li>
+                        <li id="myinformation" runat="server"><a href="/Pages/MyInformation.aspx">MyInformation</a></li>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName() %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
