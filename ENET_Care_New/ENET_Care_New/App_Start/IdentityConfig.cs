@@ -16,6 +16,8 @@ namespace ENET_Care_New
         {
             // Plug in your email service here to send an email.
             return Task.FromResult(0);
+
+
         }
     }
 
@@ -95,4 +97,5 @@ namespace ENET_Care_New
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
 }
