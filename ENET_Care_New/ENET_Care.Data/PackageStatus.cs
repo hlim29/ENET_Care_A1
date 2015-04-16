@@ -10,7 +10,12 @@ namespace ENET_Care.Data
     {
         public int Id { get; set; }
         public Package Package { get; set; }
-        public string Status { get; set; }
+
+        public StatusEnum Status { get; set; }
+        public enum StatusEnum
+        {
+            InTransit, InStock, Arrived, Lost
+        };
         public Staff Staff { get; set; }
         public DistributionCentre CentreSource { get; set; }
         public DistributionCentre CentreDestination { get; set; }

@@ -12,12 +12,10 @@
        <asp:label runat="server">
            Expire Date:
        </asp:label>
-        <asp:TextBox runat="server">
-
-        </asp:TextBox>
-        <asp:Calendar runat="server">
+        <asp:TextBox runat="server" ID="txtBoxExpiry" ReadOnly="True"></asp:TextBox>
+        <asp:Calendar runat="server" ID="CalendarExpiry" OnSelectionChanged="CalendarExpiry_SelectionChanged">
         </asp:Calendar>
         <br />
-       <asp:Button runat="server" text="Register" />
+       <asp:Button runat="server" text="Register" OnClick="Unnamed4_Click" />
     </div>
 </asp:Content>

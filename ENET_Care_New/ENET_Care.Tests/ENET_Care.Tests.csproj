@@ -53,9 +53,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DatabaseTests.cs" />
+    <Compile Include="PackageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ENET_Care.Business\ENET_Care.Business.csproj">
+      <Project>{5235c176-d048-42f5-afd5-6bc317945c86}</Project>
+      <Name>ENET_Care.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ENET_Care.Data\ENET_Care.Data.csproj">
       <Project>{b1f405d6-1317-4d64-bb1a-66715202b66e}</Project>
       <Name>ENET_Care.Data</Name>

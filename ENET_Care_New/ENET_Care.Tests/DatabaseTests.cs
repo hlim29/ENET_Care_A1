@@ -18,12 +18,6 @@ namespace ENET_Care.Tests
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.GetFullPath(@"..\..\..\ENET_Care_New\App_Data"));
         }
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
-
         [TestMethod()]
         public void Connection_OpenClose_Succeeds()
         {

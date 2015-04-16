@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using ENET_Care.Data.DataSetTableAdapters;
 
 namespace ENET_Care.Data
 {
@@ -12,7 +13,7 @@ namespace ENET_Care.Data
         DAO conn = new DAO();
         public void insertPackageStatus(PackageStatus packageStatus)
         {
-            SqlConnection objConn = conn.OpenConnection();
+            /*SqlConnection objConn = conn.OpenConnection();
 
             objConn.Open();
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
@@ -26,6 +27,12 @@ namespace ENET_Care.Data
             cmd.ExecuteNonQuery();
 
             objConn.Close();
+            */
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().InsertPackageStatus(packageStatus.Id, packageStatus.Package.BarCode, packageStatus.CentreSource.Id, packageStatus.CentreDestination.Id, (int)packageStatus.Status, packageStatus.Staff.Id);
+
+            }
 
         }
         public PackageStatus selectPackageStatus(String codeBar)

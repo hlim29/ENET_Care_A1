@@ -89,18 +89,19 @@ namespace ENET_Care_New
                 roleManager.Create(role);
             }
 
-             using(var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext())))
-             using (var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
-             {
-                 var user = um.FindByEmail("agent@enetcare.org");
-                 um.AddToRole(user.Id, "agent");
+            using (var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext())))
+            using (var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            {
+                var user = um.FindByEmail("agent@enetcare.org");
+                um.AddToRole(user.Id, "agent");
 
-                 user = um.FindByEmail("manager@enetcare.org");
-                 um.AddToRole(user.Id, "manager");
+                user = um.FindByEmail("manager@enetcare.org");
+                um.AddToRole(user.Id, "manager");
 
-                 user = um.FindByEmail("doctor@enetcare.org");
-                 um.AddToRole(user.Id, "doctor");
-             }
+                user = um.FindByEmail("doctor@enetcare.org");
+                um.AddToRole(user.Id, "doctor");
+            }
         }
+
     }
 }

@@ -21,7 +21,7 @@ namespace ENET_Care.Business
             PackageDAO pkgDao = new PackageDAO();
             PackageStatusDAO pkgStatusDao = new PackageStatusDAO();
 
-            pkgStatus.Status = "InStock";
+            pkgStatus.Status = PackageStatus.StatusEnum.InStock;
             pkgStatus.CentreSource = this.DistributionCentre;
             pkgStatus.CentreDestination = null;
 
