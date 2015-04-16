@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ENET_Care.Data;
-using ENET_Care.Data.DataSetTableAdapters;
 
 namespace ENET_Care.Business
 {
@@ -27,28 +26,23 @@ namespace ENET_Care.Business
             new Package().RegisterPackage(package);
         }
 
-        public static List<Package> GetPackages()
+        public static Dictionary<int, string> GetMedicationTypes()
         {
-            List<Package> result = new List<Package>();
-
-            /*
-            using (new DAO().OpenConnection())
+            Dictionary<int, string> result = new Dictionary<int, string>();
+            foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
             {
-                new PackageTableAdapter().GetData();
-
-                DataSet.PackageDataTable packages = new PackageTableAdapter().GetData();
-                foreach (DataSet.PackageRow row in packages)
-                {
-                    Package package = new Package();
-                    package.BarCode = row.PackageId;
-                    package.ExpiryDate = row.ExpiryDate;
-                    package.Quantity = row.Quantity;
-                    package.Medication = 
-                }
-                //connection.Close();
-
-            }*/
+                result.Add(medication.Id, medication.Description);
+            }
             return result;
         }
+
+        public static DateTime GetExpiryDate(int barcode)
+        {
+            MedicationStandardType medication = new Package().GetMedication(barcode);
+            DateTime result = DateTime.Now;
+            result = result.AddDays(medication.ShelfLife);
+            return result;
+        }
+
     }
 }

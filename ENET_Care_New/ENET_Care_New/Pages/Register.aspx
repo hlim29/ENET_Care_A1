@@ -5,8 +5,8 @@
        <asp:label runat="server">
            Package Type:
        </asp:label>
-        <asp:TextBox runat="server">
-        </asp:TextBox>
+          <asp:DropDownList ID="PackageTypeDropDown" runat="server" AutoPostBack="True" OnSelectedIndexChanged="PackageTypeDropDown_SelectedIndexChanged">
+          </asp:DropDownList>
         <br />
         
        <asp:label runat="server">

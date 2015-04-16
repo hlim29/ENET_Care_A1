@@ -6,6 +6,10 @@
 }
 
 namespace ENET_Care.Data.DataSetTableAdapters {
+    partial class PackageStandardTypeTableAdapter
+    {
+    }
+
     partial class DistCentreTableAdapter
     {
     }

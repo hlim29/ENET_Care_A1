@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENET_Care.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,14 @@ namespace ENET_Care_New.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Dictionary<int, string> data = CentreLogic.GetAllCentres();
+                CentreDropDownList.DataSource = data;
+                CentreDropDownList.DataTextField = "Value";
+                CentreDropDownList.DataValueField = "Key";
+                CentreDropDownList.DataBind();
+            }
         }
     }
 }

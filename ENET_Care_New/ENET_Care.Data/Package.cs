@@ -23,27 +23,28 @@ namespace ENET_Care.Data
 
             using (new DAO().OpenConnection())
             {
-               DataSet.PackageDataTable packageData = new PackageTableAdapter().GetDataByPackageId(BarCode);
-               packageData.Rows[0]["Id"] = result.BarCode;
-               packageData.Rows[0]["ExpiryDate"] = result.ExpiryDate;
-               packageData.Rows[0]["Quantity"] = result.Quantity;
+                DataSet.PackageDataTable packageData = new PackageTableAdapter().GetDataByPackageId(BarCode);
+                packageData.Rows[0]["Id"] = result.BarCode;
+                packageData.Rows[0]["ExpiryDate"] = result.ExpiryDate;
+                packageData.Rows[0]["Quantity"] = result.Quantity;
                 //new PackageTableAdapter().GetDataByPackageId(BarCode);
                 //new DistCentreTableAdapter().NewCentre(dc.Name, dc.Address, dc.PhoneNumber);
             }
             return result;
         }
 
+
         public void RegisterPackage(Package package)
         {
             using (new DAO().OpenConnection())
             {
-                new PackageTableAdapter().RegisterPackage(package.BarCode,package.Medication.Id,package.ExpiryDate.ToString(),package.Quantity);
+                new PackageTableAdapter().RegisterPackage(package.BarCode, package.Medication.Id, package.ExpiryDate.ToString(), package.Quantity);
             }
         }
 
         public void DeletePackage(int id)
         {
-            
+
             using (new DAO().OpenConnection())
             {
                 new PackageTableAdapter().DeletePackageById(id);
@@ -64,7 +65,7 @@ namespace ENET_Care.Data
                     package.BarCode = row.PackageId;
                     package.ExpiryDate = row.ExpiryDate;
                     package.Quantity = row.Quantity;
-                    package.Medication = RetrieveMedication(row.PackageStandardTypeId);
+                    package.Medication = GetMedication(row.PackageStandardTypeId);
                     result.Add(package);
                 }
 
@@ -72,15 +73,12 @@ namespace ENET_Care.Data
             return result;
         }
 
-        public MedicationStandardType RetrieveMedication(int id)
+        public MedicationStandardType GetMedication(int id)
         {
             MedicationStandardType result = new MedicationStandardType();
             using (new DAO().OpenConnection())
             {
                 DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetPackageStandardTypeById(id);
-
-                if (medications.Count == 1)
-                {
                     foreach (DataSet.PackageStandardTypeRow row in medications)
                     {
                         result.Id = row.Id;
@@ -90,12 +88,28 @@ namespace ENET_Care.Data
                         result.ShelfLife = row.ShelfLife;
                         result.Cost = row.Cost;
                     }
-                }
-                else
-                {
-                    throw new Exception("No medication");
-                }
 
+            }
+            return result;
+        }
+
+        public List<MedicationStandardType> RetrieveAllPackageTypes()
+        {
+            List<MedicationStandardType> result = new List<MedicationStandardType>();
+            using (new DAO().OpenConnection())
+            {
+                DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetData();
+                foreach (DataSet.PackageStandardTypeRow row in medications)
+                {
+                    MedicationStandardType medication = new MedicationStandardType();
+                    medication.Id = row.Id;
+                    medication.IsTempSensitive = row.IsTempSensitive;
+                    medication.Description = row.Description;
+                    medication.Quantity = row.Quantity;
+                    medication.ShelfLife = row.ShelfLife;
+                    medication.Cost = row.Cost;
+                    result.Add(medication);
+                }
             }
             return result;
         }

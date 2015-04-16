@@ -14,7 +14,7 @@ namespace ENET_Care.Data
         public StatusEnum Status { get; set; }
         public enum StatusEnum
         {
-            InTransit, InStock, Arrived, Lost
+            InTransit, InStock, Lost
         };
         public Staff Staff { get; set; }
         public DistributionCentre CentreSource { get; set; }

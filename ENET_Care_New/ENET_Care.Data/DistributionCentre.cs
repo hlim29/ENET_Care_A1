@@ -1,4 +1,5 @@
 ﻿
+using ENET_Care.Data.DataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,6 +17,10 @@ namespace ENET_Care.Data
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
 
+        public DistributionCentre()
+        {
+
+        }
         public DistributionCentre(int Id, string Name, string Address, string PhoneNumber)
         {
             this.Id = Id;
@@ -23,7 +28,25 @@ namespace ENET_Care.Data
             this.Address = Address;
             this.PhoneNumber = PhoneNumber;
         }
-        
+
+        public List<DistributionCentre> GetAllCentres()
+        {
+            List<DistributionCentre> result = new List<DistributionCentre>();
+            using (new DAO().OpenConnection())
+            {
+                DataSet.DistCentreDataTable centres = new DistCentreTableAdapter().GetData();
+
+                foreach (DataSet.DistCentreRow row in centres)
+                {
+                    DistributionCentre centre = new DistributionCentre(
+                        row.CentreID, row.CentreName, row.CentreAddress, row.PhoneNumber
+                        );
+                    result.Add(centre);
+                }
+                
+            }
+            return result;
+        }
 
     }
 }
