@@ -36,10 +36,21 @@ namespace ENET_Care.Data
 
         public void RegisterPackage(Package package)
         {
+            int result = -1;
             using (new DAO().OpenConnection())
             {
-                new PackageTableAdapter().RegisterPackage(package.BarCode, package.Medication.Id, package.ExpiryDate.ToString(), package.Quantity);
+                result = (int)new PackageTableAdapter().RegisterPackage(package.Medication.Id, package.ExpiryDate.ToString());
             }
+        }
+
+        public int RegisterPackage(DateTime expiryDate, string medicationId)
+        {
+            int result = -1;
+            using (new DAO().OpenConnection())
+            {
+                result = (int)new PackageTableAdapter().RegisterPackage(int.Parse(medicationId), expiryDate.ToString("yyyy-MM-dd HH:mm:ss"));
+            }
+            return result;
         }
 
         public void DeletePackage(int id)
@@ -64,7 +75,6 @@ namespace ENET_Care.Data
                     Package package = new Package();
                     package.BarCode = row.PackageId;
                     package.ExpiryDate = row.ExpiryDate;
-                    package.Quantity = row.Quantity;
                     package.Medication = GetMedication(row.PackageStandardTypeId);
                     result.Add(package);
                 }

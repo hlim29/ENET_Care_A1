@@ -14,7 +14,7 @@ namespace ENET_Care.Business
             Ok, PastDate, NoDate, Default
         };
 
-        public static Result ValidateInput(DateTime expiryDate, string packageName)
+        public static Result ValidateInput(DateTime expiryDate)
         {
             if (expiryDate < DateTime.Now)
                 return Result.PastDate;
@@ -24,6 +24,17 @@ namespace ENET_Care.Business
 
         public static void AddPackage(Package package){
             new Package().RegisterPackage(package);
+        }
+
+        public static int RegisterPackage(DateTime expiryDate, string medicationId)
+        {
+            int result = -1;
+            if (ValidateInput(expiryDate) == Result.Ok)
+            {
+                result = new Package().RegisterPackage(expiryDate, medicationId);
+            }
+            return result;
+            //System.Diagnostics.Debug.WriteLine(ValidateInput(expiryDate, medicationId).ToString());
         }
 
         public static Dictionary<int, string> GetMedicationTypes()

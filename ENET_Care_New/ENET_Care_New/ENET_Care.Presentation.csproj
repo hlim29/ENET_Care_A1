@@ -184,6 +184,7 @@
     <Content Include="Pages\MyInformation.aspx" />
     <Content Include="Pages\Receive.aspx" />
     <Content Include="Pages\Register.aspx" />
+    <Content Include="Pages\RegSuccess.aspx" />
     <Content Include="Pages\RemoveLoss.aspx" />
     <Content Include="Pages\Send.aspx" />
     <Content Include="Pages\Stocktaking.aspx" />
@@ -424,6 +425,13 @@
     </Compile>
     <Compile Include="Pages\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegSuccess.aspx.cs">
+      <DependentUpon>RegSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegSuccess.aspx.designer.cs">
+      <DependentUpon>RegSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RemoveLoss.aspx.cs">
       <DependentUpon>RemoveLoss.aspx</DependentUpon>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ENET_Care.Business;
+using System.Globalization;
 
 namespace ENET_Care_New.Pages
 {
@@ -24,19 +25,23 @@ namespace ENET_Care_New.Pages
 
         protected void CalendarExpiry_SelectionChanged(object sender, EventArgs e)
         {
-            txtBoxExpiry.Text = CalendarExpiry.SelectedDate.ToShortDateString();
+            txtBoxExpiry.Text = CalendarExpiry.SelectedDate.ToString("dd/MM/yyyy");
         }
 
         protected void Unnamed4_Click(object sender, EventArgs e)
         {
-            PackageLogic.Result result = PackageLogic.ValidateInput(CalendarExpiry.SelectedDate, txtBoxExpiry.Text);
-            System.Diagnostics.Debug.WriteLine(result.ToString());
+            int result = PackageLogic.RegisterPackage(DateTime.ParseExact(txtBoxExpiry.Text,"dd/MM/yyyy", null), PackageTypeDropDown.SelectedValue);
+
+            if (result != -1)
+            {
+                Response.Redirect("RegSuccess.aspx?id=" + result);
+            }
         }
 
         protected void PackageTypeDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateTime expiry = PackageLogic.GetExpiryDate(int.Parse(PackageTypeDropDown.SelectedValue));
-            txtBoxExpiry.Text = expiry.ToShortDateString();
+            txtBoxExpiry.Text = expiry.ToString("dd/MM/yyyy");
             //System.Diagnostics.Debug.WriteLine(PackageTypeDropDown.SelectedValue);
         }
 

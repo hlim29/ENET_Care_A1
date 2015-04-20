@@ -13,8 +13,16 @@ namespace ENET_Care.Tests
         public void PackageTest_ExpirationDateTest_Past()
         {
             DateTime pastDate = new DateTime(2000, 01, 01, 00, 00, 00);
-            PackageLogic.Result result = PackageLogic.ValidateInput(pastDate, "Test package");
+            PackageLogic.Result result = PackageLogic.ValidateInput(pastDate);
             Assert.AreEqual(PackageLogic.Result.PastDate, result);
+        }
+
+        [TestMethod]
+        public void PackageTest_ExpirationDateTest_Future()
+        {
+            DateTime pastDate = DateTime.ParseExact("10/10/2100", "dd/MM/yyyy", null);
+            PackageLogic.Result result = PackageLogic.ValidateInput(pastDate);
+            Assert.AreEqual(PackageLogic.Result.Ok, result);
         }
 
         [TestMethod]

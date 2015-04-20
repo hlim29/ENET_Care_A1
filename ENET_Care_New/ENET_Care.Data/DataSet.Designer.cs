@@ -4450,13 +4450,12 @@ SELECT PackageId, PackageStandardTypeId, ExpiryDate, Quantity FROM Package WHERE
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[Package] ([PackageId], [PackageStandardTypeId], [ExpiryDate], [Quantity]) VALUES (@PackageId, @PackageStandardTypeId, @ExpiryDate, @Quantity);
-SELECT PackageId, PackageStandardTypeId, ExpiryDate, Quantity FROM Package WHERE (PackageId = @PackageId)";
+            this._commandCollection[3].CommandText = "INSERT INTO Package\r\n                         (PackageStandardTypeId, ExpiryDate)" +
+                "\r\nOUTPUT       Inserted.PackageId\r\nVALUES        (@PackageStandardTypeId,@Expiry" +
+                "Date);    ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStandardTypeId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStandardTypeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExpiryDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4711,42 +4710,41 @@ SELECT PackageId, PackageStandardTypeId, ExpiryDate, Quantity FROM Package WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int RegisterPackage(int PackageId, global::System.Nullable<int> PackageStandardTypeId, string ExpiryDate, global::System.Nullable<int> Quantity) {
+        public virtual object RegisterPackage(global::System.Nullable<int> PackageStandardTypeId, string ExpiryDate) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
-            command.Parameters[0].Value = ((int)(PackageId));
             if ((PackageStandardTypeId.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(PackageStandardTypeId.Value));
+                command.Parameters[0].Value = ((int)(PackageStandardTypeId.Value));
             }
             else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
+                command.Parameters[0].Value = global::System.DBNull.Value;
             }
             if ((ExpiryDate == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((string)(ExpiryDate));
-            }
-            if ((Quantity.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(Quantity.Value));
-            }
-            else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
+                command.Parameters[1].Value = ((string)(ExpiryDate));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     
