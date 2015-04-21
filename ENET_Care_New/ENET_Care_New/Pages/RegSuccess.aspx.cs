@@ -26,6 +26,10 @@ namespace ENET_Care_New.Pages
             
         }
 
+        /// <summary>
+        /// This method generates a barcode and outputs it to a placeholder
+        /// Code derived from: http://www.aspsnippets.com/Articles/Dynamically-Generate-and-Display-Barcode-Image-in-ASPNet.aspx
+        /// </summary>
         protected void Generate_Barcode()
         {
             string barCode = BarcodeLabel.Text;
