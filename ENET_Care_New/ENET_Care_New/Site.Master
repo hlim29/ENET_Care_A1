@@ -57,6 +57,9 @@
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
+                         <LoggedInTemplate>
+
+                        </LoggedInTemplate>
                         <RoleGroups>
                             <asp:RoleGroup Roles="doctor">
                                     <ContentTemplate>
@@ -67,7 +70,7 @@
                                                 <li id="register" runat="server"><a href="/Pages/Register.aspx">Register</a></li>
                                                 <!-- Send -->
                                                 <li id="send" runat="server"><a href="/Pages/Send.aspx">Send</a></li>
-                                           s     <!-- Receive -->
+                                                <!-- Receive -->
                                                 <li id="receive"><a href="/Pages/Receive.aspx">Receive</a></li>
                                                 <!--- Stock --->
                                                 <li class="dropdown" id="stock" runat="server">
@@ -92,14 +95,16 @@
                                     </ContentTemplate>
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="agent">
+
                                     <ContentTemplate>
+                                        Agent
                                             <ul class="nav navbar-nav">
                                                 <li><a runat="server" href="~/">Home</a></li>
                                                 <!--- Register --->
                                                 <li id="register" runat="server"><a href="/Pages/Register.aspx">Register</a></li>
                                                 <!-- Send -->
                                                 <li id="send" runat="server"><a href="/Pages/Send.aspx">Send</a></li>
-                                           s     <!-- Receive -->
+                                                <!-- Receive -->
                                                 <li id="receive"><a href="/Pages/Receive.aspx">Receive</a></li>
                                                 <!--- Stock --->
                                                 <li class="dropdown" id="stock" runat="server">
@@ -116,7 +121,6 @@
                                                 <li id="myinformation" runat="server"><a href="/Pages/MyInformation.aspx">MyInformation</a></li>
                                              </ul>
                                             <ul class="nav navbar-nav navbar-right">
-<%--                                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName() %> !</a></li>--%>
                                                 <li>
                                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                                 </li>
@@ -125,6 +129,7 @@
                              </asp:RoleGroup>
                              <asp:RoleGroup Roles="manager">
                                    <ContentTemplate>
+                                       Manager
                                             <ul class="nav navbar-nav">
                                                 <li><a runat="server" href="~/">Home</a></li>
                                                 <!--- Reports --->
@@ -158,9 +163,7 @@
                                         </ContentTemplate>
                                     </asp:RoleGroup>
                                 </RoleGroups>                       
-                        <LoggedInTemplate>
-
-                        </LoggedInTemplate>
+                       
                     </asp:LoginView>
                 </div>
             </div>
