@@ -14,14 +14,14 @@ namespace ENET_Care_New.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                Dictionary<int, string> data = PackageLogic.GetMedicationTypes();
-                PackageTypeDropDown.DataSource = data;
-                PackageTypeDropDown.DataTextField = "Value";
-                PackageTypeDropDown.DataValueField = "Key";
-                PackageTypeDropDown.DataBind();
-            }
+            //if (!IsPostBack)
+            //{
+            //    Dictionary<int, string> data = PackageLogic.GetMedicationTypes();
+            //    PackageTypeDropDown.DataSource = data;
+            //    PackageTypeDropDown.DataTextField = "Value";
+            //    PackageTypeDropDown.DataValueField = "Key";
+            //    PackageTypeDropDown.DataBind();
+            //}
         }
 
         protected void CalendarExpiry_SelectionChanged(object sender, EventArgs e)

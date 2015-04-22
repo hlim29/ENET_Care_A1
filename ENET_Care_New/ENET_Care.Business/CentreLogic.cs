@@ -11,12 +11,12 @@ namespace ENET_Care.Business
     {
         public static Dictionary<int, string> GetAllCentres()
         {
-            Dictionary<int, string> result = new Dictionary<int, string>();
-            foreach (DistributionCentre centre in new DistributionCentre().GetAllCentres())
-            {
-                result.Add(centre.Id, centre.Name);
-            }
-            return result;
+            //Dictionary<int, string> result = new Dictionary<int, string>();
+            //foreach (DistributionCentre centre in new DistributionCentre().GetAllCentres())
+            //{
+            //    result.Add(centre.Id, centre.Name);
+            //}
+            //return result;
         }
     }
 }

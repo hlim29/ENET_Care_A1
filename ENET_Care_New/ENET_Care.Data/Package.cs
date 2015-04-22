@@ -105,23 +105,23 @@ namespace ENET_Care.Data
 
         public List<MedicationStandardType> RetrieveAllPackageTypes()
         {
-            List<MedicationStandardType> result = new List<MedicationStandardType>();
-            using (new DAO().OpenConnection())
-            {
-                DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetData();
-                foreach (DataSet.PackageStandardTypeRow row in medications)
-                {
-                    MedicationStandardType medication = new MedicationStandardType();
-                    medication.Id = row.Id;
-                    medication.IsTempSensitive = row.IsTempSensitive;
-                    medication.Description = row.Description;
-                    medication.Quantity = row.Quantity;
-                    medication.ShelfLife = row.ShelfLife;
-                    medication.Cost = row.Cost;
-                    result.Add(medication);
-                }
-            }
-            return result;
+        //    List<MedicationStandardType> result = new List<MedicationStandardType>();
+        //    using (new DAO().OpenConnection())
+        //    {
+        //        DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetData();
+        //        foreach (DataSet.PackageStandardTypeRow row in medications)
+        //        {
+        //            MedicationStandardType medication = new MedicationStandardType();
+        //            medication.Id = row.Id;
+        //            medication.IsTempSensitive = row.IsTempSensitive;
+        //            medication.Description = row.Description;
+        //            medication.Quantity = row.Quantity;
+        //            medication.ShelfLife = row.ShelfLife;
+        //            medication.Cost = row.Cost;
+        //            result.Add(medication);
+        //        }
+        //    }
+        //    return result;
         }
 
 

@@ -39,12 +39,12 @@ namespace ENET_Care.Business
 
         public static Dictionary<int, string> GetMedicationTypes()
         {
-            Dictionary<int, string> result = new Dictionary<int, string>();
-            foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
-            {
-                result.Add(medication.Id, medication.Description);
-            }
-            return result;
+            //Dictionary<int, string> result = new Dictionary<int, string>();
+            //foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
+            //{
+            //    result.Add(medication.Id, medication.Description);
+            //}
+            //return result;
         }
 
         public static LinkedList<MedicationStandardType> GetMedicationList()
