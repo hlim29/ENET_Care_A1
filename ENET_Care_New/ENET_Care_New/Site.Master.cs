@@ -63,6 +63,10 @@ namespace ENET_Care_New
                 {
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
+                //if (Roles.IsUserInRole("admin"))
+                //{
+                    
+                //}
             }
         }
 
