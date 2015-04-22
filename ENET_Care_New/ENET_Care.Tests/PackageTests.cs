@@ -39,18 +39,21 @@ namespace ENET_Care.Tests
         public void PackageTest_AddPackages_PackageCountInreased()
         {
             int packageTotal = new Package().RetrieveAllPackages().Count;
-            PackageLogic.AddPackage(new Package());
+            Package p = new Package();
+            p.ExpiryDate = new DateTime(2016, 01, 01);
+            p.Medication = PackageLogic.GetMedicationList().Last.Value;
+            PackageLogic.AddPackage(p);
             Assert.AreEqual(packageTotal+1, new Package().RetrieveAllPackages().Count);
         }
         /**
-         * Checking wether registering package successful
+         * Checking whether registering package successful
          * With successfulcase (Expirydate is in the future)
          * */
         [TestMethod]
         public void PackageTest_RegisterPackage_SuccessCase()
         {
             DateTime futureDate = new DateTime(2100, 10, 10);
-            Assert.AreNotEqual(-1, PackageLogic.RegisterPackage(futureDate, "MedicationId"));
+            Assert.AreNotEqual(-1, PackageLogic.RegisterPackage(futureDate, "1"));
         }
 
         /**
@@ -61,8 +64,8 @@ namespace ENET_Care.Tests
         public void PackageTest_GetExpiryDate()
         {
             DateTime futureDate = new DateTime(2111, 01, 01);
-            int barcode = PackageLogic.RegisterPackage(futureDate, "MedicationId");
-            Assert.AreEqual(futureDate, PackageLogic.GetExpiryDate(barcode));
+            int barcode = PackageLogic.RegisterPackage(futureDate, "1");
+            Assert.AreEqual(futureDate, PackageLogic.GetPackageByBarcode(barcode).ExpiryDate);
         }
 
     }

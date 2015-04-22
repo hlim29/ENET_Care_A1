@@ -24,9 +24,9 @@ namespace ENET_Care.Data
             using (new DAO().OpenConnection())
             {
                 DataSet.PackageDataTable packageData = new PackageTableAdapter().GetDataByPackageId(BarCode);
-                packageData.Rows[0]["Id"] = result.BarCode;
-                packageData.Rows[0]["ExpiryDate"] = result.ExpiryDate;
-                packageData.Rows[0]["Quantity"] = result.Quantity;
+                result.BarCode = int.Parse(packageData.Rows[0]["PackageId"].ToString());
+                result.ExpiryDate = DateTime.Parse(packageData.Rows[0]["ExpiryDate"].ToString());
+                //result.Quantity = int.Parse(packageData.Rows[0]["Quantity"].ToString());
                 //new PackageTableAdapter().GetDataByPackageId(BarCode);
                 //new DistCentreTableAdapter().NewCentre(dc.Name, dc.Address, dc.PhoneNumber);
             }
@@ -39,7 +39,7 @@ namespace ENET_Care.Data
             int result = -1;
             using (new DAO().OpenConnection())
             {
-                result = (int)new PackageTableAdapter().RegisterPackage(package.Medication.Id, package.ExpiryDate.ToString());
+                result = (int)new PackageTableAdapter().RegisterPackage(package.Medication.Id, package.ExpiryDate.ToString("yyyy-MM-dd HH:mm:ss"));
             }
         }
 
@@ -89,15 +89,15 @@ namespace ENET_Care.Data
             using (new DAO().OpenConnection())
             {
                 DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetPackageStandardTypeById(id);
-                    foreach (DataSet.PackageStandardTypeRow row in medications)
-                    {
-                        result.Id = row.Id;
-                        result.IsTempSensitive = row.IsTempSensitive;
-                        result.Description = row.Description;
-                        result.Quantity = row.Quantity;
-                        result.ShelfLife = row.ShelfLife;
-                        result.Cost = row.Cost;
-                    }
+                foreach (DataSet.PackageStandardTypeRow row in medications)
+                {
+                    result.Id = row.Id;
+                    result.IsTempSensitive = row.IsTempSensitive;
+                    result.Description = row.Description;
+                    result.Quantity = row.Quantity;
+                    result.ShelfLife = row.ShelfLife;
+                    result.Cost = row.Cost;
+                }
 
             }
             return result;
@@ -123,5 +123,7 @@ namespace ENET_Care.Data
             }
             return result;
         }
+
+
     }
 }

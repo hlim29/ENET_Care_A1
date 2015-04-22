@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ENET_Care_New.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Principal;

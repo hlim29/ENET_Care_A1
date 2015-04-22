@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ENET_Care.Business;
 using System.Globalization;
+using Microsoft.AspNet.Identity;
 
 namespace ENET_Care_New.Pages
 {
@@ -34,6 +35,7 @@ namespace ENET_Care_New.Pages
 
             if (result != -1)
             {
+                //PackageStatusLogic.RegisterArrival(result, User.Identity.GetUserId());
                 Response.Redirect("RegSuccess.aspx?id=" + result);
             }
         }

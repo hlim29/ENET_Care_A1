@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENET_Care.Data.DataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,11 @@ namespace ENET_Care.Data
         public void RetrieveFromDatabase()
         {
             //dummy code - get from db
+        }
+
+        public void GetCentreId(string userId)
+        {
+            new AspNetUsersTableAdapter().GetCentreIdByUser(userId);
         }
     }
 }

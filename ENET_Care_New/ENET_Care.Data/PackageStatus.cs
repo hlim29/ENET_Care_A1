@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENET_Care.Data.DataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +20,13 @@ namespace ENET_Care.Data
         public Staff Staff { get; set; }
         public DistributionCentre CentreSource { get; set; }
         public DistributionCentre CentreDestination { get; set; }
+
+        public void RegisterArrival(int packageId, int centreId,string staffId)
+        {
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().RegisterArrival(packageId,centreId,(int)StatusEnum.InStock,staffId);
+            }
+        }
     }
 }

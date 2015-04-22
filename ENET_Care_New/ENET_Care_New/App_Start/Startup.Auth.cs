@@ -100,6 +100,33 @@ namespace ENET_Care_New
 
                 user = um.FindByEmail("doctor@enetcare.org");
                 um.AddToRole(user.Id, "doctor");
+
+                 user = um.FindByEmail("agent1@enetcare.org");
+                um.AddToRole(user.Id, "agent");
+
+                user = um.FindByEmail("manager1@enetcare.org");
+                um.AddToRole(user.Id, "manager");
+
+                user = um.FindByEmail("doctor1@enetcare.org");
+                um.AddToRole(user.Id, "doctor");
+
+                user = um.FindByEmail("agent2@enetcare.org");
+                um.AddToRole(user.Id, "agent");
+
+                user = um.FindByEmail("manager2@enetcare.org");
+                um.AddToRole(user.Id, "manager");
+
+                user = um.FindByEmail("doctor2@enetcare.org");
+                um.AddToRole(user.Id, "doctor");
+
+               user = um.FindByEmail("agent3@enetcare.org");
+                um.AddToRole(user.Id, "agent");
+
+                user = um.FindByEmail("manager3@enetcare.org");
+                um.AddToRole(user.Id, "manager");
+
+                user = um.FindByEmail("doctor3@enetcare.org");
+                um.AddToRole(user.Id, "doctor");
             }
         }
 

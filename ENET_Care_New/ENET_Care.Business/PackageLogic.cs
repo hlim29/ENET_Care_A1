@@ -47,12 +47,32 @@ namespace ENET_Care.Business
             return result;
         }
 
+        public static LinkedList<MedicationStandardType> GetMedicationList()
+        {
+            LinkedList<MedicationStandardType> result = new LinkedList<MedicationStandardType>();
+            foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
+            {
+                result.AddLast(medication);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Retrieves the default expiry date - the current date plus the expiry date listed on the medication
+        /// </summary>
+        /// <param name="barcode"></param>
+        /// <returns></returns>
         public static DateTime GetExpiryDate(int barcode)
         {
             MedicationStandardType medication = new Package().GetMedication(barcode);
             DateTime result = DateTime.Now;
             result = result.AddDays(medication.ShelfLife);
             return result;
+        }
+
+        public static Package GetPackageByBarcode(int barcode)
+        {
+            return new Package().GetPackageByBarcode(barcode);
         }
 
     }
