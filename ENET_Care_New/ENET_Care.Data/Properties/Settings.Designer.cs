@@ -26,13 +26,24 @@ namespace ENET_Care.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\v11.0;AttachDbFilename=C:\\Users\\Henry\\Source\\Repos\\enet-car" +
-            "e-system\\ENET_Care_New\\ENET_Care_New\\App_Data\\aspnet-ENET_Care_New-2015040707393" +
-            "9.mdf;Initial Catalog=aspnet-ENET_Care_New-20150407073939;Integrated Security=Tr" +
-            "ue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\v11.0;AttachDbFilename=|DataDirectory|\\aspnet-ENET_Care_New" +
+            "-20150407073939.mdf;Initial Catalog=aspnet-ENET_Care_New-20150407073939;Integrat" +
+            "ed Security=True")]
         public string aspnet_ENET_Care_New_20150407073939ConnectionString {
             get {
                 return ((string)(this["aspnet_ENET_Care_New_20150407073939ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\Henry\\Source\\Repos\\enet-car" +
+            "e-system\\ENET_Care_New\\ENET_Care_New\\App_Data\\aspnet-ENET_Care_New-2015040707393" +
+            "9.mdf;Integrated Security=True")]
+        public string aspnet_ENET_Care_New_20150407073939ConnectionString1 {
+            get {
+                return ((string)(this["aspnet_ENET_Care_New_20150407073939ConnectionString1"]));
             }
         }
     }
