@@ -31,13 +31,26 @@ namespace ENET_Care_New.Pages
 
         protected void Unnamed4_Click(object sender, EventArgs e)
         {
-            int result = PackageLogic.RegisterPackage(DateTime.ParseExact(txtBoxExpiry.Text,"dd/MM/yyyy", null), PackageTypeDropDown.SelectedValue);
+            WarningNoDate.Visible = false;
+            WarningPastDate.Visible = false;
 
-            if (result != -1)
+            if (txtBoxExpiry.Text == "")
             {
-                //PackageStatusLogic.RegisterArrival(result, User.Identity.GetUserId());
-                Response.Redirect("RegSuccess.aspx?id=" + result);
+                WarningNoDate.Visible = true;
+            } else if (DateTime.ParseExact(txtBoxExpiry.Text, "dd/MM/yyyy", null) < DateTime.Today ){
+                WarningPastDate.Visible = true;
             }
+            else
+            {
+                int result = PackageLogic.RegisterPackage(DateTime.ParseExact(txtBoxExpiry.Text, "dd/MM/yyyy", null), PackageTypeDropDown.SelectedValue);
+
+                if (result != -1)
+                {
+                    //PackageStatusLogic.RegisterArrival(result, User.Identity.GetUserId());
+                    Response.Redirect("RegSuccess.aspx?id=" + result);
+                }
+            }
+            
         }
 
         protected void PackageTypeDropDown_SelectedIndexChanged(object sender, EventArgs e)

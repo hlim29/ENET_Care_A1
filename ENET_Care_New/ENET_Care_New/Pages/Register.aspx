@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       <div>
           <h1>Register a package</h1>
+          <asp:Label ID="WarningNoDate" runat="server" Text="Please select an expiry date" Visible="False"></asp:Label>
+          <br />
+          <asp:Label ID="WarningPastDate" runat="server" Text="Please select a future date for the expiry" Visible="False"></asp:Label>
+          <br />
        <asp:label runat="server">
            Package Type:
        </asp:label>
@@ -10,7 +14,7 @@
         <br />
         
        <asp:label runat="server">
-           Expire Date:
+           Expiry Date:
        </asp:label>
         <asp:TextBox runat="server" ID="txtBoxExpiry" ReadOnly="True"></asp:TextBox>
         <asp:Calendar runat="server" ID="CalendarExpiry" OnSelectionChanged="CalendarExpiry_SelectionChanged">

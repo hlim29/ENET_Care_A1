@@ -13,6 +13,24 @@ namespace ENET_Care_New.Pages {
     public partial class WebForm1 {
         
         /// <summary>
+        /// WarningNoDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label WarningNoDate;
+        
+        /// <summary>
+        /// WarningPastDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label WarningPastDate;
+        
+        /// <summary>
         /// PackageTypeDropDown control.
         /// </summary>
         /// <remarks>
