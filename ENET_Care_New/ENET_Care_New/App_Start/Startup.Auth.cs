@@ -17,6 +17,7 @@ namespace ENET_Care_New
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)
         {
+
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
@@ -65,6 +66,8 @@ namespace ENET_Care_New
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            /*
             var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
 
@@ -127,8 +130,11 @@ namespace ENET_Care_New
 
                 user = um.FindByEmail("doctor3@enetcare.org");
                 um.AddToRole(user.Id, "doctor");
+             * 
+             * */
+
             }
         }
 
     }
-}
+

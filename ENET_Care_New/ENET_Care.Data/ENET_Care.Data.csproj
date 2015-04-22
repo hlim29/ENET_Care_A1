@@ -63,7 +63,6 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DistributionCentre.cs" />
-    <Compile Include="Main.cs" />
     <Compile Include="MedicationStandardTypes.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="PackageDAO.cs" />

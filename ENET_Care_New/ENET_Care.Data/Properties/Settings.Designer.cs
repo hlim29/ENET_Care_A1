@@ -46,5 +46,29 @@ namespace ENET_Care.Data.Properties {
                 return ((string)(this["aspnet_ENET_Care_New_20150407073939ConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\v11.0;AttachDbFilename=|DataDirectory|\\aspnet-ENET_Care_New" +
+            "-20150407073939.mdf;Initial Catalog=aspnet-ENET_Care_New-20150407073939;Integrat" +
+            "ed Security=True")]
+        public string aspnet_ENET_Care_New_20150407073939ConnectionString2 {
+            get {
+                return ((string)(this["aspnet_ENET_Care_New_20150407073939ConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\v11.0;AttachDbFilename=|DataDirectory|\\aspnet-ENET_Care_New" +
+            "-20150407073939.mdf;Initial Catalog=aspnet-ENET_Care_New-20150407073939;Integrat" +
+            "ed Security=True")]
+        public string aspnet_ENET_Care_New_20150407073939ConnectionString3 {
+            get {
+                return ((string)(this["aspnet_ENET_Care_New_20150407073939ConnectionString3"]));
+            }
+        }
     }
 }
