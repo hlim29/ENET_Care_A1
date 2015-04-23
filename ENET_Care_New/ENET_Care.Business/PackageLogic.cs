@@ -37,23 +37,23 @@ namespace ENET_Care.Business
             //System.Diagnostics.Debug.WriteLine(ValidateInput(expiryDate, medicationId).ToString());
         }
 
-        public static Dictionary<int, string> GetMedicationTypes()
-        {
+        //public static Dictionary<int, string> GetMedicationTypes()
+        //{
             //Dictionary<int, string> result = new Dictionary<int, string>();
             //foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
             //{
             //    result.Add(medication.Id, medication.Description);
             //}
             //return result;
-        }
+        //}
 
         public static LinkedList<MedicationStandardType> GetMedicationList()
         {
             LinkedList<MedicationStandardType> result = new LinkedList<MedicationStandardType>();
-            foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
-            {
-                result.AddLast(medication);
-            }
+            //foreach (MedicationStandardType medication in new Package().RetrieveAllPackageTypes())
+            //{
+            //    result.AddLast(medication);
+            //}
             return result;
         }
 

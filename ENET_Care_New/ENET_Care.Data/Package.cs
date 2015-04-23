@@ -103,8 +103,8 @@ namespace ENET_Care.Data
             return result;
         }
 
-        public List<MedicationStandardType> RetrieveAllPackageTypes()
-        {
+        //public List<MedicationStandardType> RetrieveAllPackageTypes()
+        //{
         //    List<MedicationStandardType> result = new List<MedicationStandardType>();
         //    using (new DAO().OpenConnection())
         //    {
@@ -122,7 +122,7 @@ namespace ENET_Care.Data
         //        }
         //    }
         //    return result;
-        }
+        //}
 
 
     }

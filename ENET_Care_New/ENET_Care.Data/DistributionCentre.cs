@@ -29,24 +29,24 @@ namespace ENET_Care.Data
             this.PhoneNumber = PhoneNumber;
         }
 
-        public List<DistributionCentre> GetAllCentres()
-        {
-            //List<DistributionCentre> result = new List<DistributionCentre>();
-            //using (new DAO().OpenConnection())
-            //{
-            //    DataSet.DistCentreDataTable centres = new DistCentreTableAdapter().GetData();
+        //public List<DistributionCentre> GetAllCentres()
+        //{
+        //    //List<DistributionCentre> result = new List<DistributionCentre>();
+        //    //using (new DAO().OpenConnection())
+        //    //{
+        //    //    DataSet.DistCentreDataTable centres = new DistCentreTableAdapter().GetData();
 
-            //    foreach (DataSet.DistCentreRow row in centres)
-            //    {
-            //        DistributionCentre centre = new DistributionCentre(
-            //            row.CentreID, row.CentreName, row.CentreAddress, row.PhoneNumber
-            //            );
-            //        result.Add(centre);
-            //    }
+        //    //    foreach (DataSet.DistCentreRow row in centres)
+        //    //    {
+        //    //        DistributionCentre centre = new DistributionCentre(
+        //    //            row.CentreID, row.CentreName, row.CentreAddress, row.PhoneNumber
+        //    //            );
+        //    //        result.Add(centre);
+        //    //    }
                 
-            //}
-            //return result;
-        }
+        //    //}
+        //    //return result;
+        //}
 
     }
 }
