@@ -189,7 +189,6 @@
     <Content Include="Pages\Send.aspx" />
     <Content Include="Pages\Stocktaking.aspx" />
     <Content Include="Pages\ValueInTransit.aspx" />
-    <Content Include="Pages\Discard.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -461,13 +460,6 @@
     </Compile>
     <Compile Include="Pages\ValueInTransit.aspx.designer.cs">
       <DependentUpon>ValueInTransit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Discard.aspx.cs">
-      <DependentUpon>Discard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Discard.aspx.designer.cs">
-      <DependentUpon>Discard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

@@ -2221,11 +2221,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int SourceCentreID {
                 get {
-                    try {
-                        return ((int)(this[this.tablePackageStatus.SourceCentreIDColumn]));
+                    if (this.IsSourceCentreIDNull()) {
+                        return -1;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SourceCentreID\' in table \'PackageStatus\' is DBNull.", e);
+                    else {
+                        return ((int)(this[this.tablePackageStatus.SourceCentreIDColumn]));
                     }
                 }
                 set {
@@ -2237,11 +2237,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string DestinationCentreID {
                 get {
-                    try {
-                        return ((string)(this[this.tablePackageStatus.DestinationCentreIDColumn]));
+                    if (this.IsDestinationCentreIDNull()) {
+                        return "-1";
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DestinationCentreID\' in table \'PackageStatus\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tablePackageStatus.DestinationCentreIDColumn]));
                     }
                 }
                 set {
@@ -3472,7 +3472,7 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, S" +
@@ -3480,25 +3480,75 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[PackageStatus] ([PackageStatusID], [PackageID], [SourceCentreID], [DestinationCentreID], [Status], [StaffID]) VALUES (@PackageStatusID, @PackageID, @SourceCentreID, @DestinationCentreID, @Status, @StaffID);
-SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = @PackageStatusID)";
+            this._commandCollection[1].CommandText = "SELECT        PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, St" +
+                "atus, StaffID\r\nFROM            PackageStatus\r\nWHERE        (PackageID = @Package" +
+                "Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceCentreID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO PackageStatus\r\n                         (PackageID, DestinationCentre" +
+            this._commandCollection[2].CommandText = "SELECT        PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, St" +
+                "atus, StaffID\r\nFROM            PackageStatus\r\nWHERE        (Status = @Status)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[PackageStatus] ([PackageStatusID], [PackageID], [SourceCentreID], [DestinationCentreID], [Status], [StaffID]) VALUES (@PackageStatusID, @PackageID, @SourceCentreID, @DestinationCentreID, @Status, @StaffID);
+SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = @PackageStatusID)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceCentreID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE       PackageStatus\r\nSET                Status = @Status, StaffID = @Staff" +
+                "ID\r\nWHERE        (PackageID = @Original_PackageID); ";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PackageID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "INSERT INTO PackageStatus\r\n                         (PackageID, DestinationCentre" +
                 "ID, Status, StaffID)\r\nVALUES        (@PackageID,@DestinationCentreID,@Status,@St" +
                 "affID); ";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"UPDATE       PackageStatus
+SET                PackageID = @PackageID, SourceCentreID = @SourceCentreID, DestinationCentreID = @DestinationCentreID, Status = @Status, StaffID = @StaffID
+WHERE        (@IsNull_PackageID = 1 AND PackageID IS NULL OR
+                         PackageID = @Original_PackageID) AND (@IsNull_SourceCentreID = 1 AND SourceCentreID IS NULL OR
+                         SourceCentreID = @Original_SourceCentreID) AND (@IsNull_DestinationCentreID = 1 AND DestinationCentreID IS NULL OR
+                         DestinationCentreID = @Original_DestinationCentreID) AND (@IsNull_Status = 1 AND Status IS NULL OR
+                         Status = @Original_Status) AND (@IsNull_StaffID = 1 AND StaffID IS NULL OR
+                         StaffID = @Original_StaffID) AND (PackageID = @OldPackageID); 
+SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = @PackageStatusID)";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceCentreID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PackageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PackageID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SourceCentreID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DestinationCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DestinationCentreID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OldPackageID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3520,6 +3570,23 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSet.PackageStatusDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet.PackageStatusDataTable dataTable = new DataSet.PackageStatusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet.PackageStatusDataTable GetPackagesByStatus(object Status) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(Status));
+            }
             DataSet.PackageStatusDataTable dataTable = new DataSet.PackageStatusDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3772,9 +3839,43 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object CountPackagesStatus(global::System.Nullable<int> PackageId) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((PackageId.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(PackageId.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertPackageStatus(int PackageStatusID, global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, global::System.Nullable<int> DestinationCentreID, global::System.Nullable<int> Status, string StaffID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(PackageStatusID));
             if ((PackageID.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(PackageID.Value));
@@ -3826,9 +3927,50 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int ReceivePackage(object Status, object StaffID, object Original_PackageID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                command.Parameters[0].Value = ((object)(Status));
+            }
+            if ((StaffID == null)) {
+                throw new global::System.ArgumentNullException("StaffID");
+            }
+            else {
+                command.Parameters[1].Value = ((object)(StaffID));
+            }
+            if ((Original_PackageID == null)) {
+                throw new global::System.ArgumentNullException("Original_PackageID");
+            }
+            else {
+                command.Parameters[2].Value = ((object)(Original_PackageID));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int RegisterArrival(global::System.Nullable<int> PackageID, global::System.Nullable<int> DestinationCentreID, global::System.Nullable<int> Status, string StaffID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((PackageID.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(PackageID.Value));
             }
@@ -3852,6 +3994,148 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
             }
             else {
                 command.Parameters[3].Value = ((string)(StaffID));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int SetToTransit(
+                    object PackageID, 
+                    object SourceCentreID, 
+                    object DestinationCentreID, 
+                    object Status, 
+                    object StaffID, 
+                    global::System.Nullable<int> IsNull_PackageID, 
+                    object Original_PackageID, 
+                    global::System.Nullable<int> IsNull_SourceCentreID, 
+                    object Original_SourceCentreID, 
+                    global::System.Nullable<int> IsNull_DestinationCentreID, 
+                    object Original_DestinationCentreID, 
+                    global::System.Nullable<int> IsNull_Status, 
+                    object Original_Status, 
+                    global::System.Nullable<int> IsNull_StaffID, 
+                    object Original_StaffID, 
+                    object OldPackageID, 
+                    object PackageStatusID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            if ((PackageID == null)) {
+                throw new global::System.ArgumentNullException("PackageID");
+            }
+            else {
+                command.Parameters[0].Value = ((object)(PackageID));
+            }
+            if ((SourceCentreID == null)) {
+                throw new global::System.ArgumentNullException("SourceCentreID");
+            }
+            else {
+                command.Parameters[1].Value = ((object)(SourceCentreID));
+            }
+            if ((DestinationCentreID == null)) {
+                throw new global::System.ArgumentNullException("DestinationCentreID");
+            }
+            else {
+                command.Parameters[2].Value = ((object)(DestinationCentreID));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                command.Parameters[3].Value = ((object)(Status));
+            }
+            if ((StaffID == null)) {
+                throw new global::System.ArgumentNullException("StaffID");
+            }
+            else {
+                command.Parameters[4].Value = ((object)(StaffID));
+            }
+            if ((IsNull_PackageID.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(IsNull_PackageID.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PackageID == null)) {
+                throw new global::System.ArgumentNullException("Original_PackageID");
+            }
+            else {
+                command.Parameters[6].Value = ((object)(Original_PackageID));
+            }
+            if ((IsNull_SourceCentreID.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(IsNull_SourceCentreID.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SourceCentreID == null)) {
+                throw new global::System.ArgumentNullException("Original_SourceCentreID");
+            }
+            else {
+                command.Parameters[8].Value = ((object)(Original_SourceCentreID));
+            }
+            if ((IsNull_DestinationCentreID.HasValue == true)) {
+                command.Parameters[9].Value = ((int)(IsNull_DestinationCentreID.Value));
+            }
+            else {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DestinationCentreID == null)) {
+                throw new global::System.ArgumentNullException("Original_DestinationCentreID");
+            }
+            else {
+                command.Parameters[10].Value = ((object)(Original_DestinationCentreID));
+            }
+            if ((IsNull_Status.HasValue == true)) {
+                command.Parameters[11].Value = ((int)(IsNull_Status.Value));
+            }
+            else {
+                command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Status == null)) {
+                throw new global::System.ArgumentNullException("Original_Status");
+            }
+            else {
+                command.Parameters[12].Value = ((object)(Original_Status));
+            }
+            if ((IsNull_StaffID.HasValue == true)) {
+                command.Parameters[13].Value = ((int)(IsNull_StaffID.Value));
+            }
+            else {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_StaffID == null)) {
+                throw new global::System.ArgumentNullException("Original_StaffID");
+            }
+            else {
+                command.Parameters[14].Value = ((object)(Original_StaffID));
+            }
+            if ((OldPackageID == null)) {
+                throw new global::System.ArgumentNullException("OldPackageID");
+            }
+            else {
+                command.Parameters[15].Value = ((object)(OldPackageID));
+            }
+            if ((PackageStatusID == null)) {
+                throw new global::System.ArgumentNullException("PackageStatusID");
+            }
+            else {
+                command.Parameters[16].Value = ((object)(PackageStatusID));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5609,7 +5893,7 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        CentreId, Id\r\nFROM            AspNetUsers\r\nWHERE        (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT        Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, 
@@ -5688,13 +5972,13 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet.AspNetUsersDataTable GetCentreIdByUser(string Id) {
+        public virtual DataSet.AspNetUsersDataTable GetCentreIdByUser(object Id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Id));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(Id));
             }
             DataSet.AspNetUsersDataTable dataTable = new DataSet.AspNetUsersDataTable();
             this.Adapter.Fill(dataTable);

@@ -50,7 +50,7 @@ namespace ENET_Care.Tests
             UserLogic.EditName(id, newDistributionCentre);
 
             //checking edit
-            Assert.AreEqual(newDistributionCentre, UserLogic.GetDistributionCentre());
+            Assert.AreEqual(newDistributionCentre, UserLogic.GetDistributionCentre(id));
         }
     }
 }

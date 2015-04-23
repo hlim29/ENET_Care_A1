@@ -28,5 +28,26 @@ namespace ENET_Care.Data
                 new PackageStatusTableAdapter().RegisterArrival(packageId,centreId,(int)StatusEnum.InStock,staffId);
             }
         }
+
+        public void ReceivePackage(int packageId, string staffId)
+        {
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().ReceivePackage((int)StatusEnum.InStock, staffId, packageId);
+
+            }
+        }
+
+        public int CountPackageById(int id)
+        {
+            using (new DAO().OpenConnection())
+            {
+                object count = new PackageStatusTableAdapter().CountPackagesStatus(id);
+                if (count == null)
+                    return 0;
+                else
+                    return (int)(new PackageStatusTableAdapter().CountPackagesStatus(id));
+            }
+        }
     }
 }

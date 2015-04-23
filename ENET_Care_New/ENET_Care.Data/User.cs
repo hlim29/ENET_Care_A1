@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENET_Care.Data.DataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -31,6 +32,17 @@ namespace ENET_Care.Data
            SqlConnection dbConnection =  new DAO().OpenConnection();
            dbConnection.Open();
            dbConnection.Close();
+        }
+
+        public int GetCentreId(string userId)
+        {
+            DataSet.AspNetUsersDataTable users = new AspNetUsersTableAdapter().GetDataByUserId(userId);
+            //DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetData();
+            foreach (DataSet.AspNetUsersRow row in users)
+            {
+                return row.CentreId;
+            }
+            return -1;
         }
     }
 }

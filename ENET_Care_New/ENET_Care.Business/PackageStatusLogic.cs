@@ -7,11 +7,22 @@ using System.Threading.Tasks;
 
 namespace ENET_Care.Business
 {
-    class PackageStatusLogic
+    public class PackageStatusLogic
     {
         public static void RegisterArrival(int packageId, int centreId,string staffId)
         {
             new PackageStatus().RegisterArrival(packageId, centreId, staffId);
+        }
+
+        public static void ReceivePackage(int packageId, string staffId)
+        {
+
+            new PackageStatus().ReceivePackage(packageId,  staffId);
+        }
+
+        public static bool HasStatus(int packageId)
+        {
+            return (new PackageStatus().CountPackageById(packageId) == 1);
         }
     }
 }

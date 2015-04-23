@@ -9,14 +9,14 @@ namespace ENET_Care.Business
 {
     public class CentreLogic
     {
-        //public static Dictionary<int, string> GetAllCentres()
-        //{
-            //Dictionary<int, string> result = new Dictionary<int, string>();
-            //foreach (DistributionCentre centre in new DistributionCentre().GetAllCentres())
-            //{
-            //    result.Add(centre.Id, centre.Name);
-            //}
-            //return result;
-        //}
+        public static Dictionary<int, string> GetAllCentres()
+        {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+            foreach (DistributionCentre centre in new DistributionCentre().GetAllCentres())
+            {
+                result.Add(centre.Id, centre.Name);
+            }
+            return result;
+        }
     }
 }
