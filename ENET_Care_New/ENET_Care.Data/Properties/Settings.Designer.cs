@@ -46,6 +46,8 @@ namespace ENET_Care.Data.Properties
                 return ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             }
         }
+
+
         /*
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

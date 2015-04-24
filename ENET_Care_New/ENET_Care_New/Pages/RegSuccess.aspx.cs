@@ -56,5 +56,7 @@ namespace ENET_Care_New.Pages
                 BarcodePlaceholder.Controls.Add(imgBarCode);
             }
         }
+
+
     }
 }

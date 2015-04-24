@@ -13,7 +13,9 @@ namespace ENET_Care_New.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+            labelInvalidBarcode.Visible = false;
+            txtBarcode.Focus();
         }
 
         protected void ReceiveButton_Click(object sender, EventArgs e)
@@ -27,6 +29,7 @@ namespace ENET_Care_New.Pages
             else
             {
                 labelInvalidBarcode.Visible = true;
+                txtBarcode.Text = "";
             }
         }
 
