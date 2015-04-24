@@ -3,14 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label runat="server">
            Dist. Centre
-    </asp:Label>
-    <asp:DropDownList runat="server">
-        <asp:ListItem>
-               Centre 1
-        </asp:ListItem>
-        <asp:ListItem>
-               Centre 2
-        </asp:ListItem>
+    </asp:Label><a href="../Content/">../Content/</a>
+    <asp:DropDownList runat="server" ID="DistributionCentreDropDown">
     </asp:DropDownList>
     <br />
     <asp:RadioButton ID="allProducts" runat="server" />
@@ -22,13 +16,7 @@
     <asp:Label runat="server">
             Product Type:
     </asp:Label>
-    <asp:DropDownList runat="server">
-        <asp:ListItem>
-                Ibuprofen
-        </asp:ListItem>
-        <asp:ListItem>
-                Voltaren
-        </asp:ListItem>
+    <asp:DropDownList runat="server" ID="PackageTypeDropDown">
     </asp:DropDownList>
     <br />
     <asp:Button runat="server" Text="Generate" />
