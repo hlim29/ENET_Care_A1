@@ -27,6 +27,7 @@ namespace ENET_Care.Data
             return true;
         }
 
+
         public void CommitToDatabase()
         {
             //dummy code - update db
@@ -48,6 +49,23 @@ namespace ENET_Care.Data
                 return row.CentreId;
             }
             return -1;
+        }
+
+        public void SetUserById(string userId) 
+        {
+            DataSet.AspNetUsersDataTable users = new AspNetUsersTableAdapter().GetDataByUserId(userId);
+            //DataSet.PackageStandardTypeDataTable medications = new PackageStandardTypeTableAdapter().GetData();
+            foreach (DataSet.AspNetUsersRow row in users)
+            {
+                this.Email = row.Email;
+                this.FirstName = row.FirstName;
+                this.LastName = row.LastName;
+                this.Id = row.Id;
+                DistributionCentre centre = new DistributionCentre();
+                centre.SetCentreById(row.CentreId);
+                this.DistributionCentre = centre;
+            }
+
         }
     }
 }

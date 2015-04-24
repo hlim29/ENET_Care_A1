@@ -2,7 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label runat="server">
-            Name:
+            First Name:
+    </asp:Label>
+    <asp:TextBox runat="server">
+
+    </asp:TextBox>
+    <br />
+    <asp:Label runat="server">
+            Last Name:
     </asp:Label>
     <asp:TextBox runat="server">
 
@@ -16,7 +23,14 @@
     </asp:TextBox>
     <br />
     <asp:Label runat="server">
-            Password:
+            Old Password:
+    </asp:Label>
+    <asp:TextBox runat="server">
+
+    </asp:TextBox>
+    <br />
+    <asp:Label runat="server">
+            New Password:
     </asp:Label>
     <asp:TextBox runat="server">
 

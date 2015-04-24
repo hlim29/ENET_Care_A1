@@ -10,6 +10,7 @@ namespace ENET_Care.Business
 {
     public class UserLogic
     {
+        private static User user;
         public static void GetCentreId(string userId)
         {
             //new AspNetUsersTableAdapter().GetCentreIdByUser(userId);
@@ -26,20 +27,33 @@ namespace ENET_Care.Business
             return new User().GetCentreId(userId);
         }
 
+        public static void GetUserById(string userId)
+        {
+            user = new User();
+            user.SetUserById(userId);
+            
+        }
+
         public static string GetPassword()
         {
-            return null;
+            return user.Password;
         }
 
         public static string GetName()
         {
-            return null;
+            return user.FirstName;
+        }
+
+        public static string GetLastName()
+        {
+            return user.LastName;
         }
 
         public static string GetEmailAddress()
         {
-            return null;
+            return user.Email;
         }
+
 
 
         /**

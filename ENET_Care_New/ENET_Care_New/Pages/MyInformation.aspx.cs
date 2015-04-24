@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using ENET_Care.Business;
+
 
 namespace ENET_Care_New.Pages
 {
@@ -19,6 +22,11 @@ namespace ENET_Care_New.Pages
                 CentreDropDownList.DataTextField = "Value";
                 CentreDropDownList.DataValueField = "Key";
                 CentreDropDownList.DataBind();
+
+                string userId = User.Identity.GetUserId();
+                UserLogic.GetUserById(userId);
+                // set the informations using for example: UserLogic.GetName;
+                //test for getName, getLastName and getEmail if works let me know and I'll implement to getDistributionCentre
             }
         }
     }

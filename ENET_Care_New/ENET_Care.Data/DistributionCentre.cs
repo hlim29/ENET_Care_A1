@@ -48,5 +48,10 @@ namespace ENET_Care.Data
             return result;
         }
 
+        public void SetCentreById(int centreId)
+        {
+            //Implement
+        }
+
     }
 }
