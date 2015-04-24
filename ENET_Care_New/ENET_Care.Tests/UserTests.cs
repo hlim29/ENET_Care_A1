@@ -25,7 +25,7 @@ namespace ENET_Care.Tests
             //editting to a new password
             String id = "1";
             String newPassword = "Id1NewPassword";
-            UserLogic.EditName(id, newPassword);
+            UserLogic.EditPassword(id, newPassword);
 
             //checking edit
             Assert.AreEqual(newPassword, UserLogic.GetPassword());
@@ -36,7 +36,7 @@ namespace ENET_Care.Tests
             //editting to a new email address
             String id = "1";
             String newEmailAddress = "Id1EmailAddress@enetcare.org";
-            UserLogic.EditName(id, newEmailAddress);
+            UserLogic.EditEmailAddress(id, newEmailAddress);
 
             //checking edit
             Assert.AreEqual(newEmailAddress, UserLogic.GetEmailAddress());
@@ -47,7 +47,7 @@ namespace ENET_Care.Tests
             //editting to a new email address
             String id = "1";
             String newDistributionCentre = "Id1DistributionCentre";
-            UserLogic.EditName(id, newDistributionCentre);
+            UserLogic.EditDistributionCentre(id, newDistributionCentre);
 
             //checking edit
             Assert.AreEqual(newDistributionCentre, UserLogic.GetDistributionCentre(id));
