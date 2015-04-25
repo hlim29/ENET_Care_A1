@@ -26,6 +26,9 @@ namespace ENET_Care_New.Pages
                 UserLogic.GetUserById(userId);
                 // set the informations using for example: UserLogic.GetName;
                 FisrtName.Text = UserLogic.GetName();
+                LastName.Text = UserLogic.GetLastName();
+                //OldPassword.Text = UserLogic.GetPassword();
+                Email.Text = UserLogic.GetEmailAddress();
                 //test for getName, getLastName and getEmail if works let me know and I'll implement to getDistributionCentre
             }
         }
