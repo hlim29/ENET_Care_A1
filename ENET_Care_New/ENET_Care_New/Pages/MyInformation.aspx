@@ -4,7 +4,7 @@
     <asp:Label runat="server">
             First Name:
     </asp:Label>
-    <asp:TextBox runat="server" ID="FisrtName">
+    <asp:TextBox runat="server" ID="FirstName">
 
     </asp:TextBox>
     <br />
@@ -51,5 +51,5 @@
     </asp:DropDownList>
     <br />
     <asp:Button runat="server" Text="Cancel" />
-    <asp:Button runat="server" Text="Save" />
+    <asp:Button runat="server" Text="Save" onclick="Submit_Click" />
 </asp:Content>

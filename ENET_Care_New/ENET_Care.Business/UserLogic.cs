@@ -11,7 +11,7 @@ namespace ENET_Care.Business
     public class UserLogic
     {
         private static User user;
-        public static DistributionCentre GetCentreId()
+        public static DistributionCentre GetCentre()
         {
             return user.DistributionCentre;
             //new AspNetUsersTableAdapter().GetCentreIdByUser(userId);
