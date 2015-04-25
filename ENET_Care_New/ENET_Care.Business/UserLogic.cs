@@ -11,16 +11,13 @@ namespace ENET_Care.Business
     public class UserLogic
     {
         private static User user;
-        public static void GetCentreId(string userId)
+        public static DistributionCentre GetCentreId()
         {
+            return user.DistributionCentre;
             //new AspNetUsersTableAdapter().GetCentreIdByUser(userId);
             
         }
 
-        public static void EditName(string id, string name)
-        {
-
-        }
 
         public static int GetDistributionCentre(string userId)
         {
@@ -54,6 +51,25 @@ namespace ENET_Care.Business
             return user.Email;
         }
 
+        public static void SetFirstName(string firstName)
+        {
+            user.FirstName = firstName;
+        }
+
+        public static void SetLastName(string lastName)
+        {
+            user.LastName = lastName;
+        }
+
+        public static void SetEmail(string email)
+        {
+            user.Email = email;
+        }
+
+        public static void SetPassword(string password)
+        {
+            user.Password = password;
+        }
 
 
         /**
@@ -72,6 +88,11 @@ namespace ENET_Care.Business
         public static void EditDistributionCentre(string id, string newDistributionCentre)
         {
             throw new NotImplementedException();
+        }
+
+        public static void EditName(string id, string name)
+        {
+
         }
     }
 }
