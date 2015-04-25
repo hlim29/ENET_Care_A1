@@ -67,6 +67,15 @@ namespace ENET_Care_New.Pages {
         protected global::System.Web.UI.WebControls.TextBox NewPasswordConfirm;
         
         /// <summary>
+        /// ChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ChangePassword;
+        
+        /// <summary>
         /// CentreDropDownList control.
         /// </summary>
         /// <remarks>

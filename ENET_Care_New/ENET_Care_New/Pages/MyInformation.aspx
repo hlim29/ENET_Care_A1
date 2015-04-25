@@ -42,7 +42,7 @@
     <asp:TextBox runat="server" TextMode="Password" ID="NewPasswordConfirm">
 
     </asp:TextBox>
-    <asp:Button runat="server" Text="Change" />
+    <asp:Button runat="server" Text="Change" ID="ChangePassword" OnClick="ChangePassword_Click" />
     <br />
     <asp:Label runat="server">
             Dist. Centre:

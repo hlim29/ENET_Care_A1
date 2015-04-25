@@ -32,7 +32,6 @@ namespace ENET_Care_New.Pages
                 // set the informations using for example: UserLogic.GetName;
                 FirstName.Text = UserLogic.GetName();
                 LastName.Text = UserLogic.GetLastName();
-                //OldPassword.Text = UserLogic.GetPassword();
                 Email.Text = UserLogic.GetEmailAddress();
                 //UserLogic.GetCentreName();
         
@@ -53,12 +52,45 @@ namespace ENET_Care_New.Pages
                 }else if (Email.Text == null)
                 {
                     //error message: email empty
-                }else{
-                    UserLogic.SetFirstName(FirstName.Text);
-                    UserLogic.SetLastName(LastName.Text);
-                    UserLogic.SetEmail(Email.Text);
+                }else
+                {
+                    if (OldPassword.Enabled == true)
+                    {
+                        if(OldPassword.Text == UserLogic.GetPassword())
+                        {
+                            if(NewPassword.Text == NewPasswordConfirm.Text)
+                            {
+                                UserLogic.SetFirstName(FirstName.Text);
+                                UserLogic.SetLastName(LastName.Text);
+                                UserLogic.SetEmail(Email.Text);
+                                UserLogic.SetPassword(NewPassword.Text);
+                            }
+                            else
+                            {
+                                //error message: new password does not match
+                            }
+                        }
+                        else
+                        {
+                            //error message: old password incorrect
+                        }
+                    }
+                    else
+                    {
+                        UserLogic.SetFirstName(FirstName.Text);
+                        UserLogic.SetLastName(LastName.Text);
+                        UserLogic.SetEmail(Email.Text);
+                    }
+                    
                 }
             }
+        }
+
+        protected void ChangePassword_Click(object sender, EventArgs e)
+        {
+            OldPassword.Enabled = true;
+            NewPassword.Enabled = true;
+            NewPasswordConfirm.Enabled = true;
         }
     }
 }
