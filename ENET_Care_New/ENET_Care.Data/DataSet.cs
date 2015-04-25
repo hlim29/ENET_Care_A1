@@ -8,6 +8,10 @@ namespace ENET_Care.Data {
 }
 
 namespace ENET_Care.Data.DataSetTableAdapters {
+    partial class PackageStatusTableAdapter
+    {
+    }
+
     partial class PackageStandardTypeTableAdapter
     {
     }

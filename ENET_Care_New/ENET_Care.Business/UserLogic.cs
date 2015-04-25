@@ -42,5 +42,22 @@ namespace ENET_Care.Business
         }
 
 
+        /**
+         * Auto generated method by test cases
+         * */
+        public static void EditPassword(string id, string newPassword)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void EditEmailAddress(string id, string newEmailAddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void EditDistributionCentre(string id, string newDistributionCentre)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

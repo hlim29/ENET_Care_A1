@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
+    <asp:Label ID="labelInvalidBarcode" runat="server" Text="Invalid barcode" Visible="False"></asp:Label>
     <br />
     <asp:Label runat="server">
             Destination:
@@ -13,9 +14,7 @@
     <asp:Label runat="server">
             Bar Code:
     </asp:Label>
-    <asp:TextBox runat="server">
-
-    </asp:TextBox>
+    <asp:TextBox runat="server" ID="txtBarcode"></asp:TextBox>
     <br />
     <asp:Label runat="server">
             Type:
@@ -31,5 +30,5 @@
 
     </asp:TextBox>
     <br />
-    <asp:Button runat="server" Text="Send" />
+    <asp:Button runat="server" Text="Send" ID="buttonSend" OnClick="buttonSend_Click" />
 </asp:Content>

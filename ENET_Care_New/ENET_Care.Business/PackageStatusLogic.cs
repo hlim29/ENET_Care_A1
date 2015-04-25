@@ -24,5 +24,10 @@ namespace ENET_Care.Business
         {
             return (new PackageStatus().CountPackageById(packageId) == 1);
         }
+
+        public static void SendPackage(int source, int destination, string staffId, int packageId)
+        {
+            new PackageStatus().SendPackage(source, destination, staffId, packageId);
+        }
     }
 }

@@ -13,6 +13,15 @@ namespace ENET_Care_New.Pages {
     public partial class Send {
         
         /// <summary>
+        /// labelInvalidBarcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelInvalidBarcode;
+        
+        /// <summary>
         /// CentreDropDownList control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,23 @@ namespace ENET_Care_New.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CentreDropDownList;
+        
+        /// <summary>
+        /// txtBarcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBarcode;
+        
+        /// <summary>
+        /// buttonSend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttonSend;
     }
 }
