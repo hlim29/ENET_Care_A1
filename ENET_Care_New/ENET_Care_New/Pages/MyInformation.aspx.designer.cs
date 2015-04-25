@@ -13,6 +13,15 @@ namespace ENET_Care_New.Pages {
     public partial class MyInformation {
         
         /// <summary>
+        /// FisrtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FisrtName;
+        
+        /// <summary>
         /// CentreDropDownList control.
         /// </summary>
         /// <remarks>

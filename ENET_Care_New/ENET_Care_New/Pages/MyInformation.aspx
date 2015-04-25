@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyInformation.aspx.cs" Inherits="ENET_Care_New.Pages.MyInformation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label runat="server">
+    <asp:Label runat="server" ID="FisrtName">
             First Name:
     </asp:Label>
     <asp:TextBox runat="server">

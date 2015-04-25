@@ -20,7 +20,7 @@ namespace ENET_Care_New.Pages
                 PackageTypeDropDown.DataValueField = "Key";
                 PackageTypeDropDown.DataBind();
 
-                Dictionary<int, string> data = 
+               // Dictionary<int, string> data = 
             }
         }
     }
