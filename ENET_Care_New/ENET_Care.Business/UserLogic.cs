@@ -14,7 +14,6 @@ namespace ENET_Care.Business
         public static DistributionCentre GetCentre()
         {
             return user.DistributionCentre;
-            //new AspNetUsersTableAdapter().GetCentreIdByUser(userId);
             
         }
 
@@ -71,6 +70,10 @@ namespace ENET_Care.Business
             user.Password = password;
         }
 
+        public static void UpdateUser()
+        {
+            user.UpdateUser();
+        }
 
         /**
          * Auto generated method by test cases
