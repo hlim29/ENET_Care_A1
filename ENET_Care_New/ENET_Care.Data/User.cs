@@ -73,8 +73,15 @@ namespace ENET_Care.Data
             int result = -1;
             using (new DAO().OpenConnection())
             {
-                //result = (int)new AspNetUsersTableAdapter().UpdateUserById(this.Id, this.FirstName, this.LastName, this.Email, this.Password,this.DistributionCentre.Id);
+                result = (int)new AspNetUsersTableAdapter().UpdateUserById(this.FirstName, this.LastName, this.Email, this.DistributionCentre.Id, this.Id);
             }
+            this.UpdatePassword();
+        }
+
+        public void UpdatePassword()
+        {
+            //Implement this henry
+            //the new password is already in user.Password
         }
     }
 }
