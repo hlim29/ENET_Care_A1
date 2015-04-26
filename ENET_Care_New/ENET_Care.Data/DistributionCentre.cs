@@ -50,7 +50,17 @@ namespace ENET_Care.Data
 
         public void SetCentreById(int centreId)
         {
+            
             //Implement
+        }
+
+        public void GetCentreById(int centreId)
+        {
+            using (new DAO().OpenConnection())
+            {
+                DataSet.DistCentreDataTable centre = new DistCentreTableAdapter().GetCentreById(centreId);
+
+            }
         }
 
     }
