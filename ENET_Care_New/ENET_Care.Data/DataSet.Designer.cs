@@ -3466,7 +3466,7 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4388,7 +4388,7 @@ SELECT CentreID, CentreName, CentreAddress, PhoneNumber FROM DistCentre WHERE (C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4850,7 +4850,7 @@ SELECT PackageId, PackageStandardTypeId, ExpiryDate, Quantity FROM Package WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6009,7 +6009,7 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6077,14 +6077,13 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CentreId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CentreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE       AspNetUsers\r\nSET                Id = @Id, Email = @Email, FirstName " +
-                "= @FirstName, LastName = @LastName, CentreId = @CentreId\r\nWHERE        (Id = @Or" +
-                "iginal_Id); ";
+            this._commandCollection[4].CommandText = "UPDATE       AspNetUsers\r\nSET                FirstName = @FirstName, LastName = @" +
+                "LastName, Email = @Email, CentreId = @CentreId\r\nWHERE        (Id = @Original_Id)" +
+                ";  ";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CentreId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CentreId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -6716,43 +6715,37 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateUserById(string Id, string Email, string FirstName, string LastName, global::System.Nullable<int> CentreId, string Original_Id) {
+        public virtual int UpdateUserById(string FirstName, string LastName, string Email, global::System.Nullable<int> CentreId, string Original_Id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            if ((Id == null)) {
-                throw new global::System.ArgumentNullException("Id");
+            if ((FirstName == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[0].Value = ((string)(Id));
+                command.Parameters[0].Value = ((string)(FirstName));
             }
-            if ((Email == null)) {
+            if ((LastName == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = ((string)(Email));
+                command.Parameters[1].Value = ((string)(LastName));
             }
-            if ((FirstName == null)) {
+            if ((Email == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((string)(FirstName));
-            }
-            if ((LastName == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((string)(LastName));
+                command.Parameters[2].Value = ((string)(Email));
             }
             if ((CentreId.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(CentreId.Value));
+                command.Parameters[3].Value = ((int)(CentreId.Value));
             }
             else {
-                command.Parameters[4].Value = global::System.DBNull.Value;
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Original_Id == null)) {
                 throw new global::System.ArgumentNullException("Original_Id");
             }
             else {
-                command.Parameters[5].Value = ((string)(Original_Id));
+                command.Parameters[4].Value = ((string)(Original_Id));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
