@@ -11,12 +11,17 @@ namespace ENET_Care.Business
     public class UserLogic
     {
         private static User user;
-        public static DistributionCentre GetCentre()
+        public static string GetCentreName()
         {
-            return user.DistributionCentre;
+            return user.DistributionCentre.Name;
             
         }
 
+        public static int GetCentreID()
+        {
+            return user.DistributionCentre.Id;
+
+        }
 
         public static int GetDistributionCentre(string userId)
         {
