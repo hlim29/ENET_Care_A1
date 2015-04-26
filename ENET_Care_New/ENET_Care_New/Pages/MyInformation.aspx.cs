@@ -16,19 +16,22 @@ namespace ENET_Care_New.Pages
         {
             if (!IsPostBack)
             {
+                string userId = User.Identity.GetUserId();
+                UserLogic.GetUserById(userId);
+
                 Dictionary<int, string> data = CentreLogic.GetAllCentres();
                 CentreDropDownList.DataSource = data;
                 CentreDropDownList.DataTextField = "Value";
                 CentreDropDownList.DataValueField = "Key";
                 CentreDropDownList.DataBind();
-                CentreDropDownList.SelectedValue = UserLogic.GetCentreName();
+                //CentreDropDownList.SelectedValue = UserLogic.GetCentreName();
+                OldPassword.Text = UserLogic.GetCentreName();
 
                 OldPassword.Enabled = false;
                 NewPassword.Enabled = false;
                 NewPasswordConfirm.Enabled = false;
 
-                string userId = User.Identity.GetUserId();
-                UserLogic.GetUserById(userId);
+                
                 // set the informations using for example: UserLogic.GetName;
                 FirstName.Text = UserLogic.GetName();
                 LastName.Text = UserLogic.GetLastName();
