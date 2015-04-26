@@ -3466,7 +3466,7 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4388,7 +4388,7 @@ SELECT CentreID, CentreName, CentreAddress, PhoneNumber FROM DistCentre WHERE (C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4850,7 +4850,7 @@ SELECT PackageId, PackageStandardTypeId, ExpiryDate, Quantity FROM Package WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6009,7 +6009,7 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString1;
+            this._connection.ConnectionString = global::ENET_Care.Data.Properties.Settings.Default.aspnet_ENET_Care_New_20150407073939ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
