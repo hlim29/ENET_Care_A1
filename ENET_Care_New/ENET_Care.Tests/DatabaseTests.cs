@@ -21,9 +21,23 @@ namespace ENET_Care.Tests
         [TestMethod()]
         public void Connection_OpenClose_Succeeds()
         {
-            SqlConnection connectionTest = new ENET_Care.Data.DAO().OpenConnection();
-            connectionTest.Open();
-            connectionTest.Close();
+            bool check = false;
+            using (var l_oConnection = new ENET_Care.Data.DAO().OpenConnection())
+            {
+                try
+                {
+                    l_oConnection.Open();
+                    check = true;
+                    l_oConnection.Close();
+
+                }
+                catch (SqlException)
+                {
+                    check = false;
+                }
+            }
+
+            Assert.AreEqual(true, check);
         }
 
         [TestMethod]
