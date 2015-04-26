@@ -73,7 +73,7 @@ namespace ENET_Care.Data
             int result = -1;
             using (new DAO().OpenConnection())
             {
-                //result = (int)new AspNetUsersTableAdapter().UpdateUser(this.Id, this.FirstName, this.LastName, this.Email, this.Password,this.DistributionCentre.Id);
+                //result = (int)new AspNetUsersTableAdapter().UpdateUserById(this.Id, this.FirstName, this.LastName, this.Email, this.Password,this.DistributionCentre.Id);
             }
         }
     }

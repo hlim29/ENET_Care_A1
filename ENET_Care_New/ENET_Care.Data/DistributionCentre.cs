@@ -59,7 +59,14 @@ namespace ENET_Care.Data
             using (new DAO().OpenConnection())
             {
                 DataSet.DistCentreDataTable centre = new DistCentreTableAdapter().GetCentreById(centreId);
+                foreach (DataSet.DistCentreRow row in centre)
+                {
+                    this.Address = row.CentreAddress;
+                    this.Id = row.CentreID;
+                    this.Name = row.CentreName;
+                    this.PhoneNumber = row.PhoneNumber;
 
+                }
             }
         }
 
