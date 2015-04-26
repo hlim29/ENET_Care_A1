@@ -48,13 +48,13 @@ namespace ENET_Care.Data
             return result;
         }
 
-        public void SetCentreById(int centreId)
+        public void GetCentreById(int centreId)
         {
             
             //Implement
         }
 
-        public void GetCentreById(int centreId)
+        public void SetCentreById(int centreId)
         {
             using (new DAO().OpenConnection())
             {
