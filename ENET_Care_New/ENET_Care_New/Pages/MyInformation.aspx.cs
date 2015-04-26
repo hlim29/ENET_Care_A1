@@ -21,7 +21,7 @@ namespace ENET_Care_New.Pages
                 CentreDropDownList.DataTextField = "Value";
                 CentreDropDownList.DataValueField = "Key";
                 CentreDropDownList.DataBind();
-                CentreDropDownList.SelectedValue = UserLogic.GetCentreName();
+                CentreDropDownList.SelectedValue = UserLogic.GetCentre().name;
 
                 OldPassword.Enabled = false;
                 NewPassword.Enabled = false;

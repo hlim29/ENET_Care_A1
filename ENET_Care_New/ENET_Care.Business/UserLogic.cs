@@ -11,16 +11,10 @@ namespace ENET_Care.Business
     public class UserLogic
     {
         private static User user;
-        public static string GetCentreName()
+        public static DistributionCentre GetCentre()
         {
-            return user.DistributionCentre.Name;
+            return user.DistributionCentre;
             
-        }
-
-        public static int GetCentreId()
-        {
-            return user.DistributionCentre.Id;
-
         }
 
 
@@ -74,11 +68,6 @@ namespace ENET_Care.Business
         public static void SetPassword(string password)
         {
             user.Password = password;
-        }
-
-        public static void SetDistributionCentre(int Id)
-        {
-            user.DistributionCentre.SetCentreById(Id);
         }
 
         public static void UpdateUser()
