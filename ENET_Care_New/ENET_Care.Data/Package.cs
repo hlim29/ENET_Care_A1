@@ -124,6 +124,24 @@ namespace ENET_Care.Data
             return result;
         }
 
+        //returning an id itself because of this is the only Private Key.
+        //Package table do not have barcode as properties
+        public List<int> GetAllPackageByDistCentre(int centreId)
+        {
+            List<int> result = new List<int>();
+            using (new DAO().OpenConnection())
+            {
+                DataSet.PackageStatusDataTable packageStatus = new PackageStatusTableAdapter().GetData();
+                foreach (DataSet.PackageStatusRow row in packageStatus)
+                {
+                    if(row.SourceCentreID == centreId && row.Status == 1) // 1 is StatusEnum.InStock
+                    {
+                        result.Add(row.PackageID);
+                    }
+                }
+            }
+            return result;
+        }
         public System.Data.DataSet GetPackagesByDistCentre(int centreId)
         {
 
