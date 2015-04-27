@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,9 +34,20 @@ namespace ENET_Care_New.Pages
             }
         }
 
-        protected void StockGridView_Highlight(object sender, EventArgs e)
+        protected void DataBind(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DateTime packageExpiry = DateTime.Parse(e.Row.Cells[2].Text);
+                if (packageExpiry < DateTime.Now)
+                {
+                    e.Row.BackColor = Color.Red;
+                }
+                else if ((packageExpiry - DateTime.Now).TotalDays <= 7)
+                {
+                    e.Row.BackColor = Color.Orange;
+                }
+            }
         }
     }
 }
