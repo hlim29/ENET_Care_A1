@@ -119,7 +119,7 @@ namespace ENET_Care.Data
             }
         }
 
-        public List<Package> GetAllByStatus(int status)
+        public List<Package> GetAllPackagesByStatus(int status)
         {
             List<Package> result = new List<Package>();
             using (new DAO().OpenConnection())
@@ -136,7 +136,9 @@ namespace ENET_Care.Data
                         Package package = new Package();
                         package.BarCode = packageRow.PackageId;
                         package.ExpiryDate = packageRow.ExpiryDate;
-                        package.Medication = Package.GetMedication(packageRow.PackageStandardTypeId);
+                        MedicationStandardType medication = new MedicationStandardType();
+                        medication.SetMedicationById(packageRow.PackageStandardTypeId);
+                        package.Medication = medication;
                         result.Add(package);
                     }
                 }

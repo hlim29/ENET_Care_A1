@@ -63,5 +63,17 @@ namespace ENET_Care.Business
             return false;
         }
 
+        public static Dictionary<int, string> GetAllPackgesLost()
+        {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+            foreach (Package packages in new PackageStatus().GetAllPackagesByStatus((int)StatusEnum.Lost))
+            {
+                result.Add(packages.BarCode, packages.BarCode+" - "+packages.Medication.Description);
+            }
+            return result;
+        }
+
+
+
     }
 }

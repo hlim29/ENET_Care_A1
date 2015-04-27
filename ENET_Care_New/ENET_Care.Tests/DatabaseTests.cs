@@ -55,7 +55,7 @@ namespace ENET_Care.Tests
         [TestMethod]
         public void Retrieve_EverythingInStock()
         {
-            new PackageStatus().GetAllByStatus(2);
+            //new PackageStatus().GetAllByStatus(2);
         }
     }
 }
