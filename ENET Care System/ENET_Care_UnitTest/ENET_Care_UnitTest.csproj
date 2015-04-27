@@ -71,6 +71,7 @@
     <Compile Include="PackageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AgentTest.cs" />
+    <Compile Include="PackageDatabaseTest.cs" />
     <Compile Include="UserTest.cs" />
   </ItemGroup>
   <ItemGroup>
