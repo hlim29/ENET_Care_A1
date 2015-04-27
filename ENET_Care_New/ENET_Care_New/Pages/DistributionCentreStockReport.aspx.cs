@@ -14,14 +14,31 @@ namespace ENET_Care_New.Pages
         {
             if (!IsPostBack)
             {
-                Dictionary<int, string> data = PackageLogic.GetMedicationTypes();
-                PackageTypeDropDown.DataSource = data;
-                PackageTypeDropDown.DataTextField = "Value";
-                PackageTypeDropDown.DataValueField = "Key";
-                PackageTypeDropDown.DataBind();
-
-               // Dictionary<int, string> data = 
+                Dictionary<int, string> data = CentreLogic.GetAllCentres();
+                CentreDropDownList.DataSource = data;
+                CentreDropDownList.DataTextField = "Value";
+                CentreDropDownList.DataValueField = "Key";
+                CentreDropDownList.DataBind();
+               // CentreDropDownList.SelectedValue = UserLogic.GetCentreName();
             }
+            //if (!IsPostBack)
+            //{
+            //    Dictionary<int, string> data = PackageLogic.GetMedicationTypes();
+            //    PackageTypeDropDown.DataSource = data;
+            //    PackageTypeDropDown.DataTextField = "Value";
+            //    PackageTypeDropDown.DataValueField = "Key";
+            //    PackageTypeDropDown.DataBind();
+
+            //   // Dictionary<int, string> data = 
+            //}
+        }
+
+        protected void Unnamed2_Click(object sender, EventArgs e)
+        {
+            //string userId = User.Identity.GetUserId();
+            //PackageStatusLogic.RegisterArrival(result, UserLogic.GetDistributionCentre(userId), userId);
+            int currentCentre = int.Parse(CentreDropDownList.SelectedValue);
+            Response.Redirect("DistCentreReportIndividual.aspx?id=" + currentCentre);
         }
     }
 }

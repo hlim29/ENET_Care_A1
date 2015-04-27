@@ -124,7 +124,23 @@ namespace ENET_Care.Data
             return result;
         }
 
+        public System.Data.DataSet GetPackagesByDistCentre(int centreId)
+        {
 
+            System.Data.DataSet ds = new System.Data.DataSet();
+            ds.EnforceConstraints = false;
+            using (new DAO().OpenConnection())
+            {
+                //try
+                //{
+               // new PackageStatusTableAdapter().FillPackageDataTable(ds, centreId);
+              //ENET_Care.Data.DataSet.PackageStatusDataTable dataTable =  new PackageStatusTableAdapter().GetPackageDist(centreId);
+                   //return new PackageTableAdapter().GetStockByDistId(centreId);
+              //return dataTable;
+                ds.Tables.Add( new PackageTableAdapter().GetPackagesByDestId(centreId));
+                return ds;
+            }
+        }
 
 
     }

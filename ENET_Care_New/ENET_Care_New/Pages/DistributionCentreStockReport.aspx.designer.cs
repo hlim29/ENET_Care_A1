@@ -13,39 +13,12 @@ namespace ENET_Care_New.Pages {
     public partial class DistributionCentreStockReport {
         
         /// <summary>
-        /// DistributionCentreDropDown control.
+        /// CentreDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DistributionCentreDropDown;
-        
-        /// <summary>
-        /// allProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton allProducts;
-        
-        /// <summary>
-        /// oneProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton oneProduct;
-        
-        /// <summary>
-        /// PackageTypeDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PackageTypeDropDown;
+        protected global::System.Web.UI.WebControls.DropDownList CentreDropDownList;
     }
 }

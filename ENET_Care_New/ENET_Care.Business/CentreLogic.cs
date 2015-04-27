@@ -23,8 +23,14 @@ namespace ENET_Care.Business
         {
             DistributionCentre centre = new DistributionCentre();
             centre.SetCentreById(centreId);
-            
-
         }
+
+        public static string GetCentreNameById(int centreId)
+        {
+            DistributionCentre centre = new DistributionCentre();
+            centre.SetCentreById(centreId);
+            return centre.Name;
+        }
+
     }
 }

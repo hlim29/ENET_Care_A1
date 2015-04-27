@@ -40,6 +40,8 @@ namespace ENET_Care.Data {
         
         private global::System.Data.DataRelation relationFK_AspNetUsers_ToTable;
         
+        private global::System.Data.DataRelation relationPackage_PackageStatus;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -299,6 +301,7 @@ namespace ENET_Care.Data {
             this.relationFK_Package_ToTable = this.Relations["FK_Package_ToTable"];
             this.relationFK_PackageStatus_ToTable = this.Relations["FK_PackageStatus_ToTable"];
             this.relationFK_AspNetUsers_ToTable = this.Relations["FK_AspNetUsers_ToTable"];
+            this.relationPackage_PackageStatus = this.Relations["Package_PackageStatus"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,7 +310,7 @@ namespace ENET_Care.Data {
             this.DataSetName = "DataSet";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/DataSet.xsd";
-            this.EnforceConstraints = true;
+            this.EnforceConstraints = false;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablePackageStatus = new PackageStatusDataTable();
             base.Tables.Add(this.tablePackageStatus);
@@ -331,6 +334,10 @@ namespace ENET_Care.Data {
                         this.tableDistCentre.CentreIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableAspNetUsers.CentreIdColumn}, false);
             this.Relations.Add(this.relationFK_AspNetUsers_ToTable);
+            this.relationPackage_PackageStatus = new global::System.Data.DataRelation("Package_PackageStatus", new global::System.Data.DataColumn[] {
+                        this.tablePackage.PackageIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePackageStatus.PackageIDColumn}, false);
+            this.Relations.Add(this.relationPackage_PackageStatus);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -446,11 +453,11 @@ namespace ENET_Care.Data {
             
             private global::System.Data.DataColumn columnSourceCentreID;
             
-            private global::System.Data.DataColumn columnDestinationCentreID;
-            
             private global::System.Data.DataColumn columnStatus;
             
             private global::System.Data.DataColumn columnStaffID;
+            
+            private global::System.Data.DataColumn columnDestinationCentreId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -511,14 +518,6 @@ namespace ENET_Care.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DestinationCentreIDColumn {
-                get {
-                    return this.columnDestinationCentreID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn StatusColumn {
                 get {
                     return this.columnStatus;
@@ -530,6 +529,14 @@ namespace ENET_Care.Data {
             public global::System.Data.DataColumn StaffIDColumn {
                 get {
                     return this.columnStaffID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DestinationCentreIdColumn {
+                get {
+                    return this.columnDestinationCentreId;
                 }
             }
             
@@ -570,17 +577,20 @@ namespace ENET_Care.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PackageStatusRow AddPackageStatusRow(int PackageStatusID, int PackageID, int SourceCentreID, string DestinationCentreID, int Status, AspNetUsersRow parentAspNetUsersRowByFK_PackageStatus_ToTable) {
+            public PackageStatusRow AddPackageStatusRow(int PackageStatusID, PackageRow parentPackageRowByPackage_PackageStatus, int SourceCentreID, int Status, AspNetUsersRow parentAspNetUsersRowByFK_PackageStatus_ToTable, int DestinationCentreId) {
                 PackageStatusRow rowPackageStatusRow = ((PackageStatusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PackageStatusID,
-                        PackageID,
+                        null,
                         SourceCentreID,
-                        DestinationCentreID,
                         Status,
-                        null};
+                        null,
+                        DestinationCentreId};
+                if ((parentPackageRowByPackage_PackageStatus != null)) {
+                    columnValuesArray[1] = parentPackageRowByPackage_PackageStatus[0];
+                }
                 if ((parentAspNetUsersRowByFK_PackageStatus_ToTable != null)) {
-                    columnValuesArray[5] = parentAspNetUsersRowByFK_PackageStatus_ToTable[0];
+                    columnValuesArray[4] = parentAspNetUsersRowByFK_PackageStatus_ToTable[0];
                 }
                 rowPackageStatusRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPackageStatusRow);
@@ -614,9 +624,9 @@ namespace ENET_Care.Data {
                 this.columnPackageStatusID = base.Columns["PackageStatusID"];
                 this.columnPackageID = base.Columns["PackageID"];
                 this.columnSourceCentreID = base.Columns["SourceCentreID"];
-                this.columnDestinationCentreID = base.Columns["DestinationCentreID"];
                 this.columnStatus = base.Columns["Status"];
                 this.columnStaffID = base.Columns["StaffID"];
+                this.columnDestinationCentreId = base.Columns["DestinationCentreId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -628,17 +638,16 @@ namespace ENET_Care.Data {
                 base.Columns.Add(this.columnPackageID);
                 this.columnSourceCentreID = new global::System.Data.DataColumn("SourceCentreID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSourceCentreID);
-                this.columnDestinationCentreID = new global::System.Data.DataColumn("DestinationCentreID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDestinationCentreID);
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
                 this.columnStaffID = new global::System.Data.DataColumn("StaffID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStaffID);
+                this.columnDestinationCentreId = new global::System.Data.DataColumn("DestinationCentreId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDestinationCentreId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPackageStatusID}, true));
                 this.columnPackageStatusID.AllowDBNull = false;
                 this.columnPackageStatusID.Unique = true;
-                this.columnDestinationCentreID.MaxLength = 10;
                 this.columnStaffID.MaxLength = 128;
             }
             
@@ -2205,11 +2214,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int PackageID {
                 get {
-                    try {
-                        return ((int)(this[this.tablePackageStatus.PackageIDColumn]));
+                    if (this.IsPackageIDNull()) {
+                        return -1;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PackageID\' in table \'PackageStatus\' is DBNull.", e);
+                    else {
+                        return ((int)(this[this.tablePackageStatus.PackageIDColumn]));
                     }
                 }
                 set {
@@ -2235,29 +2244,13 @@ namespace ENET_Care.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DestinationCentreID {
-                get {
-                    if (this.IsDestinationCentreIDNull()) {
-                        return "-1";
-                    }
-                    else {
-                        return ((string)(this[this.tablePackageStatus.DestinationCentreIDColumn]));
-                    }
-                }
-                set {
-                    this[this.tablePackageStatus.DestinationCentreIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Status {
                 get {
-                    try {
-                        return ((int)(this[this.tablePackageStatus.StatusColumn]));
+                    if (this.IsStatusNull()) {
+                        return 0;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'PackageStatus\' is DBNull.", e);
+                    else {
+                        return ((int)(this[this.tablePackageStatus.StatusColumn]));
                     }
                 }
                 set {
@@ -2269,15 +2262,31 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string StaffID {
                 get {
-                    try {
-                        return ((string)(this[this.tablePackageStatus.StaffIDColumn]));
+                    if (this.IsStaffIDNull()) {
+                        return "-1";
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StaffID\' in table \'PackageStatus\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tablePackageStatus.StaffIDColumn]));
                     }
                 }
                 set {
                     this[this.tablePackageStatus.StaffIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DestinationCentreId {
+                get {
+                    if (this.IsDestinationCentreIdNull()) {
+                        return -1;
+                    }
+                    else {
+                        return ((int)(this[this.tablePackageStatus.DestinationCentreIdColumn]));
+                    }
+                }
+                set {
+                    this[this.tablePackageStatus.DestinationCentreIdColumn] = value;
                 }
             }
             
@@ -2289,6 +2298,17 @@ namespace ENET_Care.Data {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PackageStatus_ToTable"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PackageRow PackageRow {
+                get {
+                    return ((PackageRow)(this.GetParentRow(this.Table.ParentRelations["Package_PackageStatus"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Package_PackageStatus"]);
                 }
             }
             
@@ -2318,18 +2338,6 @@ namespace ENET_Care.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDestinationCentreIDNull() {
-                return this.IsNull(this.tablePackageStatus.DestinationCentreIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDestinationCentreIDNull() {
-                this[this.tablePackageStatus.DestinationCentreIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsStatusNull() {
                 return this.IsNull(this.tablePackageStatus.StatusColumn);
             }
@@ -2350,6 +2358,18 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetStaffIDNull() {
                 this[this.tablePackageStatus.StaffIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDestinationCentreIdNull() {
+                return this.IsNull(this.tablePackageStatus.DestinationCentreIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDestinationCentreIdNull() {
+                this[this.tablePackageStatus.DestinationCentreIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2382,11 +2402,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CentreName {
                 get {
-                    try {
-                        return ((string)(this[this.tableDistCentre.CentreNameColumn]));
+                    if (this.IsCentreNameNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CentreName\' in table \'DistCentre\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableDistCentre.CentreNameColumn]));
                     }
                 }
                 set {
@@ -2398,11 +2418,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CentreAddress {
                 get {
-                    try {
-                        return ((string)(this[this.tableDistCentre.CentreAddressColumn]));
+                    if (this.IsCentreAddressNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CentreAddress\' in table \'DistCentre\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableDistCentre.CentreAddressColumn]));
                     }
                 }
                 set {
@@ -2414,11 +2434,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string PhoneNumber {
                 get {
-                    try {
-                        return ((string)(this[this.tableDistCentre.PhoneNumberColumn]));
+                    if (this.IsPhoneNumberNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PhoneNumber\' in table \'DistCentre\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableDistCentre.PhoneNumberColumn]));
                     }
                 }
                 set {
@@ -2535,11 +2555,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Quantity {
                 get {
-                    try {
-                        return ((int)(this[this.tablePackage.QuantityColumn]));
+                    if (this.IsQuantityNull()) {
+                        return -1;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'Package\' is DBNull.", e);
+                    else {
+                        return ((int)(this[this.tablePackage.QuantityColumn]));
                     }
                 }
                 set {
@@ -2593,6 +2613,17 @@ namespace ENET_Care.Data {
             public void SetQuantityNull() {
                 this[this.tablePackage.QuantityColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PackageStatusRow[] GetPackageStatusRows() {
+                if ((this.Table.ChildRelations["Package_PackageStatus"] == null)) {
+                    return new PackageStatusRow[0];
+                }
+                else {
+                    return ((PackageStatusRow[])(base.GetChildRows(this.Table.ChildRelations["Package_PackageStatus"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2624,11 +2655,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Quantity {
                 get {
-                    try {
-                        return ((int)(this[this.tablePackageStandardType.QuantityColumn]));
+                    if (this.IsQuantityNull()) {
+                        return -1;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'PackageStandardType\' is DBNull.", e);
+                    else {
+                        return ((int)(this[this.tablePackageStandardType.QuantityColumn]));
                     }
                 }
                 set {
@@ -2640,11 +2671,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Description {
                 get {
-                    try {
-                        return ((string)(this[this.tablePackageStandardType.DescriptionColumn]));
+                    if (this.IsDescriptionNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'PackageStandardType\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tablePackageStandardType.DescriptionColumn]));
                     }
                 }
                 set {
@@ -2656,11 +2687,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Cost {
                 get {
-                    try {
-                        return ((decimal)(this[this.tablePackageStandardType.CostColumn]));
+                    if (this.IsCostNull()) {
+                        return 0m;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cost\' in table \'PackageStandardType\' is DBNull.", e);
+                    else {
+                        return ((decimal)(this[this.tablePackageStandardType.CostColumn]));
                     }
                 }
                 set {
@@ -2672,11 +2703,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTempSensitive {
                 get {
-                    try {
-                        return ((bool)(this[this.tablePackageStandardType.IsTempSensitiveColumn]));
+                    if (this.IsIsTempSensitiveNull()) {
+                        return false;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsTempSensitive\' in table \'PackageStandardType\' is DBNull.", e);
+                    else {
+                        return ((bool)(this[this.tablePackageStandardType.IsTempSensitiveColumn]));
                     }
                 }
                 set {
@@ -2688,11 +2719,11 @@ namespace ENET_Care.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ShelfLife {
                 get {
-                    try {
-                        return ((int)(this[this.tablePackageStandardType.ShelfLifeColumn]));
+                    if (this.IsShelfLifeNull()) {
+                        return 0;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ShelfLife\' in table \'PackageStandardType\' is DBNull.", e);
+                    else {
+                        return ((int)(this[this.tablePackageStandardType.ShelfLifeColumn]));
                     }
                 }
                 set {
@@ -3408,45 +3439,38 @@ namespace ENET_Care.Data.DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PackageStatusID", "PackageStatusID");
             tableMapping.ColumnMappings.Add("PackageID", "PackageID");
             tableMapping.ColumnMappings.Add("SourceCentreID", "SourceCentreID");
-            tableMapping.ColumnMappings.Add("DestinationCentreID", "DestinationCentreID");
             tableMapping.ColumnMappings.Add("Status", "Status");
             tableMapping.ColumnMappings.Add("StaffID", "StaffID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PackageStatus] WHERE (([PackageStatusID] = @Original_PackageStatusID) AND ((@IsNull_PackageID = 1 AND [PackageID] IS NULL) OR ([PackageID] = @Original_PackageID)) AND ((@IsNull_SourceCentreID = 1 AND [SourceCentreID] IS NULL) OR ([SourceCentreID] = @Original_SourceCentreID)) AND ((@IsNull_DestinationCentreID = 1 AND [DestinationCentreID] IS NULL) OR ([DestinationCentreID] = @Original_DestinationCentreID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_StaffID = 1 AND [StaffID] IS NULL) OR ([StaffID] = @Original_StaffID)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PackageStatus] WHERE (([PackageStatusID] = @Original_PackageStatusID) AND ((@IsNull_PackageID = 1 AND [PackageID] IS NULL) OR ([PackageID] = @Original_PackageID)) AND ((@IsNull_SourceCentreID = 1 AND [SourceCentreID] IS NULL) OR ([SourceCentreID] = @Original_SourceCentreID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_StaffID = 1 AND [StaffID] IS NULL) OR ([StaffID] = @Original_StaffID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PackageStatusID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PackageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PackageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DestinationCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DestinationCentreID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PackageStatus] ([PackageStatusID], [PackageID], [SourceCentreID], [DestinationCentreID], [Status], [StaffID]) VALUES (@PackageStatusID, @PackageID, @SourceCentreID, @DestinationCentreID, @Status, @StaffID);
-SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = @PackageStatusID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PackageStatus] ([PackageID], [SourceCentreID], [Status], [StaffID]) VALUES (@PackageID, @SourceCentreID, @Status, @StaffID);
+SELECT PackageStatusID, PackageID, SourceCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[PackageStatus] SET [PackageStatusID] = @PackageStatusID, [PackageID] = @PackageID, [SourceCentreID] = @SourceCentreID, [DestinationCentreID] = @DestinationCentreID, [Status] = @Status, [StaffID] = @StaffID WHERE (([PackageStatusID] = @Original_PackageStatusID) AND ((@IsNull_PackageID = 1 AND [PackageID] IS NULL) OR ([PackageID] = @Original_PackageID)) AND ((@IsNull_SourceCentreID = 1 AND [SourceCentreID] IS NULL) OR ([SourceCentreID] = @Original_SourceCentreID)) AND ((@IsNull_DestinationCentreID = 1 AND [DestinationCentreID] IS NULL) OR ([DestinationCentreID] = @Original_DestinationCentreID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_StaffID = 1 AND [StaffID] IS NULL) OR ([StaffID] = @Original_StaffID)));
-SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = @PackageStatusID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PackageStatus] SET [PackageID] = @PackageID, [SourceCentreID] = @SourceCentreID, [Status] = @Status, [StaffID] = @StaffID WHERE (([PackageStatusID] = @Original_PackageStatusID) AND ((@IsNull_PackageID = 1 AND [PackageID] IS NULL) OR ([PackageID] = @Original_PackageID)) AND ((@IsNull_SourceCentreID = 1 AND [SourceCentreID] IS NULL) OR ([SourceCentreID] = @Original_SourceCentreID)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_StaffID = 1 AND [StaffID] IS NULL) OR ([StaffID] = @Original_StaffID)));
+SELECT PackageStatusID, PackageID, SourceCentreID, Status, StaffID FROM PackageStatus WHERE (PackageStatusID = @PackageStatusID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestinationCentreID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PackageStatusID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3454,12 +3478,11 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PackageID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SourceCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DestinationCentreID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DestinationCentreID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3475,8 +3498,8 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, S" +
-                "taffID FROM dbo.PackageStatus";
+            this._commandCollection[0].CommandText = "SELECT PackageStatusID, PackageID, SourceCentreID, Status, StaffID FROM PackageSt" +
+                "atus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -3486,10 +3509,10 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageId", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, St" +
-                "atus, StaffID\r\nFROM            PackageStatus\r\nWHERE        (Status = @Status)";
+            this._commandCollection[2].CommandText = "SELECT PackageStatusID, PackageID, SourceCentreID, Status, StaffID FROM PackageSt" +
+                "atus WHERE (Status = @Status)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[PackageStatus] ([PackageStatusID], [PackageID], [SourceCentreID], [DestinationCentreID], [Status], [StaffID]) VALUES (@PackageStatusID, @PackageID, @SourceCentreID, @DestinationCentreID, @Status, @StaffID);
@@ -3590,18 +3613,20 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet.PackageStatusDataTable GetPackagesByStatus(object Status) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillPackageDataTable(DataSet.PackageStatusDataTable dataTable, global::System.Nullable<int> Status) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((Status == null)) {
-                throw new global::System.ArgumentNullException("Status");
+            if ((Status.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Status.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(Status));
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            DataSet.PackageStatusDataTable dataTable = new DataSet.PackageStatusDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3637,7 +3662,7 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PackageStatusID, global::System.Nullable<int> Original_PackageID, global::System.Nullable<int> Original_SourceCentreID, string Original_DestinationCentreID, global::System.Nullable<int> Original_Status, string Original_StaffID) {
+        public virtual int Delete(int Original_PackageStatusID, global::System.Nullable<int> Original_PackageID, global::System.Nullable<int> Original_SourceCentreID, global::System.Nullable<int> Original_Status, string Original_StaffID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PackageStatusID));
             if ((Original_PackageID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -3655,29 +3680,21 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_DestinationCentreID == null)) {
+            if ((Original_Status.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Status.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_DestinationCentreID));
-            }
-            if ((Original_Status.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Status.Value));
-            }
-            else {
+            if ((Original_StaffID == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_StaffID == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_StaffID));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_StaffID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3699,37 +3716,30 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int PackageStatusID, global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, string DestinationCentreID, global::System.Nullable<int> Status, string StaffID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PackageStatusID));
+        public virtual int Insert(global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, global::System.Nullable<int> Status, string StaffID) {
             if ((PackageID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PackageID.Value));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PackageID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((SourceCentreID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(SourceCentreID.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((SourceCentreID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(SourceCentreID.Value));
+            if ((Status.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Status.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((DestinationCentreID == null)) {
+            if ((StaffID == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(DestinationCentreID));
-            }
-            if ((Status.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Status.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((StaffID == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(StaffID));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(StaffID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3751,79 +3761,65 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PackageStatusID, global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, string DestinationCentreID, global::System.Nullable<int> Status, string StaffID, int Original_PackageStatusID, global::System.Nullable<int> Original_PackageID, global::System.Nullable<int> Original_SourceCentreID, string Original_DestinationCentreID, global::System.Nullable<int> Original_Status, string Original_StaffID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PackageStatusID));
+        public virtual int Update(global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, global::System.Nullable<int> Status, string StaffID, int Original_PackageStatusID, global::System.Nullable<int> Original_PackageID, global::System.Nullable<int> Original_SourceCentreID, global::System.Nullable<int> Original_Status, string Original_StaffID, int PackageStatusID) {
             if ((PackageID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PackageID.Value));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PackageID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((SourceCentreID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(SourceCentreID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((SourceCentreID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(SourceCentreID.Value));
+            if ((Status.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Status.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((DestinationCentreID == null)) {
+            if ((StaffID == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(DestinationCentreID));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(StaffID));
             }
-            if ((Status.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Status.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((StaffID == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(StaffID));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PackageStatusID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PackageStatusID));
             if ((Original_PackageID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PackageID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SourceCentreID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_PackageID.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_SourceCentreID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_SourceCentreID.HasValue == true)) {
+            if ((Original_Status.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_SourceCentreID.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Status.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_DestinationCentreID == null)) {
+            if ((Original_StaffID == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_DestinationCentreID));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_StaffID));
             }
-            if ((Original_Status.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Status.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_StaffID == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_StaffID));
-            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(PackageStatusID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3844,8 +3840,8 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, string DestinationCentreID, global::System.Nullable<int> Status, string StaffID, int Original_PackageStatusID, global::System.Nullable<int> Original_PackageID, global::System.Nullable<int> Original_SourceCentreID, string Original_DestinationCentreID, global::System.Nullable<int> Original_Status, string Original_StaffID) {
-            return this.Update(Original_PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, StaffID, Original_PackageStatusID, Original_PackageID, Original_SourceCentreID, Original_DestinationCentreID, Original_Status, Original_StaffID);
+        public virtual int Update(global::System.Nullable<int> PackageID, global::System.Nullable<int> SourceCentreID, global::System.Nullable<int> Status, string StaffID, int Original_PackageStatusID, global::System.Nullable<int> Original_PackageID, global::System.Nullable<int> Original_SourceCentreID, global::System.Nullable<int> Original_Status, string Original_StaffID) {
+            return this.Update(PackageID, SourceCentreID, Status, StaffID, Original_PackageStatusID, Original_PackageID, Original_SourceCentreID, Original_Status, Original_StaffID, Original_PackageStatusID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4882,9 +4878,10 @@ WHERE        (PackageStatus.SourceCentreID = @SourceID)";
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SourceCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT        Package.PackageId, Package.PackageStandardTypeId, Package.ExpiryDate, Package.Quantity
+            this._commandCollection[4].CommandText = @"SELECT        Package.PackageId, PackageStandardType.Description, Package.PackageStandardTypeId, Package.ExpiryDate
 FROM            Package INNER JOIN
-                         PackageStatus ON Package.PackageId = PackageStatus.PackageID
+                         PackageStatus ON Package.PackageId = PackageStatus.PackageID INNER JOIN
+                         PackageStandardType ON Package.PackageStandardTypeId = PackageStandardType.Id
 WHERE        (PackageStatus.DestinationCentreID = @DestID)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DestID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6968,6 +6965,15 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._packageTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Package.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._packageTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._aspNetUsersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.AspNetUsers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6983,15 +6989,6 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._packageStatusTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._packageTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Package.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._packageTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7021,6 +7018,14 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._packageTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Package.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._packageTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._aspNetUsersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.AspNetUsers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -7037,14 +7042,6 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._packageTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Package.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._packageTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -7055,14 +7052,6 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._packageTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Package.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._packageTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._packageStatusTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PackageStatus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7076,6 +7065,14 @@ SELECT Id, Email, EmailConfirmed, FirstName, LastName, PasswordHash, SecuritySta
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._aspNetUsersTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._packageTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Package.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._packageTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

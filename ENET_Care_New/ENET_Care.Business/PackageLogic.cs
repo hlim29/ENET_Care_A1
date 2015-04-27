@@ -75,5 +75,9 @@ namespace ENET_Care.Business
             return new Package().GetPackageByBarcode(barcode);
         }
 
+        public static System.Data.DataSet GetPackagesByDistCentre(int centreId)
+        {
+            return new Package().GetPackagesByDistCentre(centreId);
+        }
     }
 }

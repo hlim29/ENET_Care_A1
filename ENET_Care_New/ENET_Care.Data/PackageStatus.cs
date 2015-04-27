@@ -15,7 +15,7 @@ namespace ENET_Care.Data
         public StatusEnum Status { get; set; }
         public enum StatusEnum
         {
-            InTransit, InStock, Lost, Received
+            InTransit, InStock, Lost, Received, Distributed
         };
         public Staff Staff { get; set; }
         public DistributionCentre CentreSource { get; set; }
@@ -37,6 +37,16 @@ namespace ENET_Care.Data
 
             }
         }
+
+        public void DistributePackage(int packageId, string staffId)
+        {
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().ReceivePackage((int)StatusEnum.Distributed, staffId, packageId);
+
+            }
+        }
+
 
         public int CountPackageById(int id)
         {

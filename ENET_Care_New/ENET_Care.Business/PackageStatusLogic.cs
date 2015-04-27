@@ -20,6 +20,12 @@ namespace ENET_Care.Business
             new PackageStatus().ReceivePackage(packageId,  staffId);
         }
 
+        public static void DistributePackage(int packageId, string staffId)
+        {
+
+            new PackageStatus().DistributePackage(packageId, staffId);
+        }
+
         public static bool HasStatus(int packageId)
         {
             return (new PackageStatus().CountPackageById(packageId) == 1);
