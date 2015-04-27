@@ -119,13 +119,32 @@ namespace ENET_Care.Data
             }
         }
 
-        public void GetAllByStatusId()
+        public List<Package> GetAllByStatus(int status)
         {
+            List<Package> result = new List<Package>();
             using (new DAO().OpenConnection())
             {
-                new PackageStatusTableAdapter().GetAllDataByStatus((int)StatusEnum.InStock);
+                new PackageStatusTableAdapter().GetData();
+
+                DataSet.PackageStatusDataTable packageStatus = new PackageStatusTableAdapter().GetAllDataByStatus(status);
+                foreach (DataSet.PackageStatusRow row in packageStatus)
+                {
+
+
+                    foreach (DataSet.PackageRow packageRow in new PackageTableAdapter().GetDataByPackageId(row.PackageID))
+                    {
+                        Package package = new Package();
+                        package.BarCode = packageRow.PackageId;
+                        package.ExpiryDate = packageRow.ExpiryDate;
+                        package.Medication = Package.GetMedication(packageRow.PackageStandardTypeId);
+                        result.Add(package);
+                    }
+                }
+
             }
+            return result;
         }
+
 
         public int GetInStockPackageValueTotal()
         {

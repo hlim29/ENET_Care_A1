@@ -10,5 +10,7 @@
         </asp:TextBox>
         <br />
        <asp:Button runat="server" text="Discard" onclick="Submit_Click"/>
+        <br />
+        <asp:Label runat="server" ID="Message"></asp:Label>
     </div>
 </asp:Content>

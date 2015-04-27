@@ -14,7 +14,7 @@ namespace ENET_Care_New.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Message.Text = "";
         }
         protected void Submit_Click(object sender, EventArgs e)
         {
@@ -23,9 +23,12 @@ namespace ENET_Care_New.Pages
             if (PackageStatusLogic.IsPackageInStock(int.Parse(BarCode.Text)))
             {
                 PackageStatusLogic.DiscardPackageStatus(UserLogic.GetCentreID(), int.Parse(BarCode.Text),userId);
+                Message.Text = "Package discarded successfully.";
+
             }
             else
             {
+                Message.Text = "Package couldn't be discarded. It is either out of stock or doesn't exist.";
                 //message package does not exist or is not in stock
             }
         }
