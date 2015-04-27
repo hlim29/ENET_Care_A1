@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ENET_Care_New.Models;
 
 
 namespace ENET_Care_New.Pages
@@ -26,9 +28,9 @@ namespace ENET_Care_New.Pages
                 CentreDropDownList.DataBind();
                 CentreDropDownList.Items.FindByText(UserLogic.GetCentreName()).Selected = true;
 
-                OldPassword.Enabled = false;
-                NewPassword.Enabled = false;
-                NewPasswordConfirm.Enabled = false;
+               // OldPassword.Enabled = false;
+               // NewPassword.Enabled = false;
+               // NewPasswordConfirm.Enabled = false;
 
                 
                 // set the informations using for example: UserLogic.GetName;
@@ -93,6 +95,31 @@ namespace ENET_Care_New.Pages
             OldPassword.Enabled = true;
             NewPassword.Enabled = true;
             NewPasswordConfirm.Enabled = true;
+
+            ApplicationDbContext context = new ApplicationDbContext();
+            UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(context);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(store);
+            String userId = User.Identity.GetUserId();
+
+            if (NewPassword.Text != NewPasswordConfirm.Text)
+            {
+                PasswordResultLabel.Visible = true;
+                PasswordResultLabel.Text = "Please ensure that both the new passwords match";
+            }
+            else
+            {
+                var result = UserManager.ChangePassword(userId, OldPassword.Text, NewPassword.Text);
+                PasswordResultLabel.Visible = true;
+                if (result.Equals(IdentityResult.Success))
+                    PasswordResultLabel.Text = "Changed";
+                else
+                    PasswordResultLabel.Text = "Failed";
+            }
+
+            String hashedOldPassword = UserManager.PasswordHasher.HashPassword(OldPassword.Text);
+            //if (UserManager.PasswordValidator.)
+           
+            
         }
     }
 }

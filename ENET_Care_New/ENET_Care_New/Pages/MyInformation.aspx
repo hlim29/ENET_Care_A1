@@ -22,7 +22,11 @@
 
     </asp:TextBox>
     <br />
-    <asp:Label runat="server">
+    <br />
+    <asp:Panel ID="Panel1" runat="server">
+        <asp:Label ID="PasswordResultLabel" runat="server" Text="Label" Visible="False"></asp:Label>
+        <br />
+        <asp:Label runat="server">
             Old Password:
     </asp:Label>
     <asp:TextBox runat="server" ID="OldPassword" TextMode="Password">
@@ -43,6 +47,8 @@
 
     </asp:TextBox>
     <asp:Button runat="server" Text="Change" ID="ChangePassword" OnClick="ChangePassword_Click" />
+    </asp:Panel>
+    
     <br />
     <asp:Label runat="server">
             Dist. Centre:
