@@ -91,7 +91,7 @@ namespace ENET_Care_New.Pages
                 }
         }
 
-        private void EditPassword()
+        protected void ChangePassword_Click(object sender, EventArgs e)
         {
             ApplicationDbContext context = new ApplicationDbContext();
             UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(context);
@@ -112,11 +112,6 @@ namespace ENET_Care_New.Pages
                 else
                     PasswordResultLabel.Text = "Incorrect old password";
             }
-
-           // String hashedOldPassword = UserManager.PasswordHasher.HashPassword(OldPassword.Text);
-            //if (UserManager.PasswordValidator.)
-           
-            
         }
 
        
