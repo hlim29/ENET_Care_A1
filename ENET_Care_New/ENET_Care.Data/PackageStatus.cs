@@ -62,7 +62,38 @@ namespace ENET_Care.Data
 
         public void SendPackage(int source, int destination,string staffId, int packageId)
         {
-            new PackageStatusTableAdapter().SendPackage(source, destination, (int)StatusEnum.InTransit, staffId, packageId);
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().SendPackage(source, destination, (int)StatusEnum.InTransit, staffId, packageId);
+            }
         }
+
+        public List<Package> GetPackagesInStock()
+        {
+            List<Package> result = new List<Package>();
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().GetData();
+
+                DataSet.PackageStatusDataTable packageStatus = new PackageStatusTableAdapter().GetPackagesByStatus((int)StatusEnum.InStock);
+                foreach (DataSet.PackageStatusRow row in packageStatus)
+                {
+          
+
+                    foreach (DataSet.PackageRow packageRow in new PackageTableAdapter().GetDataByPackageId(row.PackageID))
+                    {
+                        Package package = new Package();
+                        package.BarCode = packageRow.PackageId;
+                        package.ExpiryDate = packageRow.ExpiryDate;
+                        package.Medication = Package.GetMedication(packageRow.PackageStandardTypeId);
+                        result.Add(package);
+                    }
+                }
+            
+            }
+            return result;
+        }
+
+
     }
 }
