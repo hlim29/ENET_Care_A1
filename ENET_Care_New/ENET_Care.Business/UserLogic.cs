@@ -75,6 +75,11 @@ namespace ENET_Care.Business
             user.Password = password;
         }
 
+        public static void SetDistributionCentre(int Id)
+        {
+
+        }
+
         public static void UpdateUser()
         {
             user.UpdateUser();
