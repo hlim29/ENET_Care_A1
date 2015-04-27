@@ -22,7 +22,7 @@ namespace ENET_Care_New.Pages
             UserLogic.GetUserById(userId);
             if (PackageStatusLogic.IsPackageInStock(int.Parse(BarCode.Text)))
             {
-                PackageStatusLogic.DiscardPackageStatus(UserLogic.GetCentreID(), int.Parse(BarCode.Text));
+                PackageStatusLogic.DiscardPackageStatus(UserLogic.GetCentreID(), int.Parse(BarCode.Text),userId);
             }
             else
             {
