@@ -9,6 +9,10 @@ namespace ENET_Care.Business
 {
     public class PackageStatusLogic
     {
+        public enum StatusEnum
+        {
+            InTransit, InStock, Lost, Received, Distributed, Discard
+        };
         public static void RegisterArrival(int packageId, int centreId,string staffId)
         {
             new PackageStatus().RegisterArrival(packageId, centreId, staffId);
@@ -42,9 +46,11 @@ namespace ENET_Care.Business
             throw new NotImplementedException();
         }
 
-        public static void UpdatePackageStatus(int status, int centreId, int barcode)
+        public static void DiscardPackageStatus(int centreId, int barcode)
         {
-            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId(status, centreId, barcode);
+            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId((int)StatusEnum.Discard,centreId, barcode);
         }
+
+
     }
 }

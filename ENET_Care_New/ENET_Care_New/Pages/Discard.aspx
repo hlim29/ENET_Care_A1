@@ -5,10 +5,10 @@
        <asp:label runat="server">
            Bar Code:
        </asp:label>
-        <asp:TextBox runat="server">
+        <asp:TextBox runat="server" ID="BarCode">
 
         </asp:TextBox>
         <br />
-       <asp:Button runat="server" text="Discard" />
+       <asp:Button runat="server" text="Discard" onclick="Submit_Click"/>
     </div>
 </asp:Content>
