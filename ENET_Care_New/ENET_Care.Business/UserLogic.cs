@@ -77,7 +77,7 @@ namespace ENET_Care.Business
 
         public static void SetDistributionCentre(int Id)
         {
-
+            user.DistributionCentre.SetCentreById(Id);
         }
 
         public static void UpdateUser()
