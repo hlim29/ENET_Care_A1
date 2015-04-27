@@ -32,5 +32,10 @@ namespace ENET_Care_New.Pages
                 }
             }
         }
+
+        protected void StockGridView_Highlight(object sender, EventArgs e)
+        {
+
+        }
     }
 }
