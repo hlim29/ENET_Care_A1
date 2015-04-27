@@ -103,9 +103,6 @@ namespace ENET_Care.Data
                 DataSet.PackageStatusDataTable packagesStatus = new PackageStatusTableAdapter().GetPackageStatusByBarcode(barcode);
                 foreach (DataSet.PackageStatusRow row in packagesStatus)
                 {
-                    this.Id = row.PackageStatusID;
-                    this.Package.BarCode = row.PackageID;
-                    this.Staff.Id = row.StaffID;
                     this.Status = (StatusEnum)row.Status;
                     
                 }
