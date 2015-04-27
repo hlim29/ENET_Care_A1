@@ -45,9 +45,17 @@ namespace ENET_Care.Tests
         [TestMethod]
         public void Retrieve_DistributionCentres()
         {
-            List<DistributionCentre> centreList = new ENET_Care.Data.DAO().GetAllCentres();
-            Assert.IsTrue(centreList.Count > 0);
+            using (new ENET_Care.Data.DAO().OpenConnection())
+            {
+                List<DistributionCentre> centreList = new ENET_Care.Data.DAO().GetAllCentres();
+                Assert.IsTrue(centreList.Count > 0);
+            }
+           
         }
-        
+        [TestMethod]
+        public void Retrieve_EverythingInStock()
+        {
+            new PackageStatus().GetAllByStatusId();
+        }
     }
 }

@@ -118,7 +118,15 @@ namespace ENET_Care.Data
             int result = -1;
             using (new DAO().OpenConnection())
             {
-                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status,centreId,barcode);
+                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status,"123",centreId,barcode);
+            }
+        }
+
+        public void GetAllByStatusId()
+        {
+            using (new DAO().OpenConnection())
+            {
+                new PackageStatusTableAdapter().GetAllDataByStatus((int)StatusEnum.InStock);
             }
         }
     }
