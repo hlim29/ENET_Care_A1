@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyInformation.aspx.cs" Inherits="ENET_Care_New.Pages.MyInformation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Label runat="server" ID="Message">
+    </asp:Label>
+    <br />
     <asp:Label runat="server">
             First Name:
     </asp:Label>
@@ -21,6 +24,12 @@
     <asp:TextBox runat="server" ID="Email">
 
     </asp:TextBox>
+    <br />
+    <asp:Label runat="server">
+            Dist. Centre:
+    </asp:Label>
+    <asp:DropDownList AppendDataBoundItems="true" runat="server" ID="CentreDropDownList" AutoPostBack = "true">
+    </asp:DropDownList>
     <br />
     <br />
     <asp:Panel ID="Panel1" runat="server" BorderStyle="Groove">
@@ -49,12 +58,7 @@
     <asp:Button runat="server" Text="Change" ID="ChangePassword" OnClick="ChangePassword_Click" />
     </asp:Panel>
     
-    <br />
-    <asp:Label runat="server">
-            Dist. Centre:
-    </asp:Label>
-    <asp:DropDownList AppendDataBoundItems="true" runat="server" ID="CentreDropDownList" AutoPostBack = "true">
-    </asp:DropDownList>
+    
     <br />
     <asp:Button runat="server" Text="Cancel" />
     <asp:Button runat="server" Text="Save" onclick="Submit_Click" />
