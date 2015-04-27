@@ -126,7 +126,7 @@ namespace ENET_Care.Data
 
         //returning an id itself because of this is the only Private Key.
         //Package table do not have barcode as properties
-        public List<int> GetAllPackageByDistCentre(int centreId)
+        public List<int> GetAllPackageByDistCentre(int centreId, int Status)
         {
             List<int> result = new List<int>();
             using (new DAO().OpenConnection())
@@ -134,7 +134,7 @@ namespace ENET_Care.Data
                 DataSet.PackageStatusDataTable packageStatus = new PackageStatusTableAdapter().GetData();
                 foreach (DataSet.PackageStatusRow row in packageStatus)
                 {
-                    if(row.SourceCentreID == centreId && row.Status == 1) // 1 is StatusEnum.InStock
+                    if(row.SourceCentreID == centreId && row.Status == Status) // 1 is StatusEnum.InStock
                     {
                         result.Add(row.PackageID);
                     }
