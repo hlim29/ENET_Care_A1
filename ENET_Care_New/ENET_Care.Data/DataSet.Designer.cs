@@ -3495,7 +3495,7 @@ SELECT PackageStatusID, PackageID, SourceCentreID, Status, StaffID FROM PackageS
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[12];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PackageStatusID, PackageID, SourceCentreID, Status, StaffID FROM PackageSt" +
@@ -3598,12 +3598,19 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PackageStatusID", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "PackageStatusID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = "UPDATE       PackageStatus\r\nSET                Status = @Status\r\nWHERE        (De" +
-                "stinationCentreID = @Centre) AND (PackageID = @Barcode);  \r\n";
+            this._commandCollection[10].CommandText = "UPDATE       PackageStatus\r\nSET                Status = @NewStatus\r\nWHERE        " +
+                "(Status = @OldStatus); \r\n";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Centre", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Barcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewStatus", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OldStatus", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = this.Connection;
+            this._commandCollection[11].CommandText = "UPDATE       PackageStatus\r\nSET                Status = @Status\r\nWHERE        (De" +
+                "stinationCentreID = @Centre) AND (PackageID = @Barcode);  \r\n";
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Centre", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DestinationCentreID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Barcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PackageID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4273,8 +4280,43 @@ SELECT PackageStatusID, PackageID, SourceCentreID, DestinationCentreID, Status, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateStatusByBarcodeAndDestCentre(global::System.Nullable<int> Status, global::System.Nullable<int> Centre, global::System.Nullable<int> Barcode) {
+        public virtual int UpdateAllPackageStatus(global::System.Nullable<int> NewStatus, global::System.Nullable<int> OldStatus) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
+            if ((NewStatus.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(NewStatus.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((OldStatus.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(OldStatus.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateStatusByBarcodeAndDestCentre(global::System.Nullable<int> Status, global::System.Nullable<int> Centre, global::System.Nullable<int> Barcode) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
             if ((Status.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(Status.Value));
             }
