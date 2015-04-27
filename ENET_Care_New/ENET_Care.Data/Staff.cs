@@ -39,5 +39,10 @@ namespace ENET_Care.Data
         {
             new AspNetUsersTableAdapter().GetCentreIdByUser(userId);
         }
+
+        public string getId()
+        {
+            return Id;
+        }
     }
 }

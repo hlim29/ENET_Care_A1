@@ -93,7 +93,5 @@ namespace ENET_Care.Data
             }
             return result;
         }
-
-
     }
 }

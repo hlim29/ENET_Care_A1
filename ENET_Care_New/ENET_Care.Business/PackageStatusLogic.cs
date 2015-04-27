@@ -36,5 +36,10 @@ namespace ENET_Care.Business
             new PackageStatus().SendPackage(source, destination, staffId, packageId);
         }
 
+        //Auto-Generated Method
+        public static PackageStatus getPackageStatusById(int packageId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
