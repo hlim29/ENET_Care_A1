@@ -45,8 +45,6 @@ namespace ENET_Care_New.Pages
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
                 if(FirstName.Text == null)
                 {
                     //error message: first name empty
@@ -68,6 +66,8 @@ namespace ENET_Care_New.Pages
                                 UserLogic.SetLastName(LastName.Text);
                                 UserLogic.SetEmail(Email.Text);
                                 UserLogic.SetPassword(NewPassword.Text);
+                                UserLogic.SetDistributionCentre(Int16.Parse(CentreDropDownList.SelectedValue));
+                                UserLogic.UpdateUser();
                             }
                             else
                             {
@@ -84,10 +84,11 @@ namespace ENET_Care_New.Pages
                         UserLogic.SetFirstName(FirstName.Text);
                         UserLogic.SetLastName(LastName.Text);
                         UserLogic.SetEmail(Email.Text);
+                        UserLogic.SetDistributionCentre(Int16.Parse(CentreDropDownList.SelectedValue));
+                        UserLogic.UpdateUser();
                     }
                     
                 }
-            }
         }
 
         protected void ChangePassword_Click(object sender, EventArgs e)
