@@ -51,6 +51,16 @@ namespace ENET_Care.Business
             new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId((int)StatusEnum.Discard,centreId, barcode);
         }
 
+        public static bool IsPackageInStock(int barcode)
+        {
+            PackageStatus pS = new PackageStatus();
+            pS.SetPackageByBarCode(barcode);
+            if ((int)pS.Status == (int)StatusEnum.InStock)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }
