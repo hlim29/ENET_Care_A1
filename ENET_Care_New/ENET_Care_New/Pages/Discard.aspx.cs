@@ -20,7 +20,14 @@ namespace ENET_Care_New.Pages
         {
             string userId = User.Identity.GetUserId();
             UserLogic.GetUserById(userId);
-            PackageStatusLogic.DiscardPackageStatus(UserLogic.GetCentreID(), int.Parse(BarCode.Text));
+            if (PackageStatusLogic.IsPackageInStock(int.Parse(BarCode.Text)))
+            {
+                PackageStatusLogic.DiscardPackageStatus(UserLogic.GetCentreID(), int.Parse(BarCode.Text));
+            }
+            else
+            {
+                //message package does not exist or is not in stock
+            }
         }
     }
 }
