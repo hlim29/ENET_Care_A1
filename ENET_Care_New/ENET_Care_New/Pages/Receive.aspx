@@ -12,5 +12,9 @@
     <asp:TextBox runat="server" ID="txtBarcode"></asp:TextBox>
     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtBarcode" runat="server" ErrorMessage="Only Numbers allowed" ValidationExpression="\d+"></asp:RegularExpressionValidator>
     <br />
+    <asp:Label ID="LabelSuccess" runat="server" Text="Your package has been successfully received" Visible="False"></asp:Label>
+    <br />
+    <asp:HyperLink ID="HyperLinkAnother" runat="server" NavigateUrl="Receive.aspx">Click here to receive another package</asp:HyperLink>
+    <br />
     <asp:Button runat="server" Text="Receive" ID="ReceiveButton" OnClick="ReceiveButton_Click" />
 </asp:Content>
