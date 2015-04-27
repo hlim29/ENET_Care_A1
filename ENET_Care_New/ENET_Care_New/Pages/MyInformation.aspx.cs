@@ -49,13 +49,13 @@ namespace ENET_Care_New.Pages
         {
                 if(FirstName.Text == null)
                 {
-                    Message.Text = "First name can't be empty."
+                    Message.Text = "First name can't be empty.";
                 }else if(LastName.Text == null)
                 {
-                    Message.Text = "Last name can't be empty."
+                    Message.Text = "Last name can't be empty.";
                 }else if (Email.Text == null)
                 {
-                    Message.Text = "Email can't be empty."
+                    Message.Text = "Email can't be empty.";
                 }else
                 {
                     /*if (OldPassword.Enabled == true)
