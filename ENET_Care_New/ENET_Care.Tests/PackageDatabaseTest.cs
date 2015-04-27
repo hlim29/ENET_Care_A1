@@ -73,7 +73,7 @@ namespace ENET_Care.Tests
             package.Quantity = 100;
 
             Package pkg = new Package();
-            pkg.DeletePackage(new PackageTableAdapter().GetData().Count);
+            //pkg.DeletePackage(new PackageTableAdapter().GetData().Count);
 
             Assert.Equals(null, new Package().GetPackageByBarcode(package.BarCode).BarCode);
         }
