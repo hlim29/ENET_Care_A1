@@ -64,5 +64,18 @@ namespace ENET_Care.Tests
             //Assert.AreEqual(package.Quantity, new PackageTableAdapter().GetData().FindByPackageId(lastId).Quantity, "Quantity are not the same!");
         }
 
+        public void PackageDatabaseTest_DeletePackage_PackageDeleted()
+        {
+            Package package = new Package();
+            package.BarCode = 123458;
+            package.Medication = PackageLogic.GetMedicationList().Last.Value;
+            package.ExpiryDate = new DateTime(2017, 10, 10);
+            package.Quantity = 100;
+
+            Package pkg = new Package();
+            pkg.DeletePackage(new PackageTableAdapter().GetData().Count);
+
+            Assert.Equals(null, new Package().GetPackageByBarcode(package.BarCode).BarCode);
+        }
     }
 }
