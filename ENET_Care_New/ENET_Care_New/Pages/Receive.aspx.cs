@@ -13,7 +13,8 @@ namespace ENET_Care_New.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            LabelSuccess.Visible = false;
+            HyperLinkAnother.Visible = false;
             labelInvalidBarcode.Visible = false;
             txtBarcode.Focus();
         }
@@ -25,6 +26,8 @@ namespace ENET_Care_New.Pages
             {
                 string userId = User.Identity.GetUserId();
                 PackageStatusLogic.ReceivePackage(barcode, userId);
+                LabelSuccess.Visible = true;
+                HyperLinkAnother.Visible = true;
             }
             else
             {

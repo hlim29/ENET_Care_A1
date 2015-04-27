@@ -31,4 +31,14 @@
     </asp:TextBox>
     <br />
     <asp:Button runat="server" Text="Send" ID="buttonSend" OnClick="buttonSend_Click" />
+    <br />
+    <asp:Label ID="LabelSuccess" runat="server" Text="Your package has been successfully sent" Visible="False"></asp:Label>
+    <br />
+    <asp:Label ID="LabelSource" runat="server" Text="Source" Visible="False"></asp:Label>
+    <br />
+    <asp:Label ID="LabelDestination" runat="server" Text="Dest" Visible="False"></asp:Label>
+    <br />
+    <asp:Label ID="LabelPackageId" runat="server" Text="Id" Visible="False"></asp:Label>
+    <br />
+    <asp:HyperLink ID="HyperLinkAnother" runat="server" NavigateUrl="Send.aspx">Click here to send another package</asp:HyperLink>
 </asp:Content>
