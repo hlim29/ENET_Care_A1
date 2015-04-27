@@ -46,9 +46,9 @@ namespace ENET_Care.Business
             throw new NotImplementedException();
         }
 
-        public static void DiscardPackageStatus(int centreId, int barcode)
+        public static void DiscardPackageStatus(int centreId, int barcode, string staffId)
         {
-            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId((int)StatusEnum.Discard,centreId, barcode);
+            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId((int)StatusEnum.Discard,centreId, barcode, staffId);
         }
 
         public static bool IsPackageInStock(int barcode)
