@@ -93,5 +93,14 @@ namespace ENET_Care.Data
             }
             return result;
         }
+
+        public void UpdatePackageStatusByBarcodeAndCentreId(int status, int centreId, int barcode)
+        {
+            int result = -1;
+            using (new DAO().OpenConnection())
+            {
+                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status,centreId,barcode);
+            }
+        }
     }
 }

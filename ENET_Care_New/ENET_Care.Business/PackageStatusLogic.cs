@@ -41,5 +41,10 @@ namespace ENET_Care.Business
         {
             throw new NotImplementedException();
         }
+
+        public static void UpdatePackageStatus(int status, int centreId, int barcode)
+        {
+            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId(status, centreId, barcode);
+        }
     }
 }
