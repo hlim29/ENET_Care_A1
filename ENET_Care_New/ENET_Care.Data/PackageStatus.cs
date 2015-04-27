@@ -113,12 +113,12 @@ namespace ENET_Care.Data
             }
         }
 
-        public void UpdatePackageStatusByBarcodeAndCentreId(int status, int centreId, int barcode)
+        public void UpdatePackageStatusByBarcodeAndCentreId(int status, int centreId, int barcode, string staffId)
         {
             int result = -1;
             using (new DAO().OpenConnection())
             {
-                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status,centreId,barcode);
+                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status,staffId,centreId,barcode);
             }
         }
     }
