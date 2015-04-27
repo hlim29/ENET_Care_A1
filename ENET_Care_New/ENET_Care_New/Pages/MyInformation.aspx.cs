@@ -28,6 +28,8 @@ namespace ENET_Care_New.Pages
                 CentreDropDownList.DataBind();
                 CentreDropDownList.Items.FindByText(UserLogic.GetCentreName()).Selected = true;
 
+
+                Message.Text = "";
                // OldPassword.Enabled = false;
                // NewPassword.Enabled = false;
                // NewPasswordConfirm.Enabled = false;
@@ -47,13 +49,13 @@ namespace ENET_Care_New.Pages
         {
                 if(FirstName.Text == null)
                 {
-                    //error message: first name empty
+                    Message.Text = "First name can't be empty."
                 }else if(LastName.Text == null)
                 {
-                    //error message: last name empty
+                    Message.Text = "Last name can't be empty."
                 }else if (Email.Text == null)
                 {
-                    //error message: email empty
+                    Message.Text = "Email can't be empty."
                 }else
                 {
                     /*if (OldPassword.Enabled == true)
@@ -86,6 +88,8 @@ namespace ENET_Care_New.Pages
                         UserLogic.SetEmail(Email.Text);
                         UserLogic.SetDistributionCentre(Int16.Parse(CentreDropDownList.SelectedValue));
                         UserLogic.UpdateUser();
+                        Message.Text = "Information updated successfully.";
+                        
                     //}/
                     
                 }
