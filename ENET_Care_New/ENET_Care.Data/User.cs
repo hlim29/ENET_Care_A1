@@ -75,13 +75,15 @@ namespace ENET_Care.Data
             {
                 result = (int)new AspNetUsersTableAdapter().UpdateUserById(this.FirstName, this.LastName, this.Email, this.DistributionCentre.Id, this.Id);
             }
-            this.UpdatePassword();
+           // this.UpdatePassword();
         }
 
-        public void UpdatePassword()
+        /*public void UpdatePassword()
         {
             //Implement this henry
             //the new password is already in user.Password
-        }
+         * 
+         * Henry here... this part is no longer needed
+        }*/
     }
 }

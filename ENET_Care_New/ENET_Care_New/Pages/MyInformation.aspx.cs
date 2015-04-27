@@ -56,7 +56,7 @@ namespace ENET_Care_New.Pages
                     //error message: email empty
                 }else
                 {
-                    if (OldPassword.Enabled == true)
+                    /*if (OldPassword.Enabled == true)
                     {
                         if(OldPassword.Text == UserLogic.GetPassword())
                         {
@@ -79,24 +79,20 @@ namespace ENET_Care_New.Pages
                             //error message: old password incorrect
                         }
                     }
-                    else
-                    {
+                   else
+                    {*/
                         UserLogic.SetFirstName(FirstName.Text);
                         UserLogic.SetLastName(LastName.Text);
                         UserLogic.SetEmail(Email.Text);
                         UserLogic.SetDistributionCentre(Int16.Parse(CentreDropDownList.SelectedValue));
                         UserLogic.UpdateUser();
-                    }
+                    //}/
                     
                 }
         }
 
-        protected void ChangePassword_Click(object sender, EventArgs e)
+        private void EditPassword()
         {
-            OldPassword.Enabled = true;
-            NewPassword.Enabled = true;
-            NewPasswordConfirm.Enabled = true;
-
             ApplicationDbContext context = new ApplicationDbContext();
             UserStore<ApplicationUser> store = new UserStore<ApplicationUser>(context);
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(store);
@@ -114,13 +110,15 @@ namespace ENET_Care_New.Pages
                 if (result.Equals(IdentityResult.Success))
                     PasswordResultLabel.Text = "Changed";
                 else
-                    PasswordResultLabel.Text = "Failed";
+                    PasswordResultLabel.Text = "Incorrect old password";
             }
 
-            String hashedOldPassword = UserManager.PasswordHasher.HashPassword(OldPassword.Text);
+           // String hashedOldPassword = UserManager.PasswordHasher.HashPassword(OldPassword.Text);
             //if (UserManager.PasswordValidator.)
            
             
         }
+
+       
     }
 }

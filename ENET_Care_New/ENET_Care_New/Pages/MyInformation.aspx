@@ -23,8 +23,8 @@
     </asp:TextBox>
     <br />
     <br />
-    <asp:Panel ID="Panel1" runat="server">
-        <asp:Label ID="PasswordResultLabel" runat="server" Text="Label" Visible="False"></asp:Label>
+    <asp:Panel ID="Panel1" runat="server" BorderStyle="Groove">
+        <asp:Label ID="PasswordResultLabel" runat="server" Text="Error label" Visible="False"></asp:Label>
         <br />
         <asp:Label runat="server">
             Old Password:
@@ -46,7 +46,7 @@
     <asp:TextBox runat="server" TextMode="Password" ID="NewPasswordConfirm">
 
     </asp:TextBox>
-    <asp:Button runat="server" Text="Change" ID="ChangePassword" OnClick="ChangePassword_Click" />
+    <asp:Button runat="server" Text="Change" ID="ChangePassword" />
     </asp:Panel>
     
     <br />
