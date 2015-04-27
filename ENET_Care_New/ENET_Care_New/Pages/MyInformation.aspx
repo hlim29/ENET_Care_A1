@@ -47,7 +47,7 @@
     <asp:Label runat="server">
             Dist. Centre:
     </asp:Label>
-    <asp:DropDownList AppendDataBoundItems="true" runat="server" ID="CentreDropDownList">
+    <asp:DropDownList AppendDataBoundItems="true" runat="server" ID="CentreDropDownList" AutoPostBack = "true">
     </asp:DropDownList>
     <br />
     <asp:Button runat="server" Text="Cancel" />
