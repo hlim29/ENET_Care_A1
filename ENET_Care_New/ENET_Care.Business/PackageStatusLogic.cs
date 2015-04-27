@@ -48,7 +48,8 @@ namespace ENET_Care.Business
 
         public static void DiscardPackageStatus(int centreId, int barcode, string staffId)
         {
-            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId((int)StatusEnum.Discard,centreId, barcode, staffId);
+            new PackageStatus().UpdatePackageStatusByBarcodeAndCentreId((int)StatusEnum.Discard, staffId,centreId, barcode);
+         
         }
 
         public static bool IsPackageInStock(int barcode)
