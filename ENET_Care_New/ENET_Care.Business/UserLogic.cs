@@ -96,12 +96,12 @@ namespace ENET_Care.Business
 
         public static void EditEmailAddress(string id, string newEmailAddress)
         {
-            throw new NotImplementedException();
+            user.Email = newEmailAddress;
         }
 
-        public static void EditDistributionCentre(string id, string newDistributionCentre)
+        public static void EditDistributionCentre(int id, string newDistributionCentre)
         {
-            throw new NotImplementedException();
+            SetDistributionCentre(id);
         }
 
         public static void EditName(string id, string name)
@@ -110,3 +110,4 @@ namespace ENET_Care.Business
         }
     }
 }
+

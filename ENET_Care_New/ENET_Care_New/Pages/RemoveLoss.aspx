@@ -7,7 +7,7 @@
        </asp:label>
         <asp:dropdownlist AppendDataBoundItems="true" runat="server">
             <asp:ListItem Value="Ibuprofen">
-                Ibuprofeno
+                Ibuprofen
             </asp:ListItem>
         </asp:dropdownlist>
         <br />

@@ -45,12 +45,12 @@ namespace ENET_Care.Tests
         public void UserTest_EditDistributionCentre_DistributionCentreEditted()
         {
             //editting to a new email address
-            String id = "1";
+            int id = 1;
             String newDistributionCentre = "Id1DistributionCentre";
             UserLogic.EditDistributionCentre(id, newDistributionCentre);
 
             //checking edit
-            Assert.AreEqual(newDistributionCentre, UserLogic.GetDistributionCentre(id));
+            Assert.AreEqual(newDistributionCentre, UserLogic.GetDistributionCentre(id.ToString()));
         }
     }
 }
