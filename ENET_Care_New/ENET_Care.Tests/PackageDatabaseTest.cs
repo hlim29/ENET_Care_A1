@@ -16,8 +16,6 @@ namespace ENET_Care.Tests
     [TestClass]
     public class PackageDatbaseTest
     {
-
-
         [TestMethod]
         public void PackageDatabaseTest_InsertTable_TableAdded()
         {
