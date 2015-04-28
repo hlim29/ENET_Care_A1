@@ -180,7 +180,6 @@ namespace ENET_Care.Data
                 ds.Tables.Add(new PackageStatusTableAdapter().GetPackagesByStatus((int)StatusEnum.InTransit));
                 return ds;
             }
-
         }
     }
 }
