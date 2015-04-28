@@ -56,7 +56,7 @@ namespace ENET_Care.Business
         {
             PackageStatus pS = new PackageStatus();
             pS.SetPackageByBarCode(barcode);
-            if ((int)pS.Status == (int)StatusEnum.InStock)
+            if ((int)pS.Status == (int)StatusEnum.InStock || (int)pS.Status == (int)StatusEnum.Received)
             {
                 return true;
             }
@@ -73,7 +73,15 @@ namespace ENET_Care.Business
             return result;
         }
 
+        public static System.Data.DataSet GetAllLostPackages()
+        {
+            return new PackageStatus().GetLostPackages();
+        }
 
+        public static System.Data.DataSet GetInTransitPackages()
+        {
+            return new PackageStatus().GetInTransitPackages();
+        }
 
     }
 }

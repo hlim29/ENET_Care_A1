@@ -1,6 +1,7 @@
 ﻿using ENET_Care.Data.DataSetTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,11 @@ namespace ENET_Care.Data
         public DistributionCentre CentreSource { get; set; }
         public DistributionCentre CentreDestination { get; set; }
 
-        public void RegisterArrival(int packageId, int centreId,string staffId)
+        public void RegisterArrival(int packageId, int centreId, string staffId)
         {
             using (new DAO().OpenConnection())
             {
-                new PackageStatusTableAdapter().RegisterArrival(packageId,centreId,(int)StatusEnum.InStock,staffId);
+                new PackageStatusTableAdapter().RegisterArrival(packageId, centreId, (int)StatusEnum.InStock, staffId);
             }
         }
 
@@ -60,7 +61,7 @@ namespace ENET_Care.Data
             }
         }
 
-        public void SendPackage(int source, int destination,string staffId, int packageId)
+        public void SendPackage(int source, int destination, string staffId, int packageId)
         {
             using (new DAO().OpenConnection())
             {
@@ -78,7 +79,7 @@ namespace ENET_Care.Data
                 DataSet.PackageStatusDataTable packageStatus = new PackageStatusTableAdapter().GetPackagesByStatus((int)StatusEnum.InStock);
                 foreach (DataSet.PackageStatusRow row in packageStatus)
                 {
-          
+
 
                     foreach (DataSet.PackageRow packageRow in new PackageTableAdapter().GetDataByPackageId(row.PackageID))
                     {
@@ -89,7 +90,7 @@ namespace ENET_Care.Data
                         result.Add(package);
                     }
                 }
-            
+
             }
             return result;
         }
@@ -104,7 +105,7 @@ namespace ENET_Care.Data
                 foreach (DataSet.PackageStatusRow row in packagesStatus)
                 {
                     this.Status = (StatusEnum)row.Status;
-                    
+
                 }
 
             }
@@ -115,7 +116,7 @@ namespace ENET_Care.Data
             int result = -1;
             using (new DAO().OpenConnection())
             {
-                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status,staffId,centreId,barcode);
+                result = (int)new PackageStatusTableAdapter().UpdateStatusByBarcodeAndDestCentre(status, staffId, centreId, barcode);
             }
         }
 
@@ -152,8 +153,34 @@ namespace ENET_Care.Data
         {
             using (new DAO().OpenConnection())
             {
-               return (int)(new PackageStatusTableAdapter().SumOfAllPackagesInStock((int)StatusEnum.InStock));
+                return (int)(new PackageStatusTableAdapter().SumOfAllPackagesInStock((int)StatusEnum.InStock));
             }
+        }
+
+        public System.Data.DataSet GetLostPackages()
+        {
+            System.Data.DataSet ds = new System.Data.DataSet();
+            ds.EnforceConstraints = false;
+            using (new DAO().OpenConnection())
+            {
+                ds.Tables.Add(new PackageStatusTableAdapter().GetPackagesByStatus((int)StatusEnum.Lost));
+                //System.Diagnostics.wr
+                //System.Diagnostics.Debug.WriteLine((int)StatusEnum.Lost);
+                return ds;
+            }
+           
+        }
+
+        public System.Data.DataSet GetInTransitPackages()
+        {
+            System.Data.DataSet ds = new System.Data.DataSet();
+            //ds.EnforceConstraints = false;
+            using (new DAO().OpenConnection())
+            {
+                ds.Tables.Add(new PackageStatusTableAdapter().GetPackagesByStatus((int)StatusEnum.InTransit));
+                return ds;
+            }
+
         }
     }
 }

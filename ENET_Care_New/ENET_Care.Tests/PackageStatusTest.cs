@@ -51,6 +51,12 @@ namespace ENET_Care.Tests
             //ASSUMPTION: when received. Current place saved in centre source properties.
             Assert.Equals(false, PackageStatusLogic.HasStatus(packageId));
         }
+
+         [TestMethod]
+        public void PackageStatusTest_GetAllLostPackages()
+        {
+            Assert.AreNotEqual(0, PackageStatusLogic.GetAllLostPackages().Tables[0].Rows.Count);
+        }
     }
 }
 
